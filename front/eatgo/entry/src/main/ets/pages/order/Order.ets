@@ -1,6 +1,0 @@
-@Component
-struct Home{
-  build() {
-
-  }
-}

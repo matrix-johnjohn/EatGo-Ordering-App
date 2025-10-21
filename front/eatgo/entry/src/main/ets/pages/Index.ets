@@ -3,10 +3,9 @@
 struct Index {
   pageStack: NavPathStack=new NavPathStack();
   build() {
-    Navigation(this.pageStack) {
-    }
+    Navigation(this.pageStack)
     .onAppear(()=>{
-      this.pageStack.pushPathByName("Home",null,false);
+      this.pageStack.pushPathByName("Layout",null,false);
     })
     .hideNavBar(true)
   }

@@ -1,14 +1,6 @@
 {
   "routerMap": [
     {
-      "name": "Home",
-      "pageSourceFile": "src/main/ets/pages/home/Home.ets",
-      "buildFunction": "HomeBuilder",
-      "data": {
-        "description" : "this is PageOne"
-      }
-    },
-    {
       "name": "Layout",
       "pageSourceFile": "src/main/ets/pages/Layout.ets",
       "buildFunction": "LayoutBuilder",
