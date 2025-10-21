@@ -1,0 +1,58 @@
+import { goods } from '../../api/entity/goods/index'
+
+@Builder
+export function GoodsCardBuilder(data:goods){
+  ListItem(){
+    Row(){
+      //菜品图片
+      Image(data.image)
+        .width(100)
+        .borderRadius(10)
+        .margin({right:10})
+      //text
+      Flex({direction:FlexDirection.Column,justifyContent:FlexAlign.SpaceBetween}){
+        Text(data.title)
+          .fontSize(18)
+          .textAlign(TextAlign.Start)
+          .fontWeight(FontWeight.Bold)
+          .width('100%')
+        Text(data.description)
+          .fontSize(12)
+          .textAlign(TextAlign.Start)
+          .fontColor(Color.Gray)
+          .width('100%')
+        Row(){
+          Image($rawfile('home/icon/ic_rmb.svg'))
+            .width(25)
+            .margin({right:5})
+          Text(data.price.toString())
+            .textAlign(TextAlign.Start)
+            .fontSize(25)
+            .fontWeight(FontWeight.Bold)
+            .fontColor('#FFC300')
+            .width('100%')
+        }
+      }
+      .width('50%')
+      //过渡
+      Column(){}.layoutWeight(1)
+      //collection
+      Column(){
+        Image($rawfile('home/icon/ic_collection.svg'))
+          .width(35)
+          .fillColor('#ffababab')
+        Text(data.collection_count.toString())
+          .fontSize(15)
+          .fontColor('#FFABABAB')
+      }
+
+    }
+    .width('100%')
+  }
+  .width('100%')
+  .height(120)
+  .margin({bottom:10})
+  .padding(10)
+  .borderRadius(10)
+  .backgroundColor(Color.White)
+}
