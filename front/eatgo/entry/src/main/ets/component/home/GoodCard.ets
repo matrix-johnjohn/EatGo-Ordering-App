@@ -27,11 +27,12 @@ export function GoodsCardBuilder(data:goods){
             .margin({right:5})
           Text(data.price.toString())
             .textAlign(TextAlign.Start)
-            .fontSize(25)
+            .fontSize(20)
             .fontWeight(FontWeight.Bold)
             .fontColor('#FFC300')
             .width('100%')
         }
+        .alignItems(VerticalAlign.Center)
       }
       .width('50%')
       //过渡
