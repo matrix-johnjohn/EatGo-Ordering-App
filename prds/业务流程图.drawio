@@ -96,6 +96,9 @@
         <mxCell id="JyAN_obIHdgHUJqG_vVm-23" value="+ method(type): type" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="JyAN_obIHdgHUJqG_vVm-20">
           <mxGeometry y="100" width="160" height="26" as="geometry" />
         </mxCell>
+        <mxCell id="JyAN_obIHdgHUJqG_vVm-24" value="username:&amp;nbsp;&lt;span&gt;&amp;nbsp;&lt;span style=&quot;font-family: &amp;quot;JetBrains Mono&amp;quot;, monospace; font-size: 9.8pt; color: rgb(188, 190, 196);&quot;&gt;kimo&lt;/span&gt;&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;font-family: &amp;quot;JetBrains Mono&amp;quot;, monospace; font-size: 9.8pt; color: rgb(188, 190, 196);&quot;&gt;&lt;font style=&quot;color: rgb(37, 37, 37);&quot;&gt;password&lt;/font&gt;&lt;/span&gt;&lt;span style=&quot;font-family: &amp;quot;JetBrains Mono&amp;quot;, monospace; font-size: 9.8pt; color: rgb(188, 190, 196);&quot;&gt;: 123456&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-family: &amp;quot;JetBrains Mono&amp;quot;, monospace; font-size: 9.8pt; color: rgb(188, 190, 196);&quot;&gt;&lt;font style=&quot;color: rgb(37, 37, 37);&quot;&gt;email&lt;/font&gt;&lt;/span&gt;&lt;span style=&quot;font-family: &amp;quot;JetBrains Mono&amp;quot;, monospace; font-size: 9.8pt; color: rgb(188, 190, 196);&quot;&gt;:1596903229@qq.com&lt;/span&gt;&lt;/div&gt;" style="text;align=left;fontStyle=1;verticalAlign=middle;spacingLeft=3;spacingRight=3;strokeColor=none;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;" vertex="1" parent="1">
+          <mxGeometry x="491" y="214" width="201" height="90" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
