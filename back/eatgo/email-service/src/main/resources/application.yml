@@ -6,3 +6,6 @@ spring:
     username: 13929944553@163.com
     password: RHSzTpKJ3EBZvqhF
     host: smtp.163.com
+
+server:
+  port: 8002
