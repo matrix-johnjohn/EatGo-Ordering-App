@@ -46,11 +46,10 @@ public class EmailServiceImpl implements EmailService {
         }
     }
 
+    //生成验证码
     public String GenerateValidCode(){
         UUID uuid = UUID.randomUUID();
 
         return uuid.toString().toLowerCase().substring(0, 6);
     }
-
-
 }

@@ -1077,112 +1077,1010 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     <schema id="289" parent="1" name="mysql">
       <CollationName>utf8mb4_unicode_ci</CollationName>
     </schema>
-    <schema id="290" parent="1" name="performance_schema">
+    <schema id="290" parent="1" name="nacos">
+      <LastIntrospectionLocalTimestamp>2025-10-23.11:21:34</LastIntrospectionLocalTimestamp>
+      <CollationName>utf8mb4_general_ci</CollationName>
+    </schema>
+    <schema id="291" parent="1" name="performance_schema">
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <schema id="291" parent="1" name="sys">
+    <schema id="292" parent="1" name="sys">
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <schema id="292" parent="1" name="user">
+    <schema id="293" parent="1" name="user">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2025-10-23.07:59:31</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2025-10-23.11:21:34</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_unicode_ci</CollationName>
     </schema>
-    <user id="293" parent="1" name="matrix">
+    <user id="294" parent="1" name="matrix">
       <Plugin>caching_sha2_password</Plugin>
     </user>
-    <user id="294" parent="1" name="mysql.infoschema">
+    <user id="295" parent="1" name="mysql.infoschema">
       <CanLogin>0</CanLogin>
       <Host>localhost</Host>
       <Plugin>caching_sha2_password</Plugin>
     </user>
-    <user id="295" parent="1" name="mysql.session">
+    <user id="296" parent="1" name="mysql.session">
       <CanLogin>0</CanLogin>
       <Host>localhost</Host>
       <Plugin>caching_sha2_password</Plugin>
     </user>
-    <user id="296" parent="1" name="mysql.sys">
+    <user id="297" parent="1" name="mysql.sys">
       <CanLogin>0</CanLogin>
       <Host>localhost</Host>
-      <Plugin>caching_sha2_password</Plugin>
-    </user>
-    <user id="297" parent="1" name="root">
       <Plugin>caching_sha2_password</Plugin>
     </user>
     <user id="298" parent="1" name="root">
+      <Plugin>caching_sha2_password</Plugin>
+    </user>
+    <user id="299" parent="1" name="root">
       <Host>localhost</Host>
       <Plugin>caching_sha2_password</Plugin>
     </user>
-    <table id="299" parent="292" name="user">
+    <table id="300" parent="290" name="config_info">
+      <Comment>config_info</Comment>
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb3_bin</CollationName>
+    </table>
+    <table id="301" parent="290" name="config_info_aggr">
+      <Comment>增加租户字段</Comment>
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb3_bin</CollationName>
+    </table>
+    <table id="302" parent="290" name="config_info_beta">
+      <Comment>config_info_beta</Comment>
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb3_bin</CollationName>
+    </table>
+    <table id="303" parent="290" name="config_info_tag">
+      <Comment>config_info_tag</Comment>
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb3_bin</CollationName>
+    </table>
+    <table id="304" parent="290" name="config_tags_relation">
+      <Comment>config_tag_relation</Comment>
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb3_bin</CollationName>
+    </table>
+    <table id="305" parent="290" name="group_capacity">
+      <Comment>集群、各Group容量信息表</Comment>
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb3_bin</CollationName>
+    </table>
+    <table id="306" parent="290" name="his_config_info">
+      <Comment>多租户改造</Comment>
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb3_bin</CollationName>
+    </table>
+    <table id="307" parent="290" name="permissions">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_general_ci</CollationName>
+    </table>
+    <table id="308" parent="290" name="roles">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_general_ci</CollationName>
+    </table>
+    <table id="309" parent="290" name="tenant_capacity">
+      <Comment>租户容量信息表</Comment>
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb3_bin</CollationName>
+    </table>
+    <table id="310" parent="290" name="tenant_info">
+      <Comment>tenant_info</Comment>
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb3_bin</CollationName>
+    </table>
+    <table id="311" parent="290" name="users">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_general_ci</CollationName>
+    </table>
+    <table id="312" parent="293" name="user">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>
-    <column id="300" parent="299" name="id">
+    <column id="313" parent="300" name="id">
       <AutoIncrement>1</AutoIncrement>
       <Comment>id</Comment>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint|0s</StoredType>
     </column>
-    <column id="301" parent="299" name="username">
-      <Comment>用户名</Comment>
+    <column id="314" parent="300" name="data_id">
+      <Comment>data_id</Comment>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StoredType>varchar(20)|0s</StoredType>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="302" parent="299" name="password">
-      <Comment>用户密码</Comment>
-      <NotNull>1</NotNull>
+    <column id="315" parent="300" name="group_id">
       <Position>3</Position>
-      <StoredType>varchar(20)|0s</StoredType>
+      <StoredType>varchar(128)|0s</StoredType>
     </column>
-    <column id="303" parent="299" name="email">
-      <Comment>用户邮箱</Comment>
+    <column id="316" parent="300" name="content">
+      <Comment>content</Comment>
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <StoredType>varchar(50)|0s</StoredType>
+      <StoredType>longtext|0s</StoredType>
     </column>
-    <column id="304" parent="299" name="balance">
-      <Comment>余额</Comment>
-      <DefaultExpression>0</DefaultExpression>
-      <NotNull>1</NotNull>
+    <column id="317" parent="300" name="md5">
+      <Comment>md5</Comment>
       <Position>5</Position>
-      <StoredType>int|0s</StoredType>
+      <StoredType>varchar(32)|0s</StoredType>
     </column>
-    <column id="305" parent="299" name="is_effective">
-      <Comment>用户是否有效0:冻结,1:有效</Comment>
-      <DefaultExpression>1</DefaultExpression>
+    <column id="318" parent="300" name="gmt_create">
+      <Comment>创建时间</Comment>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>6</Position>
-      <StoredType>tinyint(1)|0s</StoredType>
+      <StoredType>datetime|0s</StoredType>
     </column>
-    <column id="306" parent="299" name="auth">
-      <Comment>用户权限0:user,1:admin</Comment>
-      <DefaultExpression>0</DefaultExpression>
+    <column id="319" parent="300" name="gmt_modified">
+      <Comment>修改时间</Comment>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>7</Position>
-      <StoredType>tinyint(1)|0s</StoredType>
+      <StoredType>datetime|0s</StoredType>
     </column>
-    <column id="307" parent="299" name="create_time">
+    <column id="320" parent="300" name="src_user">
+      <Comment>source user</Comment>
+      <Position>8</Position>
+      <StoredType>text|0s</StoredType>
+    </column>
+    <column id="321" parent="300" name="src_ip">
+      <Comment>source ip</Comment>
+      <Position>9</Position>
+      <StoredType>varchar(50)|0s</StoredType>
+    </column>
+    <column id="322" parent="300" name="app_name">
+      <Position>10</Position>
+      <StoredType>varchar(128)|0s</StoredType>
+    </column>
+    <column id="323" parent="300" name="tenant_id">
+      <Comment>租户字段</Comment>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+      <Position>11</Position>
+      <StoredType>varchar(128)|0s</StoredType>
+    </column>
+    <column id="324" parent="300" name="c_desc">
+      <Position>12</Position>
+      <StoredType>varchar(256)|0s</StoredType>
+    </column>
+    <column id="325" parent="300" name="c_use">
+      <Position>13</Position>
+      <StoredType>varchar(64)|0s</StoredType>
+    </column>
+    <column id="326" parent="300" name="effect">
+      <Position>14</Position>
+      <StoredType>varchar(64)|0s</StoredType>
+    </column>
+    <column id="327" parent="300" name="type">
+      <Position>15</Position>
+      <StoredType>varchar(64)|0s</StoredType>
+    </column>
+    <column id="328" parent="300" name="c_schema">
+      <Position>16</Position>
+      <StoredType>text|0s</StoredType>
+    </column>
+    <column id="329" parent="300" name="encrypted_data_key">
+      <Comment>秘钥</Comment>
+      <NotNull>1</NotNull>
+      <Position>17</Position>
+      <StoredType>text|0s</StoredType>
+    </column>
+    <index id="330" parent="300" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="331" parent="300" name="uk_configinfo_datagrouptenant">
+      <ColNames>data_id
+group_id
+tenant_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="332" parent="300" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <key id="333" parent="300" name="uk_configinfo_datagrouptenant">
+      <UnderlyingIndexName>uk_configinfo_datagrouptenant</UnderlyingIndexName>
+    </key>
+    <column id="334" parent="301" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <Comment>id</Comment>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>bigint|0s</StoredType>
+    </column>
+    <column id="335" parent="301" name="data_id">
+      <Comment>data_id</Comment>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </column>
+    <column id="336" parent="301" name="group_id">
+      <Comment>group_id</Comment>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>varchar(128)|0s</StoredType>
+    </column>
+    <column id="337" parent="301" name="datum_id">
+      <Comment>datum_id</Comment>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </column>
+    <column id="338" parent="301" name="content">
+      <Comment>内容</Comment>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StoredType>longtext|0s</StoredType>
+    </column>
+    <column id="339" parent="301" name="gmt_modified">
+      <Comment>修改时间</Comment>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+      <StoredType>datetime|0s</StoredType>
+    </column>
+    <column id="340" parent="301" name="app_name">
+      <Position>7</Position>
+      <StoredType>varchar(128)|0s</StoredType>
+    </column>
+    <column id="341" parent="301" name="tenant_id">
+      <Comment>租户字段</Comment>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+      <Position>8</Position>
+      <StoredType>varchar(128)|0s</StoredType>
+    </column>
+    <index id="342" parent="301" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="343" parent="301" name="uk_configinfoaggr_datagrouptenantdatum">
+      <ColNames>data_id
+group_id
+tenant_id
+datum_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="344" parent="301" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <key id="345" parent="301" name="uk_configinfoaggr_datagrouptenantdatum">
+      <UnderlyingIndexName>uk_configinfoaggr_datagrouptenantdatum</UnderlyingIndexName>
+    </key>
+    <column id="346" parent="302" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <Comment>id</Comment>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>bigint|0s</StoredType>
+    </column>
+    <column id="347" parent="302" name="data_id">
+      <Comment>data_id</Comment>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </column>
+    <column id="348" parent="302" name="group_id">
+      <Comment>group_id</Comment>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>varchar(128)|0s</StoredType>
+    </column>
+    <column id="349" parent="302" name="app_name">
+      <Comment>app_name</Comment>
+      <Position>4</Position>
+      <StoredType>varchar(128)|0s</StoredType>
+    </column>
+    <column id="350" parent="302" name="content">
+      <Comment>content</Comment>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StoredType>longtext|0s</StoredType>
+    </column>
+    <column id="351" parent="302" name="beta_ips">
+      <Comment>betaIps</Comment>
+      <Position>6</Position>
+      <StoredType>varchar(1024)|0s</StoredType>
+    </column>
+    <column id="352" parent="302" name="md5">
+      <Comment>md5</Comment>
+      <Position>7</Position>
+      <StoredType>varchar(32)|0s</StoredType>
+    </column>
+    <column id="353" parent="302" name="gmt_create">
       <Comment>创建时间</Comment>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>8</Position>
       <StoredType>datetime|0s</StoredType>
     </column>
-    <column id="308" parent="299" name="update_time">
+    <column id="354" parent="302" name="gmt_modified">
+      <Comment>修改时间</Comment>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>9</Position>
+      <StoredType>datetime|0s</StoredType>
+    </column>
+    <column id="355" parent="302" name="src_user">
+      <Comment>source user</Comment>
+      <Position>10</Position>
+      <StoredType>text|0s</StoredType>
+    </column>
+    <column id="356" parent="302" name="src_ip">
+      <Comment>source ip</Comment>
+      <Position>11</Position>
+      <StoredType>varchar(50)|0s</StoredType>
+    </column>
+    <column id="357" parent="302" name="tenant_id">
+      <Comment>租户字段</Comment>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+      <Position>12</Position>
+      <StoredType>varchar(128)|0s</StoredType>
+    </column>
+    <column id="358" parent="302" name="encrypted_data_key">
+      <Comment>秘钥</Comment>
+      <NotNull>1</NotNull>
+      <Position>13</Position>
+      <StoredType>text|0s</StoredType>
+    </column>
+    <index id="359" parent="302" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="360" parent="302" name="uk_configinfobeta_datagrouptenant">
+      <ColNames>data_id
+group_id
+tenant_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="361" parent="302" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <key id="362" parent="302" name="uk_configinfobeta_datagrouptenant">
+      <UnderlyingIndexName>uk_configinfobeta_datagrouptenant</UnderlyingIndexName>
+    </key>
+    <column id="363" parent="303" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <Comment>id</Comment>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>bigint|0s</StoredType>
+    </column>
+    <column id="364" parent="303" name="data_id">
+      <Comment>data_id</Comment>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </column>
+    <column id="365" parent="303" name="group_id">
+      <Comment>group_id</Comment>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>varchar(128)|0s</StoredType>
+    </column>
+    <column id="366" parent="303" name="tenant_id">
+      <Comment>tenant_id</Comment>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+      <Position>4</Position>
+      <StoredType>varchar(128)|0s</StoredType>
+    </column>
+    <column id="367" parent="303" name="tag_id">
+      <Comment>tag_id</Comment>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StoredType>varchar(128)|0s</StoredType>
+    </column>
+    <column id="368" parent="303" name="app_name">
+      <Comment>app_name</Comment>
+      <Position>6</Position>
+      <StoredType>varchar(128)|0s</StoredType>
+    </column>
+    <column id="369" parent="303" name="content">
+      <Comment>content</Comment>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+      <StoredType>longtext|0s</StoredType>
+    </column>
+    <column id="370" parent="303" name="md5">
+      <Comment>md5</Comment>
+      <Position>8</Position>
+      <StoredType>varchar(32)|0s</StoredType>
+    </column>
+    <column id="371" parent="303" name="gmt_create">
+      <Comment>创建时间</Comment>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>9</Position>
+      <StoredType>datetime|0s</StoredType>
+    </column>
+    <column id="372" parent="303" name="gmt_modified">
+      <Comment>修改时间</Comment>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>10</Position>
+      <StoredType>datetime|0s</StoredType>
+    </column>
+    <column id="373" parent="303" name="src_user">
+      <Comment>source user</Comment>
+      <Position>11</Position>
+      <StoredType>text|0s</StoredType>
+    </column>
+    <column id="374" parent="303" name="src_ip">
+      <Comment>source ip</Comment>
+      <Position>12</Position>
+      <StoredType>varchar(50)|0s</StoredType>
+    </column>
+    <index id="375" parent="303" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="376" parent="303" name="uk_configinfotag_datagrouptenanttag">
+      <ColNames>data_id
+group_id
+tenant_id
+tag_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="377" parent="303" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <key id="378" parent="303" name="uk_configinfotag_datagrouptenanttag">
+      <UnderlyingIndexName>uk_configinfotag_datagrouptenanttag</UnderlyingIndexName>
+    </key>
+    <column id="379" parent="304" name="id">
+      <Comment>id</Comment>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>bigint|0s</StoredType>
+    </column>
+    <column id="380" parent="304" name="tag_name">
+      <Comment>tag_name</Comment>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>varchar(128)|0s</StoredType>
+    </column>
+    <column id="381" parent="304" name="tag_type">
+      <Comment>tag_type</Comment>
+      <Position>3</Position>
+      <StoredType>varchar(64)|0s</StoredType>
+    </column>
+    <column id="382" parent="304" name="data_id">
+      <Comment>data_id</Comment>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </column>
+    <column id="383" parent="304" name="group_id">
+      <Comment>group_id</Comment>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StoredType>varchar(128)|0s</StoredType>
+    </column>
+    <column id="384" parent="304" name="tenant_id">
+      <Comment>tenant_id</Comment>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+      <Position>6</Position>
+      <StoredType>varchar(128)|0s</StoredType>
+    </column>
+    <column id="385" parent="304" name="nid">
+      <AutoIncrement>1</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+      <StoredType>bigint|0s</StoredType>
+    </column>
+    <index id="386" parent="304" name="uk_configtagrelation_configidtag">
+      <ColNames>id
+tag_name
+tag_type</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="387" parent="304" name="PRIMARY">
+      <ColNames>nid</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="388" parent="304" name="idx_tenant_id">
+      <ColNames>tenant_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="389" parent="304" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <key id="390" parent="304" name="uk_configtagrelation_configidtag">
+      <UnderlyingIndexName>uk_configtagrelation_configidtag</UnderlyingIndexName>
+    </key>
+    <column id="391" parent="305" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <Comment>主键ID</Comment>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>bigint unsigned|0s</StoredType>
+    </column>
+    <column id="392" parent="305" name="group_id">
+      <Comment>Group ID，空字符表示整个集群</Comment>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>varchar(128)|0s</StoredType>
+    </column>
+    <column id="393" parent="305" name="quota">
+      <Comment>配额，0表示使用默认值</Comment>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>int unsigned|0s</StoredType>
+    </column>
+    <column id="394" parent="305" name="usage">
+      <Comment>使用量</Comment>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>int unsigned|0s</StoredType>
+    </column>
+    <column id="395" parent="305" name="max_size">
+      <Comment>单个配置大小上限，单位为字节，0表示使用默认值</Comment>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StoredType>int unsigned|0s</StoredType>
+    </column>
+    <column id="396" parent="305" name="max_aggr_count">
+      <Comment>聚合子配置最大个数，，0表示使用默认值</Comment>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+      <StoredType>int unsigned|0s</StoredType>
+    </column>
+    <column id="397" parent="305" name="max_aggr_size">
+      <Comment>单个聚合数据的子配置大小上限，单位为字节，0表示使用默认值</Comment>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+      <StoredType>int unsigned|0s</StoredType>
+    </column>
+    <column id="398" parent="305" name="max_history_count">
+      <Comment>最大变更历史数量</Comment>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>8</Position>
+      <StoredType>int unsigned|0s</StoredType>
+    </column>
+    <column id="399" parent="305" name="gmt_create">
+      <Comment>创建时间</Comment>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>9</Position>
+      <StoredType>datetime|0s</StoredType>
+    </column>
+    <column id="400" parent="305" name="gmt_modified">
+      <Comment>修改时间</Comment>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>10</Position>
+      <StoredType>datetime|0s</StoredType>
+    </column>
+    <index id="401" parent="305" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="402" parent="305" name="uk_group_id">
+      <ColNames>group_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="403" parent="305" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <key id="404" parent="305" name="uk_group_id">
+      <UnderlyingIndexName>uk_group_id</UnderlyingIndexName>
+    </key>
+    <column id="405" parent="306" name="id">
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>bigint unsigned|0s</StoredType>
+    </column>
+    <column id="406" parent="306" name="nid">
+      <AutoIncrement>1</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>bigint unsigned|0s</StoredType>
+    </column>
+    <column id="407" parent="306" name="data_id">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </column>
+    <column id="408" parent="306" name="group_id">
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>varchar(128)|0s</StoredType>
+    </column>
+    <column id="409" parent="306" name="app_name">
+      <Comment>app_name</Comment>
+      <Position>5</Position>
+      <StoredType>varchar(128)|0s</StoredType>
+    </column>
+    <column id="410" parent="306" name="content">
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+      <StoredType>longtext|0s</StoredType>
+    </column>
+    <column id="411" parent="306" name="md5">
+      <Position>7</Position>
+      <StoredType>varchar(32)|0s</StoredType>
+    </column>
+    <column id="412" parent="306" name="gmt_create">
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>8</Position>
+      <StoredType>datetime|0s</StoredType>
+    </column>
+    <column id="413" parent="306" name="gmt_modified">
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>9</Position>
+      <StoredType>datetime|0s</StoredType>
+    </column>
+    <column id="414" parent="306" name="src_user">
+      <Position>10</Position>
+      <StoredType>text|0s</StoredType>
+    </column>
+    <column id="415" parent="306" name="src_ip">
+      <Position>11</Position>
+      <StoredType>varchar(50)|0s</StoredType>
+    </column>
+    <column id="416" parent="306" name="op_type">
+      <Position>12</Position>
+      <StoredType>char(10)|0s</StoredType>
+    </column>
+    <column id="417" parent="306" name="tenant_id">
+      <Comment>租户字段</Comment>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+      <Position>13</Position>
+      <StoredType>varchar(128)|0s</StoredType>
+    </column>
+    <column id="418" parent="306" name="encrypted_data_key">
+      <Comment>秘钥</Comment>
+      <NotNull>1</NotNull>
+      <Position>14</Position>
+      <StoredType>text|0s</StoredType>
+    </column>
+    <index id="419" parent="306" name="PRIMARY">
+      <ColNames>nid</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="420" parent="306" name="idx_did">
+      <ColNames>data_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="421" parent="306" name="idx_gmt_create">
+      <ColNames>gmt_create</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="422" parent="306" name="idx_gmt_modified">
+      <ColNames>gmt_modified</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="423" parent="306" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="424" parent="307" name="role">
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>varchar(50)|0s</StoredType>
+    </column>
+    <column id="425" parent="307" name="resource">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </column>
+    <column id="426" parent="307" name="action">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>varchar(8)|0s</StoredType>
+    </column>
+    <index id="427" parent="307" name="uk_role_permission">
+      <ColNames>role
+resource
+action</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="428" parent="307" name="uk_role_permission">
+      <UnderlyingIndexName>uk_role_permission</UnderlyingIndexName>
+    </key>
+    <column id="429" parent="308" name="username">
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>varchar(50)|0s</StoredType>
+    </column>
+    <column id="430" parent="308" name="role">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>varchar(50)|0s</StoredType>
+    </column>
+    <index id="431" parent="308" name="idx_user_role">
+      <ColNames>username
+role</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="432" parent="308" name="idx_user_role">
+      <UnderlyingIndexName>idx_user_role</UnderlyingIndexName>
+    </key>
+    <column id="433" parent="309" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <Comment>主键ID</Comment>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>bigint unsigned|0s</StoredType>
+    </column>
+    <column id="434" parent="309" name="tenant_id">
+      <Comment>Tenant ID</Comment>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>varchar(128)|0s</StoredType>
+    </column>
+    <column id="435" parent="309" name="quota">
+      <Comment>配额，0表示使用默认值</Comment>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>int unsigned|0s</StoredType>
+    </column>
+    <column id="436" parent="309" name="usage">
+      <Comment>使用量</Comment>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>int unsigned|0s</StoredType>
+    </column>
+    <column id="437" parent="309" name="max_size">
+      <Comment>单个配置大小上限，单位为字节，0表示使用默认值</Comment>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StoredType>int unsigned|0s</StoredType>
+    </column>
+    <column id="438" parent="309" name="max_aggr_count">
+      <Comment>聚合子配置最大个数</Comment>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+      <StoredType>int unsigned|0s</StoredType>
+    </column>
+    <column id="439" parent="309" name="max_aggr_size">
+      <Comment>单个聚合数据的子配置大小上限，单位为字节，0表示使用默认值</Comment>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+      <StoredType>int unsigned|0s</StoredType>
+    </column>
+    <column id="440" parent="309" name="max_history_count">
+      <Comment>最大变更历史数量</Comment>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>8</Position>
+      <StoredType>int unsigned|0s</StoredType>
+    </column>
+    <column id="441" parent="309" name="gmt_create">
+      <Comment>创建时间</Comment>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>9</Position>
+      <StoredType>datetime|0s</StoredType>
+    </column>
+    <column id="442" parent="309" name="gmt_modified">
+      <Comment>修改时间</Comment>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>10</Position>
+      <StoredType>datetime|0s</StoredType>
+    </column>
+    <index id="443" parent="309" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="444" parent="309" name="uk_tenant_id">
+      <ColNames>tenant_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="445" parent="309" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <key id="446" parent="309" name="uk_tenant_id">
+      <UnderlyingIndexName>uk_tenant_id</UnderlyingIndexName>
+    </key>
+    <column id="447" parent="310" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <Comment>id</Comment>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>bigint|0s</StoredType>
+    </column>
+    <column id="448" parent="310" name="kp">
+      <Comment>kp</Comment>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>varchar(128)|0s</StoredType>
+    </column>
+    <column id="449" parent="310" name="tenant_id">
+      <Comment>tenant_id</Comment>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+      <Position>3</Position>
+      <StoredType>varchar(128)|0s</StoredType>
+    </column>
+    <column id="450" parent="310" name="tenant_name">
+      <Comment>tenant_name</Comment>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+      <Position>4</Position>
+      <StoredType>varchar(128)|0s</StoredType>
+    </column>
+    <column id="451" parent="310" name="tenant_desc">
+      <Comment>tenant_desc</Comment>
+      <Position>5</Position>
+      <StoredType>varchar(256)|0s</StoredType>
+    </column>
+    <column id="452" parent="310" name="create_source">
+      <Comment>create_source</Comment>
+      <Position>6</Position>
+      <StoredType>varchar(32)|0s</StoredType>
+    </column>
+    <column id="453" parent="310" name="gmt_create">
+      <Comment>创建时间</Comment>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+      <StoredType>bigint|0s</StoredType>
+    </column>
+    <column id="454" parent="310" name="gmt_modified">
+      <Comment>修改时间</Comment>
+      <NotNull>1</NotNull>
+      <Position>8</Position>
+      <StoredType>bigint|0s</StoredType>
+    </column>
+    <index id="455" parent="310" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="456" parent="310" name="uk_tenant_info_kptenantid">
+      <ColNames>kp
+tenant_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="457" parent="310" name="idx_tenant_id">
+      <ColNames>tenant_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="458" parent="310" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <key id="459" parent="310" name="uk_tenant_info_kptenantid">
+      <UnderlyingIndexName>uk_tenant_info_kptenantid</UnderlyingIndexName>
+    </key>
+    <column id="460" parent="311" name="username">
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>varchar(50)|0s</StoredType>
+    </column>
+    <column id="461" parent="311" name="password">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>varchar(500)|0s</StoredType>
+    </column>
+    <column id="462" parent="311" name="enabled">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>tinyint(1)|0s</StoredType>
+    </column>
+    <index id="463" parent="311" name="PRIMARY">
+      <ColNames>username</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="464" parent="311" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="465" parent="312" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <Comment>id</Comment>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>bigint|0s</StoredType>
+    </column>
+    <column id="466" parent="312" name="username">
+      <Comment>用户名</Comment>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>varchar(20)|0s</StoredType>
+    </column>
+    <column id="467" parent="312" name="password">
+      <Comment>用户密码</Comment>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>varchar(20)|0s</StoredType>
+    </column>
+    <column id="468" parent="312" name="email">
+      <Comment>用户邮箱</Comment>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>varchar(50)|0s</StoredType>
+    </column>
+    <column id="469" parent="312" name="balance">
+      <Comment>余额</Comment>
+      <DefaultExpression>0</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="470" parent="312" name="is_effective">
+      <Comment>用户是否有效0:冻结,1:有效</Comment>
+      <DefaultExpression>1</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+      <StoredType>tinyint(1)|0s</StoredType>
+    </column>
+    <column id="471" parent="312" name="auth">
+      <Comment>用户权限0:user,1:admin</Comment>
+      <DefaultExpression>0</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+      <StoredType>tinyint(1)|0s</StoredType>
+    </column>
+    <column id="472" parent="312" name="create_time">
+      <Comment>创建时间</Comment>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>8</Position>
+      <StoredType>datetime|0s</StoredType>
+    </column>
+    <column id="473" parent="312" name="update_time">
       <Comment>最后修改时间</Comment>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>9</Position>
       <StoredType>datetime|0s</StoredType>
     </column>
-    <index id="309" parent="299" name="PRIMARY">
+    <index id="474" parent="312" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="310" parent="299" name="PRIMARY">
+    <key id="475" parent="312" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
