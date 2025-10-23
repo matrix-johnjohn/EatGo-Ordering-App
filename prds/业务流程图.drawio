@@ -5,7 +5,7 @@
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="JyAN_obIHdgHUJqG_vVm-1" value="" style="ellipse;html=1;shape=endState;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
-          <mxGeometry x="233" y="571" width="30" height="30" as="geometry" />
+          <mxGeometry x="233" y="665" width="30" height="30" as="geometry" />
         </mxCell>
         <mxCell id="JyAN_obIHdgHUJqG_vVm-2" value="" style="ellipse;html=1;shape=startState;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
           <mxGeometry x="233" y="48" width="30" height="30" as="geometry" />
@@ -16,72 +16,82 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="JyAN_obIHdgHUJqG_vVm-4" value="&lt;font style=&quot;color: rgb(66, 66, 66); font-size: 10px;&quot;&gt;填写用户名,邮箱地址,密码&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
-          <mxGeometry x="188" y="125" width="120" height="43" as="geometry" />
+          <mxGeometry x="188" y="107" width="120" height="43" as="geometry" />
         </mxCell>
         <mxCell id="JyAN_obIHdgHUJqG_vVm-5" value="&lt;font style=&quot;color: rgb(66, 66, 66); font-size: 10px;&quot;&gt;点击发送验证码&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
-          <mxGeometry x="188" y="212" width="120" height="40" as="geometry" />
+          <mxGeometry x="188" y="194" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="JyAN_obIHdgHUJqG_vVm-6" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#d6b656;rounded=0;fillColor=#fff2cc;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="JyAN_obIHdgHUJqG_vVm-4" target="JyAN_obIHdgHUJqG_vVm-5" edge="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="243" y="192" as="targetPoint" />
-            <mxPoint x="243" y="118" as="sourcePoint" />
+            <mxPoint x="243" y="174" as="targetPoint" />
+            <mxPoint x="243" y="100" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="JyAN_obIHdgHUJqG_vVm-7" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#d6b656;rounded=0;fillColor=#fff2cc;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="JyAN_obIHdgHUJqG_vVm-5" target="JyAN_obIHdgHUJqG_vVm-8" edge="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="247.70999999999998" y="492" as="targetPoint" />
-            <mxPoint x="247.70999999999998" y="382" as="sourcePoint" />
+            <mxPoint x="247.70999999999998" y="474" as="targetPoint" />
+            <mxPoint x="247.70999999999998" y="364" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="JyAN_obIHdgHUJqG_vVm-8" value="&lt;font style=&quot;font-size: 9px; color: rgb(66, 66, 66);&quot;&gt;邮箱是否合法&lt;/font&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
-          <mxGeometry x="208" y="298" width="80" height="80" as="geometry" />
+          <mxGeometry x="208" y="280" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="JyAN_obIHdgHUJqG_vVm-9" value="" style="edgeStyle=segmentEdgeStyle;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;fillColor=#fff2cc;strokeColor=#d6b656;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="JyAN_obIHdgHUJqG_vVm-8" target="JyAN_obIHdgHUJqG_vVm-10" edge="1">
+        <mxCell id="JyAN_obIHdgHUJqG_vVm-9" value="" style="edgeStyle=segmentEdgeStyle;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;fillColor=#f8cecc;strokeColor=#b85450;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="JyAN_obIHdgHUJqG_vVm-8" target="JyAN_obIHdgHUJqG_vVm-10" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="318" y="382" as="sourcePoint" />
-            <mxPoint x="71" y="271" as="targetPoint" />
+            <mxPoint x="318" y="364" as="sourcePoint" />
+            <mxPoint x="71" y="253" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="JyAN_obIHdgHUJqG_vVm-10" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;&lt;font style=&quot;color: rgb(58, 58, 58);&quot;&gt;报错弹窗&lt;/font&gt;&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
-          <mxGeometry x="50" y="222" width="120" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="JyAN_obIHdgHUJqG_vVm-11" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#d6b656;rounded=0;fillColor=#fff2cc;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.504;entryY=0.414;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="JyAN_obIHdgHUJqG_vVm-8" target="JyAN_obIHdgHUJqG_vVm-12" edge="1">
+        <mxCell id="cl41dGnrG3kQafIAovNq-9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#f8cecc;strokeColor=#b85450;" edge="1" parent="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="248" y="506" as="targetPoint" />
-            <mxPoint x="247" y="435" as="sourcePoint" />
+            <mxPoint x="149.00000000000006" y="213.9" as="sourcePoint" />
+            <mxPoint x="188" y="213.9" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="176" y="213.9" />
+              <mxPoint x="176" y="213.9" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JyAN_obIHdgHUJqG_vVm-10" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;&lt;font style=&quot;color: rgb(58, 58, 58);&quot;&gt;报错弹窗:邮箱非法&lt;/font&gt;&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="30" y="194" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="JyAN_obIHdgHUJqG_vVm-11" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#d6b656;rounded=0;fillColor=#fff2cc;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="JyAN_obIHdgHUJqG_vVm-8" target="cl41dGnrG3kQafIAovNq-2" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="248" y="403" as="targetPoint" />
+            <mxPoint x="247" y="417" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="JyAN_obIHdgHUJqG_vVm-12" value="" style="shape=line;html=1;strokeWidth=6;strokeColor=#d79b00;fillColor=#ffe6cc;" parent="1" vertex="1">
-          <mxGeometry x="147" y="426" width="200" height="10" as="geometry" />
+          <mxGeometry x="147" y="576" width="200" height="10" as="geometry" />
         </mxCell>
         <mxCell id="JyAN_obIHdgHUJqG_vVm-13" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#d79b00;rounded=0;fillColor=#ffe6cc;exitX=0.131;exitY=0.553;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="JyAN_obIHdgHUJqG_vVm-12" target="JyAN_obIHdgHUJqG_vVm-14" edge="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="173" y="615.32" as="targetPoint" />
-            <mxPoint x="174.79999999999995" y="497" as="sourcePoint" />
+            <mxPoint x="173" y="765.32" as="targetPoint" />
+            <mxPoint x="174.79999999999995" y="647" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="JyAN_obIHdgHUJqG_vVm-14" value="&lt;font color=&quot;#424242&quot;&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;数据库添加数据&lt;/span&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
-          <mxGeometry x="124" y="498" width="97" height="29" as="geometry" />
+          <mxGeometry x="124" y="618" width="97" height="29" as="geometry" />
         </mxCell>
         <mxCell id="JyAN_obIHdgHUJqG_vVm-15" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#d79b00;rounded=0;fillColor=#ffe6cc;exitX=0.886;exitY=0.567;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="JyAN_obIHdgHUJqG_vVm-12" target="JyAN_obIHdgHUJqG_vVm-16" edge="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="325" y="624" as="targetPoint" />
-            <mxPoint x="324" y="483" as="sourcePoint" />
+            <mxPoint x="325" y="774" as="targetPoint" />
+            <mxPoint x="324" y="633" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="JyAN_obIHdgHUJqG_vVm-16" value="&lt;font color=&quot;#424242&quot;&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;切换成登录状态&lt;/span&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
-          <mxGeometry x="276" y="497" width="97" height="29" as="geometry" />
+          <mxGeometry x="276" y="617" width="97" height="29" as="geometry" />
         </mxCell>
         <mxCell id="JyAN_obIHdgHUJqG_vVm-18" value="" style="endArrow=classic;html=1;rounded=0;fillColor=#ffe6cc;strokeColor=#d79b00;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="JyAN_obIHdgHUJqG_vVm-14" target="JyAN_obIHdgHUJqG_vVm-1" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="99" y="698" as="sourcePoint" />
-            <mxPoint x="149" y="648" as="targetPoint" />
+            <mxPoint x="99" y="818" as="sourcePoint" />
+            <mxPoint x="149" y="768" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="JyAN_obIHdgHUJqG_vVm-19" value="" style="endArrow=classic;html=1;rounded=0;fillColor=#ffe6cc;strokeColor=#d79b00;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="JyAN_obIHdgHUJqG_vVm-16" target="JyAN_obIHdgHUJqG_vVm-1" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="282" y="603" as="sourcePoint" />
-            <mxPoint x="342" y="675" as="targetPoint" />
+            <mxPoint x="282" y="723" as="sourcePoint" />
+            <mxPoint x="342" y="795" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="JyAN_obIHdgHUJqG_vVm-20" value="LoginDto" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
@@ -101,6 +111,35 @@
         </mxCell>
         <mxCell id="JyAN_obIHdgHUJqG_vVm-25" value="username:&amp;nbsp;&lt;span&gt;&amp;nbsp;&lt;span style=&quot;font-family: &amp;quot;JetBrains Mono&amp;quot;, monospace; font-size: 9.8pt; color: rgb(188, 190, 196);&quot;&gt;kimo&lt;/span&gt;&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;font-family: &amp;quot;JetBrains Mono&amp;quot;, monospace; font-size: 9.8pt; color: rgb(188, 190, 196);&quot;&gt;&lt;font style=&quot;color: rgb(37, 37, 37);&quot;&gt;password&lt;/font&gt;&lt;/span&gt;&lt;span style=&quot;font-family: &amp;quot;JetBrains Mono&amp;quot;, monospace; font-size: 9.8pt; color: rgb(188, 190, 196);&quot;&gt;: 123456&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-family: &amp;quot;JetBrains Mono&amp;quot;, monospace; font-size: 9.8pt; color: rgb(188, 190, 196);&quot;&gt;&lt;font style=&quot;color: rgb(37, 37, 37);&quot;&gt;email&lt;/font&gt;&lt;/span&gt;&lt;span style=&quot;font-family: &amp;quot;JetBrains Mono&amp;quot;, monospace; font-size: 9.8pt; color: rgb(188, 190, 196);&quot;&gt;:&lt;/span&gt;&lt;span style=&quot;color: rgb(106, 171, 115); font-family: &amp;quot;JetBrains Mono&amp;quot;, monospace; font-size: 9.8pt;&quot;&gt;jffdsgsd4ijmvo&lt;/span&gt;&lt;span style=&quot;color: rgb(106, 171, 115); font-family: &amp;quot;JetBrains Mono&amp;quot;, monospace; font-size: 9.8pt;&quot;&gt;i&lt;/span&gt;&lt;/div&gt;" style="text;align=left;fontStyle=1;verticalAlign=middle;spacingLeft=3;spacingRight=3;strokeColor=none;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;" parent="1" vertex="1">
           <mxGeometry x="414" y="302" width="201" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="cl41dGnrG3kQafIAovNq-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" edge="1" parent="1" source="cl41dGnrG3kQafIAovNq-2" target="cl41dGnrG3kQafIAovNq-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cl41dGnrG3kQafIAovNq-2" value="&lt;font style=&quot;color: rgb(66, 66, 66); font-size: 10px;&quot;&gt;输入验证码&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="188" y="395" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="cl41dGnrG3kQafIAovNq-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#fff2cc;strokeColor=#d6b656;entryX=0.504;entryY=0.26;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="cl41dGnrG3kQafIAovNq-3" target="JyAN_obIHdgHUJqG_vVm-12">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="248" y="579" />
+              <mxPoint x="248" y="579" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cl41dGnrG3kQafIAovNq-3" value="&lt;font style=&quot;font-size: 9px; color: rgb(66, 66, 66);&quot;&gt;验证码是否合法&lt;/font&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="208" y="460" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="cl41dGnrG3kQafIAovNq-6" value="" style="edgeStyle=segmentEdgeStyle;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;fillColor=#f8cecc;strokeColor=#b85450;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" target="cl41dGnrG3kQafIAovNq-7" source="cl41dGnrG3kQafIAovNq-3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="208" y="501" as="sourcePoint" />
+            <mxPoint x="71" y="434" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cl41dGnrG3kQafIAovNq-8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#f8cecc;strokeColor=#b85450;" edge="1" parent="1" source="cl41dGnrG3kQafIAovNq-7" target="cl41dGnrG3kQafIAovNq-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cl41dGnrG3kQafIAovNq-7" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;&lt;font style=&quot;color: rgb(58, 58, 58);&quot;&gt;报错弹窗:验证码非法&lt;/font&gt;&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="30" y="395" width="120" height="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

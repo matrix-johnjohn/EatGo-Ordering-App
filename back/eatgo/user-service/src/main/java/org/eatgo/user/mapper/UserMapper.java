@@ -8,5 +8,5 @@ import org.eatgo.common.domain.dto.LoginDto;
 public interface UserMapper {
 
     @Insert("insert into user (username,password,email) values (#{username},#{password},#{email})")
-    public void insertUser(LoginDto user);//注册加入数据
+    public void register(LoginDto user);//注册加入数据
 }

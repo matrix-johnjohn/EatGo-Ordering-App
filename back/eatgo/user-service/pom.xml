@@ -73,6 +73,11 @@
             <artifactId>eatgo-common</artifactId>
             <version>1.0.0</version>
         </dependency>
+        <!--Jedis-->
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+        </dependency>
         <!--nacos 服务注册发现-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>

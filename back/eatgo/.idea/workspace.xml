@@ -5,22 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5b4db99-d618-4aea-bfc8-a23fdbf410b9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/org/eatgo/user/client/EmailClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/org/eatgo/user/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/org/eatgo/user/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eatgo-common/src/main/java/org/eatgo/common/exception/user/ValidCodeException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/org/eatgo/user/configuration/JedisProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/org/eatgo/user/handler/UserExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../prds/uml/user/注册业务流程图.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/77d944da-48be-4ba7-a610-9e4c02888bce.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/77d944da-48be-4ba7-a610-9e4c02888bce.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/email-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email-service/src/main/java/org/eatgo/email/service/impl/EmailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/email-service/src/main/java/org/eatgo/email/service/impl/EmailServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/email-service/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/org/eatgo/user/UserServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/org/eatgo/user/UserServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/org/eatgo/user/controller/userController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/org/eatgo/user/controller/userController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/src/main/java/org/eatgo/user/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/org/eatgo/user/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/org/eatgo/user/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/org/eatgo/user/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/org/eatgo/user/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/org/eatgo/user/service/impl/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/src/test/java/org/eatgo/user/UserServiceApplicationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/test/java/org/eatgo/user/UserServiceApplicationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../prds/uml/user/注册功能业务流程图.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../prds/业务流程图.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/../../prds/业务流程图.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../prds/需求文档.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../prds/需求文档.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,9 +30,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Exception" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Exception" />
       </list>
     </option>
   </component>
@@ -55,47 +55,56 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JAR Application.user-service-1.0.0.jar.executor": "Run",
-    "JUnit.EmailServiceApplicationTests.contextLoads.executor": "Run",
-    "JUnit.UserServiceApplicationTest.test1.executor": "Run",
-    "JUnit.UserServiceApplicationTest.test2.executor": "Run",
-    "JUnit.UserServiceApplicationTest.test3.executor": "Run",
-    "Maven.eatgo [clean].executor": "Run",
-    "Maven.eatgo [package].executor": "Run",
-    "Maven.email-service [clean].executor": "Run",
-    "Maven.email-service [package].executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.EmailServiceApplication.executor": "Run",
-    "Spring Boot.EmailServiceApplication1.executor": "Run",
-    "Spring Boot.UserServiceApplication.executor": "Run",
-    "git-widget-placeholder": "main",
-    "jdk.selected.JAVA_MODULE": "17",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "E:/project/github/EatGo-Ordering-App/back/eatgo/eatgo-common/src/main/java/org/eatgo/common/Main.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "MavenSettings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JAR Application.user-service-1.0.0.jar.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.EmailServiceApplicationTests.contextLoads.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceApplicationTest.test1.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceApplicationTest.test2.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceApplicationTest.test3.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.eatgo [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.eatgo [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.email-service [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.email-service [package].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.EmailServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.EmailServiceApplication1.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.UserServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/project/github/EatGo-Ordering-App/back/eatgo/user-service/src/main/java/org/eatgo/user&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;E:/project/github/EatGo-Ordering-App/back/eatgo/eatgo-common/src/main/java/org/eatgo/common/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\project\github\EatGo-Ordering-App\back\eatgo\user-service\src\main\java\org\eatgo\user" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.eatgo.user.handler" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
@@ -103,7 +112,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.UserServiceApplicationTest.test3">
+  <component name="RunManager" selected="Spring Boot.UserServiceApplication">
     <configuration name="EmailServiceApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="email-service" />
       <extension name="coverage">
@@ -221,7 +230,10 @@
       <option name="presentableId" value="Default" />
       <updated>1761204545416</updated>
       <workItem from="1761204546418" duration="7999000" />
-      <workItem from="1761218196419" duration="2791000" />
+      <workItem from="1761218196419" duration="3399000" />
+      <workItem from="1761221875407" duration="96000" />
+      <workItem from="1761222090906" duration="2176000" />
+      <workItem from="1761224290409" duration="462000" />
     </task>
     <servers />
   </component>
