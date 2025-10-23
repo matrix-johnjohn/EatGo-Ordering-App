@@ -3,4 +3,10 @@ export interface LoginForm{
   email:string;
   password:string;
   validCode:string;
-}
+};
+
+export interface user{
+  username:string;
+  email:string;
+  avatar:string;
+};
