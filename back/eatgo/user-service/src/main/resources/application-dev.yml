@@ -1,0 +1,4 @@
+mysql:
+  connect:
+    username: root
+    password: 123456

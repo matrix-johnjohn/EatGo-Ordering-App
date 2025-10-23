@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: user-service
+  profiles:
+    active: dev
+
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://${mysql.connect.url}:3306/user
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: ${mysql.connect.username}
+    password: ${mysql.connect.password}
+
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath:mapper/*.xml
+
+server:
+  port: 8001
