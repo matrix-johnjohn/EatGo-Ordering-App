@@ -1,4 +1,4 @@
-import { Result,sendEmailValid } from "../../api/request/user";
+import { sendEmailValid } from "../../api/request/user";
 import { LoginForm } from "../../api/entity/user/index";
 import { LoadingDialog } from "@kit.ArkUI";
 

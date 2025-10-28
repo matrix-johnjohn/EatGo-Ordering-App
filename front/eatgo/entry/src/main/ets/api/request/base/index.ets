@@ -6,3 +6,9 @@ export const instance=axios.create({
   timeout:15000,
 })
 
+export interface Result<T>{
+  code:number;
+  message:string;
+  data:T
+}
+

@@ -4,5 +4,14 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="org.eatgo.menu.mapper.MenuMapper">
+    <!--common sentence-->
+    <sql id="tags">select * from dish_tag</sql>
 
+    <!--标签列表-->
+    <select id="tagList" resultType="org.eatgo.common.domain.po.DishTag">
+        <include refid="tags"></include>
+        <if test="id!=null">
+            where categorize_id=#{id}
+        </if>
+    </select>
 </mapper>

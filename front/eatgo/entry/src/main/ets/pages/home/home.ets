@@ -1,11 +1,23 @@
 import { goods } from '../../api/entity/goods/index';
+import { DishCate } from '../../api/entity/menu';
+import { cateList } from '../../api/request/menu';
 import { GoodsCardBuilder } from '../../component/home/GoodCard';
 
 
 @Component
 export struct Home{
 
-  @Builder topItemBuilder(text:string,icon:Resource){//标签栏Item
+  @State Cates:DishCate[]=[];
+
+  aboutToAppear(): void {
+    cateList().then((res)=>{
+      console.log(JSON.stringify(res.data.data));
+
+      this.Cates=res.data.data;
+    })
+  }
+
+  @Builder topItemBuilder(text:string,icon:Resource|string){//标签栏Item
     ListItem(){
       Column({space:10}){
         Image(icon).width(50)
@@ -33,11 +45,9 @@ export struct Home{
         //顶部tab
         Scroll() {
           Row() {
-            this.topItemBuilder('美食',$rawfile('home/top_tab/d_food.svg'))
-            this.topItemBuilder('饮品',$rawfile('home/top_tab/drink.svg'))
-            this.topItemBuilder('超市便利',$rawfile('home/top_tab/shop.svg'))
-            this.topItemBuilder('蔬菜水果',$rawfile('home/top_tab/tomato.svg'))
-            this.topItemBuilder('小吃宵夜',$rawfile('home/top_tab/x_nig.svg'))
+            ForEach(this.Cates,(e:DishCate)=>{
+              this.topItemBuilder(e.name,e.icon)
+            })
         }
       }
       .scrollable(ScrollDirection.Horizontal)

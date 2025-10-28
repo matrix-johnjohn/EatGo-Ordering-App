@@ -1,8 +1,7 @@
 import { LoginBackGround,LoginInput,LoginButton,LoginValidCode,LoginLink } from '../../component/login/LoginComponent';
 import { LoginForm } from '../../api/entity/user';
 import { LoginTextStatus } from '../../utils/login/index';
-import router from '@ohos.router';
-import { login, register, resetPassword, sendEmailValid }from '../../api/request/user/index';
+import { login, register, resetPassword }from '../../api/request/user/index';
 import { LoadingDialog, promptAction } from '@kit.ArkUI';
 
 @Builder

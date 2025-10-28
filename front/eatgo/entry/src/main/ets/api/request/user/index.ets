@@ -1,12 +1,5 @@
-import { instance } from '../base/index';
+import { instance,Result } from '../base/index';
 import { LoginForm }from '../../entity/user/index';
-import { AxiosResponse } from '@ohos/axios';
-
-export interface Result<T>{
-  code:number;
-  message:string;
-  data:T
-}
 
 // 发送邮箱验证码接口
 export const sendEmailValid=(options:LoginForm):Promise<Result<Result<undefined>>>=>{
