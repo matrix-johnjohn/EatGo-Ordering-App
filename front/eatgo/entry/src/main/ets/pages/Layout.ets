@@ -38,13 +38,13 @@ struct Layout {
         ForEach((this.tableData),(item:TabClass,index:number)=>{
           TabContent(){
             if (index===0){
-              Home()
+              Home();
             }else if(index===1){
-              Order()
+              Order();
             }else if(index===2){
-              Chat()
+              Chat();
             }else if(index===3){
-              User()
+              User();
             }
           }
           .tabBar(this.tabBuilder(item,index))
@@ -57,9 +57,13 @@ struct Layout {
       })
       .backgroundColor('#fff6f6f6')
     }
-
     .onReady((context: NavDestinationContext) => {
       this.pathStack = context.pathStack;
+
+      if(!AppStorage.get<string>('token')){
+        this.pathStack.pushPathByName("Login",null,false);
+      }
     })
+    .hideTitleBar(true)
   }
 }

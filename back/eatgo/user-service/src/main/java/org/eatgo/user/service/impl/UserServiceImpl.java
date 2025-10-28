@@ -26,12 +26,12 @@ public class UserServiceImpl implements UserService {
     private final Jedis jedis;
 
     @Override
-    public ResultVo<String> sendEmail(LoginDto loginDto) {
+    public ResultVo<String> sendEmail(LoginDto loginDto) {//发送邮件
         return emailClient.sendEmail(loginDto);
     }
 
     @Override
-    public ResultVo<String> register(LoginDto loginDto) {
+    public ResultVo<String> register(LoginDto loginDto) {//注册
 
         String validCode=jedis.get("valid_code:" + loginDto.getEmail());
 
@@ -45,7 +45,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ResultVo<String> login(LoginDto loginDto) {
+    public ResultVo<String> login(LoginDto loginDto) {//登录
 
         String code=jedis.get("valid_code:" + loginDto.getEmail());
 
@@ -61,7 +61,7 @@ public class UserServiceImpl implements UserService {
             //缓存token
             jedis.setex("token:"+u.getEmail(),60*60*24,token);
             //缓存用户信息
-            jedis.setex("info"+u.getEmail(),60*60*24,JSONUtil.toJsonStr(u));
+            jedis.setex("info:"+u.getEmail(),60*60*24,JSONUtil.toJsonStr(u));
             //200返回
             return ResultVo.success("登录成功",token);
         }else if (!code.equals(loginDto.getValidCode())){
@@ -70,5 +70,19 @@ public class UserServiceImpl implements UserService {
             return ResultVo.error(10003,"用户名或密码错误");
         }
         return ResultVo.error(10000,"系统错误");
+    }
+
+    @Override
+    public ResultVo<String> resetPassword(LoginDto loginDto) {//重设密码
+
+        //1.获取验证码
+        String code=jedis.get("valid_code:" + loginDto.getEmail());
+
+        if(code.equals(loginDto.getValidCode())){
+            userMapper.resetPassword(loginDto);
+            return ResultVo.success("success","重设密码成功");
+        }else{
+            return ResultVo.error(10002,"验证码错误");
+        }
     }
 }

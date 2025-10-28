@@ -50,9 +50,10 @@ public class UserServiceApplicationTest {
         LoginDto dto=new LoginDto("",
                 "041367mat",
                 "1596903229@qq.com",
-                "");
+                "58da88");
 
-        userMapper.resetPassword(dto);
+        ResultVo<String>vo=userService.resetPassword(dto);
+        System.out.println(vo);
     }
 
 }

@@ -7,6 +7,14 @@
       "data": {
         "description" : "this is PageOne"
       }
+    },
+    {
+      "name": "Login",
+      "pageSourceFile": "src/main/ets/pages/login/Login.ets",
+      "buildFunction": "LoginBuilder",
+      "data": {
+        "description" : "this is PageOne"
+      }
     }
   ]
 }

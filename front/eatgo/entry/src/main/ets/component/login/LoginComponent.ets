@@ -1,3 +1,7 @@
+import { Result,sendEmailValid } from "../../api/request/user";
+import { LoginForm } from "../../api/entity/user/index";
+import { LoadingDialog } from "@kit.ArkUI";
+
 @Component
 export struct LoginBackGround{
   build() {
@@ -50,12 +54,33 @@ export struct LoginButton{
   }
 }
 
+
+
 @Component
 export struct LoginValidCode{
+
+  dialogFunction(message:string){
+    const dialog=new CustomDialogController({
+      builder: LoadingDialog({
+        content: message,
+        themeColorMode: ThemeColorMode.DARK,
+      })
+    });
+
+    return dialog;
+  }
+
+  dialogController: CustomDialogController = new CustomDialogController({
+    builder: LoadingDialog({
+      content: '邮箱发送成功',
+      themeColorMode: ThemeColorMode.LIGHT,
+    })
+  });
 
   @Prop email:string='';
 
   handlerChange:(v:string)=>void=()=>{};
+
 
   build() {
     Row(){
@@ -70,7 +95,55 @@ export struct LoginValidCode{
         .borderRadius(15)
         .backgroundColor('#FFC300')
         .onClick(()=>{
-          console.log('获取验证码',this.email)
+          sendEmailValid({"email":this.email} as LoginForm).then((res)=>{
+            if (res.data.code===200){
+              console.log('邮箱合法');
+              let dialog=this.dialogFunction('消息发送中...');
+
+              dialog.open();
+
+              setTimeout(()=>{
+                let done=this.dialogFunction('消息发送完毕');
+
+                dialog.close();
+
+                done.open();
+                done.close();
+              },3000)
+
+
+
+            }else if (res.data.code===10001){
+              console.log('邮箱非法')
+              //邮箱非法
+              this.getUIContext().showAlertDialog(
+                {
+                  title: '邮箱非法警告',
+                  message: res.data.message,
+                  autoCancel: true,
+                  alignment: DialogAlignment.Top,
+                  offset: { dx: 0, dy: -20 },
+                  gridCount: 3,
+                  transition: TransitionEffect.asymmetric(TransitionEffect.OPACITY
+                    .animation({ duration: 1000, curve: Curve.Sharp })
+                    .combine(TransitionEffect.scale({ x: 1.5, y: 1.5 })
+                      .animation({ duration:1000, curve: Curve.Sharp })),
+                    TransitionEffect.OPACITY.animation({ duration: 100, curve: Curve.Smooth })
+                      .combine(TransitionEffect.scale({ x: 0.5, y: 0.5 })
+                        .animation({ duration: 100, curve: Curve.Smooth }))),
+                  confirm: {
+                    value: '确定',
+                    action: () => {
+                      console.info('Button-clicking callback');
+                    }
+                  },
+                  cancel: () => {
+                    console.info('Closed callbacks');
+                  }
+                }
+              )
+            }
+          })
         })
     }.width('90%')
     .alignItems(VerticalAlign.Top)

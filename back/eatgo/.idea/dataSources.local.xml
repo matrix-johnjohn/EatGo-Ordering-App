@@ -13,8 +13,10 @@
       <schema-mapping>
         <introspection-scope>
           <node kind="schema">
-            <name qname="nacos" />
             <name qname="@" />
+            <name qname="menu" />
+            <name qname="nacos" />
+            <name qname="menu-service" />
           </node>
         </introspection-scope>
       </schema-mapping>

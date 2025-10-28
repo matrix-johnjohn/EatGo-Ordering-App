@@ -5,15 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5b4db99-d618-4aea-bfc8-a23fdbf410b9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/eatgo-common/src/main/java/org/eatgo/common/domain/po/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo/src/main/java/com/example/demo/controller/DemoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eatgo-gateway/src/main/java/org/eatgo/gateway/configuration/CorsConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/menu-service/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/api/request/base/index.ets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/api/request/user/index.ets" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/77d944da-48be-4ba7-a610-9e4c02888bce.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/77d944da-48be-4ba7-a610-9e4c02888bce.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eatgo-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/eatgo-gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eatgo-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/eatgo-gateway/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/src/main/java/org/eatgo/user/controller/userController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/org/eatgo/user/controller/userController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/org/eatgo/user/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/org/eatgo/user/mapper/UserMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/src/main/java/org/eatgo/user/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/org/eatgo/user/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/src/main/java/org/eatgo/user/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/org/eatgo/user/service/impl/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/src/test/java/org/eatgo/user/UserServiceApplicationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/test/java/org/eatgo/user/UserServiceApplicationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/component/login/LoginComponent.ets" beforeDir="false" afterPath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/component/login/LoginComponent.ets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/pages/Layout.ets" beforeDir="false" afterPath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/pages/Layout.ets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/pages/home/home.ets" beforeDir="false" afterPath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/pages/home/home.ets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/pages/login/Login.ets" beforeDir="false" afterPath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/pages/login/Login.ets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/module.json5" beforeDir="false" afterPath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/module.json5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/resources/base/profile/route_map.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/resources/base/profile/route_map.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front/eatgo/oh-package-lock.json5" beforeDir="false" afterPath="$PROJECT_DIR$/../../front/eatgo/oh-package-lock.json5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front/eatgo/oh-package.json5" beforeDir="false" afterPath="$PROJECT_DIR$/../../front/eatgo/oh-package.json5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../prds/uml用例图.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/../../prds/uml用例图.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../prds/业务流程图.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/../../prds/业务流程图.drawio" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../prds/需求文档.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../prds/需求文档.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,6 +88,11 @@
     "Spring Boot.EmailServiceApplication1.executor": "Run",
     "Spring Boot.GateWayServiceApplication.executor": "Run",
     "Spring Boot.UserServiceApplication.executor": "Run",
+    "Spring Boot.email-service-01.executor": "Run",
+    "Spring Boot.email-service-02.executor": "Run",
+    "Spring Boot.gateway.executor": "Run",
+    "Spring Boot.user-service-01.executor": "Run",
+    "Spring Boot.user-service-02.executor": "Run",
     "git-widget-placeholder": "main",
     "jdk.selected.JAVA_MODULE": "17",
     "kotlin-language-version-configured": "true",
@@ -80,7 +102,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "E:/project/github/EatGo-Ordering-App/back/eatgo/eatgo-gateway/src/main/java/org/eatgo/gateway/Main.java",
+    "onboarding.tips.debug.path": "E:/project/github/EatGo-Ordering-App/back/eatgo/menu-service/src/main/java/org/eatgo/menu/Main.java",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
@@ -94,6 +116,9 @@
     ]
   }
 }]]></component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\project\github\EatGo-Ordering-App\back\eatgo\user-service\src\main\java\org\eatgo\user" />
@@ -109,7 +134,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.UserServiceApplicationTest.resetPassword">
+  <component name="RunManager" selected="Spring Boot.gateway">
     <configuration name="UserServiceApplicationTest.resetPassword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="user-service" />
       <extension name="coverage">
@@ -178,14 +203,21 @@
       <option name="JAR_PATH" value="$PROJECT_DIR$/user-service/target/user-service-1.0.0.jar" />
       <method v="2" />
     </configuration>
-    <configuration name="EmailServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+    <configuration name="MenuServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="menu-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.eatgo.menu.MenuServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="email-service-01" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="email-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.eatgo.email.EmailServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EmailServiceApplication1" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <configuration name="email-service-02" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="email-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.eatgo.email.EmailServiceApplication" />
       <option name="VM_PARAMETERS" value="-Dserver.port=8003" />
@@ -193,20 +225,41 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GateWayServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+    <configuration name="gateway" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="eatgo-gateway" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.eatgo.gateway.GateWayServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+    <configuration name="user-service-01" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="user-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.eatgo.user.UserServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="user-service-02" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="user-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.eatgo.user.UserServiceApplication" />
+      <option name="VM_PARAMETERS" value="-Dserver.port=9002" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JAR Application.user-service-1.0.0.jar" />
+      <item itemvalue="JUnit.UserServiceApplicationTest.resetPassword" />
+      <item itemvalue="JUnit.UserServiceApplicationTest.test1" />
+      <item itemvalue="JUnit.UserServiceApplicationTest.test2" />
+      <item itemvalue="JUnit.UserServiceApplicationTest.test3" />
+      <item itemvalue="Spring Boot.MenuServiceApplication" />
+      <item itemvalue="Spring Boot.gateway" />
+      <item itemvalue="Spring Boot.email-service-01" />
+      <item itemvalue="Spring Boot.email-service-02" />
+      <item itemvalue="Spring Boot.user-service-01" />
+      <item itemvalue="Spring Boot.user-service-02" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.UserServiceApplicationTest.resetPassword" />
@@ -240,7 +293,15 @@
       <workItem from="1761224290409" duration="1275000" />
       <workItem from="1761277489301" duration="725000" />
       <workItem from="1761308721408" duration="2000" />
-      <workItem from="1761354017799" duration="5838000" />
+      <workItem from="1761354017799" duration="12892000" />
+      <workItem from="1761373157117" duration="145000" />
+      <workItem from="1761451428040" duration="2571000" />
+      <workItem from="1761456884082" duration="7618000" />
+      <workItem from="1761469125010" duration="3935000" />
+      <workItem from="1761474376605" duration="3903000" />
+      <workItem from="1761524761964" duration="9946000" />
+      <workItem from="1761568580172" duration="2692000" />
+      <workItem from="1761610089472" duration="2091000" />
     </task>
     <servers />
   </component>

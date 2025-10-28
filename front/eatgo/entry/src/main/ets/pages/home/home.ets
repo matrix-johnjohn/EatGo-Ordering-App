@@ -1,6 +1,7 @@
 import { goods } from '../../api/entity/goods/index';
 import { GoodsCardBuilder } from '../../component/home/GoodCard';
 
+
 @Component
 export struct Home{
 
