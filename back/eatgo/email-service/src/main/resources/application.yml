@@ -11,4 +11,4 @@ spring:
     host: smtp.163.com
 
 server:
-  port: 8002
+  port: 9001

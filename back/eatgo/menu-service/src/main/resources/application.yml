@@ -1,16 +1,15 @@
 spring:
   application:
-    name: user-service
+    name: menu-service
   profiles:
     active: dev
 
   cloud:
     nacos:
       server-addr: 192.168.174.130:8848
-
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://${mysql.connect.url}:3306/user
+    url: jdbc:mysql://${mysql.connect.url}:3306/menu
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: ${mysql.connect.username}
     password: ${mysql.connect.password}
@@ -22,4 +21,4 @@ mybatis:
   mapper-locations: classpath:mapper/*.xml
 
 server:
-  port: 9002
+  port: 9003
