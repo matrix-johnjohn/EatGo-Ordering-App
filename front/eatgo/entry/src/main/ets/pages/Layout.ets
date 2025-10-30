@@ -61,6 +61,8 @@ struct Layout {
       this.pathStack = context.pathStack;
 
       if(!AppStorage.get<string>('token')){
+        //Todo:服务器缓存数据状况查看
+
         // this.pathStack.pushPathByName("Login",22,false);
       }
     })

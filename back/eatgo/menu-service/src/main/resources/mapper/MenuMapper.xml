@@ -6,6 +6,7 @@
 <mapper namespace="org.eatgo.menu.mapper.MenuMapper">
     <!--common sentence-->
     <sql id="tags">select * from dish_tag</sql>
+    <sql id="dishes">select * from dish</sql>
 
     <!--标签列表-->
     <select id="tagList" resultType="org.eatgo.common.domain.po.DishTag">
@@ -17,6 +18,13 @@
 
     <!--菜品列表-->
     <select id="dishList" resultType="org.eatgo.common.domain.po.Dish">
-        select * from dish
+        <include refid="dishes"></include>
+        <if test="categorizeId!=null">
+            where categorize_id=#{categorizeId}
+        </if>
+        <if test="tagId">
+            and tag_id=#{tagId}
+        </if>
+
     </select>
 </mapper>

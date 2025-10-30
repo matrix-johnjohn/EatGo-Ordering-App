@@ -1,5 +1,5 @@
 import { goods } from '../../api/entity/goods/index';
-import { DishCate,DishTag } from '../../api/entity/menu';
+import { DishCate, DishQuery,DishTag } from '../../api/entity/menu';
 import { cateList } from '../../api/request/menu';
 import { GoodsCardBuilder } from '../../component/home/GoodCard';
 @Component
@@ -51,12 +51,20 @@ export struct Home{
           .padding(10)
           .backgroundColor('#FF7302')
 
-          //顶部tab
+          //分类TagList
           Scroll() {
             Row() {
               ForEach(this.Cates,(e:DishCate)=>{
                 this.topItemBuilder(e.name,e.icon,e.id,e.banner)
               })
+              // 滑动测试
+              // ForEach(this.Cates,(e:DishCate)=>{
+              //   this.topItemBuilder(e.name,e.icon,e.id,e.banner)
+              // })
+              //
+              // ForEach(this.Cates,(e:DishCate)=>{
+              //   this.topItemBuilder(e.name,e.icon,e.id,e.banner)
+              // })
             }
           }
           .scrollable(ScrollDirection.Horizontal)

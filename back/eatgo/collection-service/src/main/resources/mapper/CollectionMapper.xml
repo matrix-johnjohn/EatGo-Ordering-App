@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.eatgo.collection.mapper.CollectionMapper">
+    <!--common-sentence-->
+    <sql id="deleteCollection">
+        delete from user_collection
+    </sql>
+
+    <!--取消收藏-->
+    <delete id="removeCollectionItem" parameterType="org.eatgo.common.domain.query.CollectionQuery">
+        <if test="userId!=null and dishId!=null">
+            <include refid="deleteCollection"/>
+            <where>
+                user_id=#{userId} and dish_id=#{dishId}
+            </where>
+        </if>
+    </delete>
+
+    <select id="selectCollectionItem" resultType="org.eatgo.common.domain.po.Collection">
+        select * from user_collection
+        <if test="userId!=null and dishId!=null">
+            <where>
+                user_id=#{userId} and dish_id=#{dishId}
+            </where>
+        </if>
+
+    </select>
+</mapper>

@@ -4,3 +4,6 @@ mysql:
     username: root
     password: 123456
 
+cloud:
+  nacos:
+    server-addr: 192.168.174.130

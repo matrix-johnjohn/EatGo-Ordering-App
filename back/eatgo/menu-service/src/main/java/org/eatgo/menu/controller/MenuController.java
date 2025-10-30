@@ -1,15 +1,16 @@
 package org.eatgo.menu.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.eatgo.common.domain.po.Dish;
 import org.eatgo.common.domain.po.DishCategorize;
 import org.eatgo.common.domain.po.DishTag;
+import org.eatgo.common.domain.query.DishQuery;
 import org.eatgo.common.domain.vo.ResultVo;
 import org.eatgo.menu.service.MenuService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import java.util.List;
 
 @RestController
@@ -34,5 +35,13 @@ public class MenuController {
         List<DishTag> dishTags=menuService.selectTagsByCateId(dishCategorize);
 
         return ResultVo.success("获取标签列表成功",dishTags);
+    }
+
+    @GetMapping("/dish/list/{cateId}/{tagId}")
+    public ResultVo<List<Dish>>dishListByDishQuery(@PathVariable("cateId") Integer cateId,@PathVariable("tagId") Integer tagId){
+
+        List<Dish>dishes=menuService.dishListByCateAndTag(new DishQuery(cateId, tagId));
+
+        return ResultVo.success("获取菜品列表成功",dishes);
     }
 }

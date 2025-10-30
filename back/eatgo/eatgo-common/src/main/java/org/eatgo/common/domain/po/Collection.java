@@ -7,17 +7,12 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class Dish{
+@AllArgsConstructor
+public class Collection {
     private Integer id;
-    private String title;
-    private String description;
-    private String image;
-    private Double price;
-    private Integer categorizeId;
-    private Integer tagId;
-    private Integer collectionCount;
+    private Integer userId;
+    private Integer dishId;
     private LocalDateTime createTime;
     private LocalDateTime updateTime;
 }

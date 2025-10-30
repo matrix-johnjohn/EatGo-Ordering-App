@@ -3,6 +3,7 @@ package org.eatgo.menu;
 import org.eatgo.common.domain.po.Dish;
 import org.eatgo.common.domain.po.DishCategorize;
 import org.eatgo.common.domain.po.DishTag;
+import org.eatgo.common.domain.query.CollectionQuery;
 import org.eatgo.common.domain.query.DishQuery;
 import org.eatgo.menu.mapper.MenuMapper;
 import org.eatgo.menu.service.MenuService;
@@ -31,11 +32,8 @@ public class MenuServiceApplicationTest {
     @Test
     public void test2(){
         DishCategorize cate=new DishCategorize();
-
         cate.setId(1);
-
         List<DishTag> dishTags=menuMapper.tagList(cate);
-
         dishTags.forEach((e)->{
             System.out.println(e);
         });
@@ -43,8 +41,28 @@ public class MenuServiceApplicationTest {
 
     @Test
     public void test3(){
-        for (Dish dish : menuMapper.dishList(new DishQuery())) {
+        DishQuery dishQuery=new DishQuery();
+        dishQuery.setCategorizeId(1);
+        for (Dish dish : menuMapper.dishList(dishQuery)) {
             System.out.println(dish);
         }
+    }
+
+    @Test
+    public void test4(){
+        CollectionQuery query=new CollectionQuery();
+
+        query.setDishId(1);
+
+        menuMapper.plusCount(query);
+    }
+
+    @Test
+    public void test5(){
+        CollectionQuery query=new CollectionQuery();
+
+        query.setDishId(1);
+
+        menuMapper.minusCount(query);
     }
 }

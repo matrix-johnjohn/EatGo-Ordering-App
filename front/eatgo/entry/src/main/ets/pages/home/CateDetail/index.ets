@@ -1,8 +1,9 @@
-import { DishTag } from '../../../api/entity/menu/index';
+import { Dish, DishQuery, DishTag } from '../../../api/entity/menu/index';
 import { Router } from '@ohos.arkui.UIContext';
-import { tagList } from '../../../api/request/menu';
+import { dishList, tagList } from '../../../api/request/menu';
 import { AxiosResponse } from '@ohos/axios';
 import { Result } from '../../../api/request/base';
+import { EmptyStatusForDish } from '../../../component/common/EmptyStatus';
 
 @Entry
 @Component
@@ -10,9 +11,13 @@ export struct CateDetail {
 
   @State currHighLightIndex:number=0;//当前标签,0:全部,other:当前标签
 
-  @State pageData:DishTag={};//轮播图和分类id
+  @State pageData:DishTag={};//轮播图和分类id(分类数据)
 
-  @State dishTagList:DishTag[]=[];//标签列表数据
+  @State dishTagList:DishTag[]=[];//标签列表数据(标签数据)
+
+  @State dishList:Dish[]=[];//菜品列表数据(列表数据)
+
+  @State queryData:DishQuery={};//查询菜品列表封装数据(菜品请求分类数据)
 
   //设置轮播图数据和分类id
   setBanners():void{//设置当前页面的轮播海报和分类id数据
@@ -20,12 +25,23 @@ export struct CateDetail {
     let result=options as DishTag;
     this.pageData.categorizeId=result.categorizeId;
     this.pageData.banner=result.banner;
+    this.queryData.categorizeId=result.categorizeId;
   }
 
-  //设置标签列表数据
+  //设置菜品标签列表数据
   setDishTagList():void{
-    tagList(this.pageData.categorizeId as number).then((res:AxiosResponse<Result<DishTag[]>>)=>{
-      this.dishTagList=res.data.data;
+    tagList(this.pageData.categorizeId as number)
+      .then((res:AxiosResponse<Result<DishTag[]>>)=>{
+        this.dishTagList=res.data.data;
+      })
+  }
+
+  //设置菜品列表数据
+  setDishList(query:DishQuery):void{
+    dishList(query).then((res:AxiosResponse<Result<DishTag[]>>)=>{
+      console.log('appear:dishList',JSON.stringify(res.data.data));
+
+      this.dishList=res.data.data;
     })
   }
 
@@ -73,7 +89,7 @@ export struct CateDetail {
     .loop(true)
   }
 
-  @Builder
+  @Builder//标签列表渲染渲染
   TagListRender(){
     Scroll(){
       Row(){
@@ -83,7 +99,19 @@ export struct CateDetail {
         }
         .border({width:{bottom:this.currHighLightIndex===0?5:0},color:Color.Orange})
         .onClick(()=>{
-          this.currHighLightIndex=0;
+          this.currHighLightIndex=0;//调整当前高亮块的id索引
+
+          this.queryData.tagId=0;//设置封装查询数据
+
+          console.log('test1',JSON.stringify(this.queryData));
+
+          this.setDishList(this.queryData);
+          // 封装前菜品数据
+          // dishList(this.queryData).then((res:AxiosResponse<Result<DishTag[]>>)=>{
+          //   console.log(JSON.stringify(res.data.data));
+          //
+          //   this.dishList=res.data.data;
+          // })
         })
         ForEach(this.dishTagList,(item:DishTag)=>{
           Column(){
@@ -92,7 +120,17 @@ export struct CateDetail {
           }
           .border({width:{bottom:this.currHighLightIndex===(item.id as number)?5:0},color:Color.Orange})
           .onClick(()=>{
-            this.currHighLightIndex=(item.id as number);
+            this.currHighLightIndex=(item.id as number);//调整当前高亮块的id索引
+
+            this.queryData.tagId=item.id;//设置封装查询数据
+
+            console.log('test1',JSON.stringify(this.queryData));
+            this.setDishList(this.queryData);
+            // dishList(this.queryData).then((res:AxiosResponse<Result<DishTag[]>>)=>{
+            //   console.log(JSON.stringify(res.data.data));
+            //
+            //   this.dishList=res.data.data;
+            // })
           })
         })
       }
@@ -103,14 +141,74 @@ export struct CateDetail {
     .scrollable(ScrollDirection.Horizontal)
   }
 
+  @Builder//菜品数据渲染
+  DishListRender(){
+    List(){
+      ForEach(this.dishList,(item:Dish)=>{
+        ListItem(){
+          Row(){
+            Image(item.image)
+              .width(90)
+              .margin({left:5})
+            //texts
+            Column(){
+              Text(item.title)
+                .textAlign(25)
+                .fontWeight(FontWeight.Bold)
+                .width('100%')
+              Text(`${item.description?.toString().substring(0,5)}...`)
+                .width('100%')
+                .margin({top:5})
+                .fontColor(Color.Gray)
+                .fontSize(15)
+              Row(){
+                Image($rawfile('home/icon/ic_rmb.svg')).width(20)
+                Text('20')
+              }
+              .width('100%')
+              .margin({top:10})
+            }
+            .width('30%')
+            .height('100%')
+            .margin({left:5})
+            .padding({top:10,bottom:10})
+            //过渡
+            Column(){}.layoutWeight(1)
+            //buttons
+            Row(){
+              Button('选规格')
+                .fontSize(12)
+                .backgroundColor(Color.Orange)
+                .margin({right:5})
+                .onClick((event: ClickEvent) => {
 
+                })
 
+              Button('收藏')
+                .fontSize(12)
+                .backgroundColor('#FFC300')
+                .onClick((event: ClickEvent) => {
 
+                })
+            }
+            .margin({right:10})
+          }
+          .width('96%')
+          .height(100)
+          .margin({top:10})
+        }
+      })
+    }
+    .width('100%')
+    .height('50%')
+  }
 
   aboutToAppear(): void {
     this.setBanners();//设置banner数据
 
     this.setDishTagList();//设置标签列表数据
+
+    this.setDishList({categorizeId:this.pageData.categorizeId,tagId:0});//设置菜品数据
   }
 
   build() {
@@ -127,13 +225,27 @@ export struct CateDetail {
         //菜品标签列表
         this.TagListRender();
 
-        //菜品列表
         Column(){
           Text('菜品列表')
+            .width('100%')
+            .margin({left:5})
+            .textAlign(TextAlign.Start)
+          //TODO:菜品列表
+          if(this.dishList.length===0){
+            EmptyStatusForDish('商家还没有推出菜品哦');
+            // Column(){
+            //   Image($rawfile('component/empty_status.svg'))
+            //     .width('30%')
+            //   Text('商家还没有推出菜品哦')
+            //     .fontColor('#ff7e7e7e')
+            // }
+            // .width('100%')
+            // .margin({top:40})
+          }else{
+            this.DishListRender();
+          }
         }
       }
-
-
     }
     .width('100%')
     .height('100%')
