@@ -19,6 +19,12 @@ struct Login {
 
   pathStack: NavPathStack = new NavPathStack();//控制跳转的对象
 
+  aboutToAppear(): void {
+    // let data:object=this.pathStack.getParamByName("Layout");
+    //
+    // console.log(JSON.stringify(data));
+  }
+
   dialogFunction(message:string){
     const dialog=new CustomDialogController({
       builder: LoadingDialog({

@@ -51,7 +51,7 @@ public class UserServiceImpl implements UserService {
 
         User u=userMapper.login(loginDto);
 
-        if(code.equals(loginDto.getValidCode()) && !JSONUtil.isNull(u)){//验证码合法
+        if(loginDto.getValidCode().equals(code) && !JSONUtil.isNull(u)){//验证码合法
             //嵌合数据
             HashMap<String, Object> map=new HashMap<>();
             map.put("email",u.getEmail());
@@ -64,7 +64,7 @@ public class UserServiceImpl implements UserService {
             jedis.setex("info:"+u.getEmail(),60*60*24,JSONUtil.toJsonStr(u));
             //200返回
             return ResultVo.success("登录成功",token);
-        }else if (!code.equals(loginDto.getValidCode())){
+        }else if (!loginDto.getValidCode().equals(code)){
             return ResultVo.error(10002,"验证码错误");
         } else if (JSONUtil.isNull(u)) {
             return ResultVo.error(10003,"用户名或密码错误");
@@ -78,7 +78,7 @@ public class UserServiceImpl implements UserService {
         //1.获取验证码
         String code=jedis.get("valid_code:" + loginDto.getEmail());
 
-        if(code.equals(loginDto.getValidCode())){
+        if(loginDto.getValidCode().equals(code)){
             userMapper.resetPassword(loginDto);
             return ResultVo.success("success","重设密码成功");
         }else{

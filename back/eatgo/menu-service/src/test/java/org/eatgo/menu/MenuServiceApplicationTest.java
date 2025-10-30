@@ -1,7 +1,9 @@
 package org.eatgo.menu;
 
+import org.eatgo.common.domain.po.Dish;
 import org.eatgo.common.domain.po.DishCategorize;
 import org.eatgo.common.domain.po.DishTag;
+import org.eatgo.common.domain.query.DishQuery;
 import org.eatgo.menu.mapper.MenuMapper;
 import org.eatgo.menu.service.MenuService;
 import org.junit.jupiter.api.Test;
@@ -30,12 +32,19 @@ public class MenuServiceApplicationTest {
     public void test2(){
         DishCategorize cate=new DishCategorize();
 
-        cate.setId(2);
+        cate.setId(1);
 
         List<DishTag> dishTags=menuMapper.tagList(cate);
 
         dishTags.forEach((e)->{
             System.out.println(e);
         });
+    }
+
+    @Test
+    public void test3(){
+        for (Dish dish : menuMapper.dishList(new DishQuery())) {
+            System.out.println(dish);
+        }
     }
 }

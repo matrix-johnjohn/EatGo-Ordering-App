@@ -14,4 +14,9 @@
             where categorize_id=#{id}
         </if>
     </select>
+
+    <!--菜品列表-->
+    <select id="dishList" resultType="org.eatgo.common.domain.po.Dish">
+        select * from dish
+    </select>
 </mapper>

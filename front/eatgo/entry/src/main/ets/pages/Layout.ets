@@ -61,7 +61,7 @@ struct Layout {
       this.pathStack = context.pathStack;
 
       if(!AppStorage.get<string>('token')){
-        // this.pathStack.pushPathByName("Layout",null,false);
+        // this.pathStack.pushPathByName("Login",22,false);
       }
     })
     .hideTitleBar(true)

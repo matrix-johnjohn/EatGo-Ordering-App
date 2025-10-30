@@ -1,6 +1,7 @@
 {
   "src": [
     "pages/Index",
-    "pages/login/Login"
+    "pages/login/Login",
+    "pages/home/CateDetail/index"
   ]
 }

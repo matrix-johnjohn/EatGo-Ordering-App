@@ -7,6 +7,9 @@ spring:
   cloud:
     nacos:
       server-addr: 192.168.174.130:8848
+    sentinel:
+      transport:
+        dashboard: localhost:8090
 
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource

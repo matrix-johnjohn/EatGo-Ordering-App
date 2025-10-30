@@ -1,17 +1,17 @@
 {
   "routerMap": [
     {
-      "name": "Layout",
-      "pageSourceFile": "src/main/ets/pages/Layout.ets",
-      "buildFunction": "LayoutBuilder",
+      "name": "Login",
+      "pageSourceFile": "src/main/ets/pages/login/Login.ets",
+      "buildFunction": "LoginBuilder",
       "data": {
         "description" : "this is PageOne"
       }
     },
     {
-      "name": "Login",
-      "pageSourceFile": "src/main/ets/pages/login/Login.ets",
-      "buildFunction": "LoginBuilder",
+      "name": "Layout",
+      "pageSourceFile": "src/main/ets/pages/Layout.ets",
+      "buildFunction": "LayoutBuilder",
       "data": {
         "description" : "this is PageOne"
       }

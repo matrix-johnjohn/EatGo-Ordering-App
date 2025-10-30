@@ -6,6 +6,10 @@ spring:
   cloud:
     nacos:
       server-addr: 192.168.174.130:8848
+    sentinel:
+      transport:
+        dashboard: localhost:8090
+      http-method-specify: true
     gateway:
       routes:
         - id: user # 路由规则id，自定义，唯一
