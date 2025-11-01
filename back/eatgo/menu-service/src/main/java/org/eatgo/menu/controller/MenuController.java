@@ -4,13 +4,12 @@ import lombok.RequiredArgsConstructor;
 import org.eatgo.common.domain.po.Dish;
 import org.eatgo.common.domain.po.DishCategorize;
 import org.eatgo.common.domain.po.DishTag;
+import org.eatgo.common.domain.query.CollectionQuery;
 import org.eatgo.common.domain.query.DishQuery;
 import org.eatgo.common.domain.vo.ResultVo;
 import org.eatgo.menu.service.MenuService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
@@ -43,5 +42,19 @@ public class MenuController {
         List<Dish>dishes=menuService.dishListByCateAndTag(new DishQuery(cateId, tagId));
 
         return ResultVo.success("获取菜品列表成功",dishes);
+    }
+
+    @PostMapping("/minus/count")
+    public ResultVo<String> minus(@RequestBody CollectionQuery collectionQuery){
+        menuService.minusCount(collectionQuery);
+
+        return ResultVo.success("次数减少成功",null);
+    }
+
+    @PostMapping("/plus/count")
+    public ResultVo<String> plus(@RequestBody CollectionQuery collectionQuery){
+        menuService.plusCount(collectionQuery);
+
+        return ResultVo.success("次数增加成功",null);
     }
 }

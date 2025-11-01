@@ -26,3 +26,8 @@ spring:
           uri: lb://menu-service
           predicates:
             - Path=/menu/**
+
+        - id: collection
+          uri: lb://collection-service
+          predicates:
+            - Path=/collection/**

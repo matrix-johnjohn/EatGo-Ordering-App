@@ -3,7 +3,7 @@ import { DishCate, DishQuery,DishTag } from '../../api/entity/menu';
 import { cateList } from '../../api/request/menu';
 import { GoodsCardBuilder } from '../../component/home/GoodCard';
 @Component
-export struct Home{
+export struct Home {
 
   @State Cates:DishCate[]=[];//菜品分类列表
 
