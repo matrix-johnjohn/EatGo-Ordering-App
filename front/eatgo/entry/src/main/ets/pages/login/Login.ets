@@ -3,6 +3,7 @@ import { LoginForm } from '../../api/entity/user';
 import { LoginTextStatus } from '../../utils/login/index';
 import { login, register, resetPassword }from '../../api/request/user/index';
 import { LoadingDialog, promptAction } from '@kit.ArkUI';
+import { preferences } from '@kit.ArkData';
 
 @Builder
 export function LoginBuilder() {
@@ -88,14 +89,17 @@ struct Login {
                   }).then((res)=>{
                     console.log(JSON.stringify(res))
                     if(res.data.code===200){//200
-                      PersistentStorage.persistProp<string>('token',res.data.data);
-                      console.log(JSON.stringify(res.data.data));
+                      let preference=preferences.getPreferencesSync(this.getUIContext().getHostContext(),{name:'user'});;
+                      preference.putSync('token',res.data.data);//本地存储token
+                      preference.putSync('email',this.loginData.email);//本地存储用户email
+                      preference.flush();//写入磁盘
                       promptAction.openToast({
                         message:res.data.message,
                         duration:2000,
                         bottom:100
                       })
-                      this.pathStack.pushPathByName('Layout',null,false);
+
+                      this.pathStack.pushPathByName('Layout',null,false);//跳转页面
                     }
 
                     if (res.data.code===10002){

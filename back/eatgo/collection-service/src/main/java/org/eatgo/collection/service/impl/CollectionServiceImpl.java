@@ -8,10 +8,14 @@ import org.eatgo.collection.client.MenuClient;
 import org.eatgo.collection.mapper.CollectionMapper;
 import org.eatgo.collection.service.CollectionService;
 import org.eatgo.common.domain.po.Collection;
+import org.eatgo.common.domain.po.Dish;
 import org.eatgo.common.domain.query.CollectionQuery;
+import org.eatgo.common.domain.vo.ResultVo;
 import org.eatgo.common.exception.collection.RepeatedClickEventException;
 import org.springframework.stereotype.Service;
 import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,10 +29,12 @@ public class CollectionServiceImpl implements CollectionService {
 
     private final MenuClient menuClient;
 
-    private final Jedis jedis;
+    private final JedisPool jedisPool;
 
     @Override
     public void collect(CollectionQuery collectionQuery) {//收藏数据
+        Jedis jedis = jedisPool.getResource();
+
         Collection collectionRecord=collectionMapper.selectCollectionItem(collectionQuery);//查找是否有这条数据
 
         boolean isEmptyObject=ObjectUtil.isEmpty(collectionRecord);
@@ -57,6 +63,8 @@ public class CollectionServiceImpl implements CollectionService {
 
     @Override
     public void cancelCollect(CollectionQuery collectionQuery) {//取消收藏
+        Jedis jedis = jedisPool.getResource();
+
         Collection collectionRecord=collectionMapper.selectCollectionItem(collectionQuery);//查找是否有这条数据
 
         boolean isEmptyObject=ObjectUtil.isEmpty(collectionRecord);
@@ -96,6 +104,8 @@ public class CollectionServiceImpl implements CollectionService {
 
     @Override
     public List<Collection> collectionList(Integer userId) {
+        Jedis jedis = jedisPool.getResource();
+
         List<String>list=jedis.lrange("collection:list:" + userId, 0, -1);
 
         List<Collection>collectionList=new ArrayList<Collection>();
@@ -107,5 +117,33 @@ public class CollectionServiceImpl implements CollectionService {
         }
 
         return collectionList;
+    }
+
+    @Override
+    public List<Dish> collectionDishList(Integer userId) {//收藏菜品列表逻辑处理
+
+        List<Integer>ids=getUserCollectionDishIdByUserId(15);
+
+        ResultVo<List<Dish>>res=menuClient.dishesList(ids);
+
+        return res.getData();
+    }
+
+    public List<Integer> getUserCollectionDishIdByUserId(Integer userId){
+
+        Jedis jedis = jedisPool.getResource();
+
+        List<Integer>result=new ArrayList<>();
+
+        List<String>collectionDishList=jedis.lrange("collection:list:" + userId//缓存数据的key
+                , 0, -1);
+
+        for (String s:collectionDishList) {
+            Collection c=JSONUtil.toBean(s, Collection.class);
+            Integer dishId=c.getDishId();
+            result.add(dishId);
+        }
+
+        return result;
     }
 }

@@ -27,4 +27,8 @@
         </if>
 
     </select>
+
+    <select id="dishes" resultType="org.eatgo.common.domain.po.Dish">
+        select * from
+    </select>
 </mapper>

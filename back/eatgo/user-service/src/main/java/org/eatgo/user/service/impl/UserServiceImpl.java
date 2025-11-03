@@ -1,5 +1,6 @@
 package org.eatgo.user.service.impl;
 
+import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.json.JSONUtil;
 import cn.hutool.jwt.JWTUtil;
 import lombok.RequiredArgsConstructor;
@@ -84,5 +85,24 @@ public class UserServiceImpl implements UserService {
         }else{
             return ResultVo.error(10002,"验证码错误");
         }
+    }
+
+    @Override
+    public Boolean verifyToken(String token, String email) {
+        boolean flag=true;
+
+        String t=jedis.get("token:" + email);
+
+        flag=ObjectUtil.equals(t, token);
+
+        return flag;
+    }
+
+    @Override
+    public User getUserByEmail(String email) {
+
+        String s=jedis.get("info:" + email);
+
+        return JSONUtil.toBean(s, User.class);
     }
 }

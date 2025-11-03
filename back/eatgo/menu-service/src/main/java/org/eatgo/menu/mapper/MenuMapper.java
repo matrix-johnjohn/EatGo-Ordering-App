@@ -25,4 +25,6 @@ public interface MenuMapper {
 
     @Update("update dish set collection_count=collection_count-1 where id=#{dishId}")
     public void minusCount(CollectionQuery collectionQuery);
+
+    public List<Dish>dishesByIds(List<Integer>list);
 }

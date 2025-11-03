@@ -4,12 +4,15 @@ import { dishList, tagList } from '../../../api/request/menu';
 import { AxiosResponse } from '@ohos/axios';
 import { Result } from '../../../api/request/base';
 import { EmptyStatusForDish } from '../../../component/common/EmptyStatus';
+import { UserInfo } from '../../../api/entity/user';
+import { cancelCollect, collect, collectionList } from '../../../api/request/collection';
+import { isCollection, UserCollection } from '../../../api/entity/collection';
 
 @Entry
 @Component
 export struct CateDetail {
 
-  @State currHighLightIndex:number=0;//当前标签,0:全部,other:当前标签
+  @State currHighLightIndex:number=0;//当前标签,0:全部,other:当前标签id
 
   @State pageData:DishTag={};//轮播图和分类id(分类数据)
 
@@ -17,8 +20,9 @@ export struct CateDetail {
 
   @State dishList:Dish[]=[];//菜品列表数据(列表数据)
 
-  @State queryData:DishQuery={};//查询菜品列表封装数据(菜品请求分类数据)
+  @State collectionList:UserCollection[]=[];//用户收藏数据
 
+  @State queryData:DishQuery={};//查询菜品列表封装数据(菜品请求分类数据)
   //设置轮播图数据和分类id
   setBanners():void{//设置当前页面的轮播海报和分类id数据
     let options=this.getUIContext().getRouter().getParams();
@@ -27,7 +31,6 @@ export struct CateDetail {
     this.pageData.banner=result.banner;
     this.queryData.categorizeId=result.categorizeId;
   }
-
   //设置菜品标签列表数据
   setDishTagList():void{
     tagList(this.pageData.categorizeId as number)
@@ -35,13 +38,24 @@ export struct CateDetail {
         this.dishTagList=res.data.data;
       })
   }
-
   //设置菜品列表数据
   setDishList(query:DishQuery):void{
     dishList(query).then((res:AxiosResponse<Result<DishTag[]>>)=>{
-      console.log('appear:dishList',JSON.stringify(res.data.data));
+      // console.log('appear:dishList',JSON.stringify(res.data.data));
 
       this.dishList=res.data.data;
+    })
+  }
+  //设置用户收藏数据
+  setCollectionList(userId:number):void{
+    collectionList(userId)
+      .then((res:AxiosResponse<Result<UserCollection[]>>)=>{
+        // console.log('success');
+        console.log('收藏数据',JSON.stringify(res.data.data));
+
+        this.collectionList=res.data.data;
+      }).catch(()=>{
+      console.log('error');
     })
   }
 
@@ -183,13 +197,51 @@ export struct CateDetail {
                 .onClick((event: ClickEvent) => {
 
                 })
+              //按钮状态审查
+              if(isCollection(this.collectionList,item.id as number)){
+                Button('收藏')
+                  .fontSize(12)
+                  .backgroundColor('#FFC300')
+                  .onClick((event: ClickEvent) => {
+                    console.log('id-test',item.id?.toString());
 
-              Button('收藏')
-                .fontSize(12)
-                .backgroundColor('#FFC300')
-                .onClick((event: ClickEvent) => {
+                    //数据库添加数据
+                    collect({
+                      userId:AppStorage.get<UserInfo>('info')?.id as number
+                    ,dishId:item.id as number
+                    }).then(()=>{
 
-                })
+                    })
+                    //页面添加数据
+                    this.collectionList.push({
+                      userId: AppStorage.get<UserInfo>('info')?.id as number,
+                      dishId: item.id as number,
+                      id: 0,
+                      createTime: '',
+                      updateTime: ''
+                    })
+                  })
+              }else{
+                Button('取消收藏')
+                  .fontSize(12)
+                  .backgroundColor('#ff7e7e7e')
+                  .onClick((event: ClickEvent) => {
+                    //数据库删除数据
+                    cancelCollect({
+                      userId:AppStorage.get<UserInfo>('info')?.id as number
+                    ,dishId:item.id as number
+                    }).then(()=>{
+                      console.log('删除成功')
+                    })
+                    //页面删除数据
+                    let index=0;
+                    for (let i = 0; i < this.collectionList.length; i++) {
+                      if (this.collectionList[i].dishId===item.id){
+                        this.collectionList.splice(i,1);
+                      }
+                    }
+                  })
+              }
             }
             .margin({right:10})
           }
@@ -199,16 +251,18 @@ export struct CateDetail {
         }
       })
     }
+    .scrollBar(BarState.Off)
     .width('100%')
-    .height('50%')
+    .height('60%')
   }
-
   aboutToAppear(): void {
-    this.setBanners();//设置banner数据
+    this.setBanners();//获取banner数据
 
-    this.setDishTagList();//设置标签列表数据
+    this.setDishTagList();//获取标签列表数据
 
-    this.setDishList({categorizeId:this.pageData.categorizeId,tagId:0});//设置菜品数据
+    this.setDishList({categorizeId:this.pageData.categorizeId,tagId:0});//获取菜品数据
+
+    this.setCollectionList(AppStorage.get<UserCollection>('info')?.id as number);//获取用户收藏数据
   }
 
   build() {

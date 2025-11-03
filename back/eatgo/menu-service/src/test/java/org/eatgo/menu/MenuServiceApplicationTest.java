@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootTest
@@ -64,5 +65,18 @@ public class MenuServiceApplicationTest {
         query.setDishId(1);
 
         menuMapper.minusCount(query);
+    }
+
+    @Test
+    public void test6(){
+        ArrayList<Integer> list=new ArrayList<>();
+
+        list.add(3);
+        list.add(1);
+        list.add(2);
+
+        List<Dish>dishes=menuMapper.dishesByIds(list);
+
+        dishes.forEach(System.out::println);
     }
 }

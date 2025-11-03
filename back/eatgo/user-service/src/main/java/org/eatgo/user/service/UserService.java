@@ -1,6 +1,7 @@
 package org.eatgo.user.service;
 
 import org.eatgo.common.domain.dto.LoginDto;
+import org.eatgo.common.domain.po.User;
 import org.eatgo.common.domain.vo.ResultVo;
 
 public interface UserService {
@@ -12,4 +13,8 @@ public interface UserService {
     public ResultVo<String> login(LoginDto loginDto);
 
     public ResultVo<String> resetPassword(LoginDto loginDto);
+
+    public Boolean verifyToken(String token,String email);
+
+    public User getUserByEmail(String email);//根据email获取用户信息
 }

@@ -1,17 +1,46 @@
 import { goods } from '../../api/entity/goods/index';
 import { DishCate, DishQuery,DishTag } from '../../api/entity/menu';
+import { UserInfo } from '../../api/entity/user';
 import { cateList } from '../../api/request/menu';
 import { GoodsCardBuilder } from '../../component/home/GoodCard';
+import { preferences } from '@kit.ArkData';
+import { getUser } from '../../api/request/user';
+import { AxiosResponse } from '@ohos/axios';
+import { Result } from '../../api/request/base';
+
 @Component
 export struct Home {
+
+  @State userInfo:UserInfo={//用户身份信息
+    id:15,
+    username:'matrix',
+    password:'123456',
+    email:'1596903229@qq.com',
+    balance:0,
+    isEffective:1,
+    auth: 0,
+    avatar:""
+  };
 
   @State Cates:DishCate[]=[];//菜品分类列表
 
   aboutToAppear(): void {
+    let preference=preferences.getPreferencesSync(
+      this.getUIContext().getHostContext(),
+      {name:"user"});
+    //获取用户邮箱
+    let email=preference.getSync("email",'');
+    //获取分类列表
     cateList().then((res)=>{
-      console.log(JSON.stringify(res.data.data));
-
       this.Cates=res.data.data;
+    })
+    //获取用户身份信息
+    getUser(email as string).then((res:AxiosResponse<Result<UserInfo>>)=>{
+      let u=res.data.data;
+
+      this.userInfo=u;
+
+      console.log('当前用户,id:',JSON.stringify(u));
     })
   }
 
@@ -27,9 +56,11 @@ export struct Home {
 
       let ban:string[]=JSON.parse(banner);
 
+      PersistentStorage.persistProp<UserInfo>('info',this.userInfo);
+
       this.getUIContext()
         .getRouter()
-        .pushUrl({url:'pages/home/CateDetail/index',params:{'categorizeId':id,'banner':ban}})
+        .pushUrl({url:'pages/home/CateDetail/index',params:{'categorizeId':id,'banner':ban,'userId':this.userInfo.id}})
         .catch(() => {
         // TODO: Implement error handling.
           console.log('wrong answer');
@@ -57,14 +88,6 @@ export struct Home {
               ForEach(this.Cates,(e:DishCate)=>{
                 this.topItemBuilder(e.name,e.icon,e.id,e.banner)
               })
-              // 滑动测试
-              // ForEach(this.Cates,(e:DishCate)=>{
-              //   this.topItemBuilder(e.name,e.icon,e.id,e.banner)
-              // })
-              //
-              // ForEach(this.Cates,(e:DishCate)=>{
-              //   this.topItemBuilder(e.name,e.icon,e.id,e.banner)
-              // })
             }
           }
           .scrollable(ScrollDirection.Horizontal)

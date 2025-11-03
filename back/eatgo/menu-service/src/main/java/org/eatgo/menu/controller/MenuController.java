@@ -57,4 +57,10 @@ public class MenuController {
 
         return ResultVo.success("次数增加成功",null);
     }
+
+    @GetMapping("/dishes/list")
+    public ResultVo<List<Dish>> dishesList(@RequestParam("ids")List<Integer>ids){
+        List<Dish>dishes=menuService.dishesListByids(ids);
+        return ResultVo.success("用户收藏列表",dishes);
+    }
 }

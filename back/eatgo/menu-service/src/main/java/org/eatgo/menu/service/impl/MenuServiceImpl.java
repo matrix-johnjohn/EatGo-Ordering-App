@@ -41,4 +41,9 @@ public class MenuServiceImpl implements MenuService {
     public void minusCount(CollectionQuery collectionQuery) {
         menuMapper.minusCount(collectionQuery);
     }
+
+    @Override
+    public List<Dish>dishesListByids(List<Integer> list) {
+        return menuMapper.dishesByIds(list);
+    }
 }

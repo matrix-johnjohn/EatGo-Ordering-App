@@ -1,7 +1,8 @@
-import { user } from '../../api/entity/user/index'
+import { user } from '../../api/entity/user/index';
+
 @Builder
 export function HeaderCard(options:user){
-  Row(){
+  Row() {
     Image(options.avatar)
       .width(100)
       .margin({top:10,left:10})

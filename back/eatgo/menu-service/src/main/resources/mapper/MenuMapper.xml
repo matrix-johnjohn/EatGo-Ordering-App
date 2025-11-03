@@ -25,6 +25,20 @@
         <if test="tagId">
             and tag_id=#{tagId}
         </if>
+    </select>
 
+    <!--菜品列表根据ids-->
+    <select id="dishesByIds" resultType="org.eatgo.common.domain.po.Dish">
+        <include refid="dishes" />
+        <where>
+            <foreach item="item" collection="list" open="id in (" close=")" separator=",">
+                #{item}
+            </foreach>
+            order by field(id,
+            <foreach item="item" collection="list" separator=",">
+                #{item}
+            </foreach>
+            )
+        </where>
     </select>
 </mapper>

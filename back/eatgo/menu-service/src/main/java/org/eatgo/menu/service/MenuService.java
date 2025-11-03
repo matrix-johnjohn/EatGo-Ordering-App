@@ -18,4 +18,6 @@ public interface MenuService {
     public void plusCount(CollectionQuery collectionQuery);
 
     public void minusCount(CollectionQuery collectionQuery);
+
+    public List<Dish> dishesListByids(List<Integer>list);
 }

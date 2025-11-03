@@ -7,3 +7,6 @@ mysql:
 cloud:
   nacos:
     server-addr: 192.168.174.130
+
+  sentinel:
+    server-addr: 192.168.174.130

@@ -17,6 +17,7 @@ public class User {
     private Integer balance;
     private Integer isEffective;
     private Integer auth;
+    private String avatar;
     private LocalDateTime createTime;
     private LocalDateTime updateTime;
 }

@@ -3,6 +3,10 @@ import { Home } from './home/home';
 import { Order } from './order/order';
 import { Chat } from './chat/chat';
 import { User } from './user/user';
+import { preferences, relationalStore } from '@kit.ArkData';
+import { verificationToken } from '../api/request/user';
+import { AxiosResponse } from '@ohos/axios';
+import { Result } from '../api/request/base';
 
 @Builder
 export function LayoutBuilder() {
@@ -11,7 +15,9 @@ export function LayoutBuilder() {
 
 @Component
 struct Layout {
+
   @State currentIndex:number=0;
+
   pathStack: NavPathStack = new NavPathStack();//控制跳转的对象
 
   tableData:TabClass[]=[//底部导航栏数据
@@ -60,11 +66,27 @@ struct Layout {
     .onReady((context: NavDestinationContext) => {
       this.pathStack = context.pathStack;
 
-      if(!AppStorage.get<string>('token')){
-        //Todo:服务器缓存数据状况查看
+      let sync=preferences
+        .getPreferencesSync(this.getUIContext().getHostContext(),{name:"user"});
 
-        // this.pathStack.pushPathByName("Login",22,false);
+      // 从磁盘中读取email
+      let email=sync.getSync('email',0);
+
+      // 从磁盘中读取token
+      let token=sync.getSync('token',0);
+
+      //token是否为空
+      if(!token){
+        this.pathStack.pushPathByName("Login",email,false);
       }
+
+      //token是否合法
+      verificationToken(token as string,email as string).then((res:AxiosResponse<Result<boolean>>)=>{
+        let f=res.data.data;
+        if(f===null){
+          this.pathStack.pushPathByName("Login",email,false);
+        }
+      })
     })
     .hideTitleBar(true)
   }
