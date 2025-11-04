@@ -59,6 +59,12 @@ export struct LoginButton{
 @Component
 export struct LoginValidCode{
 
+  @State isClickEffective:boolean=true;//true:有效,false:无效
+
+  @State sec:number=100;//倒计时
+
+  @Prop email:string='';
+
   dialogFunction(message:string){
     const dialog=new CustomDialogController({
       builder: LoadingDialog({
@@ -69,7 +75,6 @@ export struct LoginValidCode{
 
     return dialog;
   }
-
   dialogController: CustomDialogController = new CustomDialogController({
     builder: LoadingDialog({
       content: '邮箱发送成功',
@@ -77,11 +82,7 @@ export struct LoginValidCode{
     })
   });
 
-  @Prop email:string='';
-
   handlerChange:(v:string)=>void=()=>{};
-
-
   build() {
     Row(){
       LoginInput({
@@ -90,61 +91,71 @@ export struct LoginValidCode{
         handlerChange:(this.handlerChange)
       }).width('70%')
         .margin({bottom:30,right:0})
-      Button('获取验证码')
-        .width('30%')
-        .borderRadius(15)
-        .backgroundColor('#FFC300')
-        .onClick(()=>{
-          sendEmailValid({"email":this.email} as LoginForm).then((res)=>{
-            if (res.data.code===200){
-              console.log('邮箱合法');
-              let dialog=this.dialogFunction('消息发送中...');
-
-              dialog.open();
-
-              setTimeout(()=>{
-                let done=this.dialogFunction('消息发送完毕');
-
-                dialog.close();
-
-                done.open();
-                done.close();
-              },3000)
-
-
-
-            }else if (res.data.code===10001){
-              console.log('邮箱非法')
-              //邮箱非法
-              this.getUIContext().showAlertDialog(
-                {
-                  title: '邮箱非法警告',
-                  message: res.data.message,
-                  autoCancel: true,
-                  alignment: DialogAlignment.Top,
-                  offset: { dx: 0, dy: -20 },
-                  gridCount: 3,
-                  transition: TransitionEffect.asymmetric(TransitionEffect.OPACITY
-                    .animation({ duration: 1000, curve: Curve.Sharp })
-                    .combine(TransitionEffect.scale({ x: 1.5, y: 1.5 })
-                      .animation({ duration:1000, curve: Curve.Sharp })),
-                    TransitionEffect.OPACITY.animation({ duration: 100, curve: Curve.Smooth })
-                      .combine(TransitionEffect.scale({ x: 0.5, y: 0.5 })
-                        .animation({ duration: 100, curve: Curve.Smooth }))),
-                  confirm: {
-                    value: '确定',
-                    action: () => {
-                      console.info('Button-clicking callback');
+      if(this.isClickEffective){
+        Button('获取验证码')
+          .width('30%')
+          .borderRadius(15)
+          .backgroundColor('#FFC300')
+          .onClick(()=>{
+            this.isClickEffective=false;
+            sendEmailValid({"email":this.email} as LoginForm).then((res)=>{
+              if (res.data.code===200){
+                console.log('邮箱合法');
+                let dialog=this.dialogFunction('消息发送中...');
+                dialog.open();
+                setTimeout(()=>{
+                  let done=this.dialogFunction('消息发送完毕');
+                  dialog.close();
+                  done.open();
+                  done.close();
+                },3000);
+              }else if (res.data.code===10001){
+                console.log('邮箱非法')
+                //邮箱非法
+                this.getUIContext().showAlertDialog(
+                  {
+                    title: '邮箱非法警告',
+                    message: res.data.message,
+                    autoCancel: true,
+                    alignment: DialogAlignment.Top,
+                    offset: { dx: 0, dy: -20 },
+                    gridCount: 3,
+                    transition: TransitionEffect.asymmetric(TransitionEffect.OPACITY
+                      .animation({ duration: 1000, curve: Curve.Sharp })
+                      .combine(TransitionEffect.scale({ x: 1.5, y: 1.5 })
+                        .animation({ duration:1000, curve: Curve.Sharp })),
+                      TransitionEffect.OPACITY.animation({ duration: 100, curve: Curve.Smooth })
+                        .combine(TransitionEffect.scale({ x: 0.5, y: 0.5 })
+                          .animation({ duration: 100, curve: Curve.Smooth }))),
+                    confirm: {
+                      value: '确定',
+                      action: () => {
+                        console.info('Button-clicking callback');
+                      }
+                    },
+                    cancel: () => {
+                      console.info('Closed callbacks');
                     }
-                  },
-                  cancel: () => {
-                    console.info('Closed callbacks');
                   }
-                }
-              )
-            }
+                )
+              }
+            })
+            setInterval((()=>{
+              if(this.sec===0){
+                this.isClickEffective=true;
+              }
+              this.sec--;
+            }),1000)
           })
-        })
+      }else{
+
+
+        Button(this.sec.toString())
+          .width('30%')
+          .borderRadius(15)
+          .backgroundColor('#ffababab')
+      }
+
     }.width('90%')
     .alignItems(VerticalAlign.Top)
     .justifyContent(FlexAlign.Start)

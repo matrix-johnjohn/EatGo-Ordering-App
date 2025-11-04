@@ -39,7 +39,8 @@ public class CollectionController {
     @GetMapping("/dish/list/{userId}")
     public ResultVo<List<Dish>>collectionDishList(@PathVariable("userId") Integer userId){
 
-        List<Dish> dishes = collectionService.collectionDishList(userId);
+        List<Dish>dishes=collectionService.collectionDishList(userId);
+
         return ResultVo.success("",dishes);
     }
 }

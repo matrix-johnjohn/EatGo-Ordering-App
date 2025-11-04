@@ -13,3 +13,33 @@ export struct TextTitle{
     .shadow({color:'#ff7e7e7e',radius:10,offsetX:5,offsetY:5})
   }
 }
+
+@Component
+export struct TextTitleBack{
+
+  @Prop title:string='';
+
+  build() {
+    Row(){
+      Image($rawfile('home/icon/ic_return.svg'))
+        .fillColor('#ff999999')
+        .width(30)
+        .onClick(()=>{
+          this
+            .getUIContext()
+            .getRouter()
+            .back()
+        })
+
+      Text(this.title)
+        .fontSize(20)
+
+      Column()
+    }
+    .width('100%')
+    .height(70)
+    .backgroundColor(Color.White)
+    .justifyContent(FlexAlign.SpaceBetween)
+    .shadow({color:'#ff7e7e7e',radius:10,offsetX:5,offsetY:5})
+  }
+}

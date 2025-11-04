@@ -4,6 +4,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.json.JSONUtil;
 import cn.hutool.jwt.JWTUtil;
 import lombok.RequiredArgsConstructor;
+import org.eatgo.common.domain.dto.BalanceDto;
 import org.eatgo.common.domain.dto.LoginDto;
 import org.eatgo.common.domain.po.User;
 import org.eatgo.common.domain.vo.ResultVo;
@@ -13,6 +14,7 @@ import org.eatgo.user.mapper.UserMapper;
 import org.eatgo.user.service.UserService;
 import org.springframework.stereotype.Service;
 import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
 
 import java.util.HashMap;
 
@@ -24,7 +26,7 @@ public class UserServiceImpl implements UserService {
 
     private final UserMapper userMapper;
 
-    private final Jedis jedis;
+    private final JedisPool jedisPool;
 
     @Override
     public ResultVo<String> sendEmail(LoginDto loginDto) {//发送邮件
@@ -34,6 +36,8 @@ public class UserServiceImpl implements UserService {
     @Override
     public ResultVo<String> register(LoginDto loginDto) {//注册
 
+        Jedis jedis = jedisPool.getResource();
+
         String validCode=jedis.get("valid_code:" + loginDto.getEmail());
 
         if(!validCode.equals(loginDto.getValidCode())){
@@ -42,11 +46,13 @@ public class UserServiceImpl implements UserService {
             userMapper.register(loginDto);
         }
 
+        jedis.close();
         return ResultVo.success("注册成功",null);
     }
 
     @Override
     public ResultVo<String> login(LoginDto loginDto) {//登录
+        Jedis jedis = jedisPool.getResource();
 
         String code=jedis.get("valid_code:" + loginDto.getEmail());
 
@@ -70,39 +76,71 @@ public class UserServiceImpl implements UserService {
         } else if (JSONUtil.isNull(u)) {
             return ResultVo.error(10003,"用户名或密码错误");
         }
+
+        jedis.close();
         return ResultVo.error(10000,"系统错误");
     }
 
     @Override
     public ResultVo<String> resetPassword(LoginDto loginDto) {//重设密码
+        Jedis jedis = jedisPool.getResource();
 
         //1.获取验证码
         String code=jedis.get("valid_code:" + loginDto.getEmail());
 
         if(loginDto.getValidCode().equals(code)){
             userMapper.resetPassword(loginDto);
+
+            jedis.close();
             return ResultVo.success("success","重设密码成功");
         }else{
+
+            jedis.close();
             return ResultVo.error(10002,"验证码错误");
         }
+
     }
 
     @Override
     public Boolean verifyToken(String token, String email) {
+
+        Jedis jedis = jedisPool.getResource();
+
         boolean flag=true;
 
         String t=jedis.get("token:" + email);
 
         flag=ObjectUtil.equals(t, token);
 
+        jedis.close();
+
         return flag;
     }
 
     @Override
     public User getUserByEmail(String email) {
+        Jedis jedis = jedisPool.getResource();
 
         String s=jedis.get("info:" + email);
 
+        jedis.close();
+
         return JSONUtil.toBean(s, User.class);
+    }
+
+    @Override
+    public void topUp(BalanceDto balanceDto) {
+        Jedis jedis=jedisPool.getResource();
+
+        String user=jedis.get("info:" + balanceDto.getEmail());
+
+        // 更新缓存数据
+        User u=JSONUtil.toBean(user, User.class);
+        u.setBalance(u.getBalance()+ balanceDto.getMoney());
+        jedis.set("info:" + u.getEmail(),JSONUtil.toJsonStr(u));
+        jedis.close();
+
+        // 更新数据库数据
+        userMapper.topUp(balanceDto);
     }
 }

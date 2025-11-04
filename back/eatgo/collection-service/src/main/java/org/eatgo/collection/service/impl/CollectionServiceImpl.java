@@ -59,6 +59,8 @@ public class CollectionServiceImpl implements CollectionService {
         }else{ // 线程重叠处理
             throw new RepeatedClickEventException("请勿重复点击添加");
         }
+
+        jedis.close();
     }
 
     @Override
@@ -75,8 +77,6 @@ public class CollectionServiceImpl implements CollectionService {
 
             //减少dish列表的count
             menuClient.minus(collectionQuery);
-
-            //Todo:删除服务器缓存
 
             //缓存数据
             List<String>list=jedis.lrange(
@@ -100,6 +100,7 @@ public class CollectionServiceImpl implements CollectionService {
         }else{ // 线程重叠处理
             throw new RepeatedClickEventException("请勿重复点击删除");
         }
+        jedis.close();
     }
 
     @Override
@@ -115,6 +116,8 @@ public class CollectionServiceImpl implements CollectionService {
 
             collectionList.add(c);
         }
+
+        jedis.close();
 
         return collectionList;
     }
@@ -144,6 +147,7 @@ public class CollectionServiceImpl implements CollectionService {
             result.add(dishId);
         }
 
+        jedis.close();
         return result;
     }
 }

@@ -16,6 +16,7 @@
         <module>email-service</module>
         <module>menu-service</module>
         <module>collection-service</module>
+        <module>fund-service</module>
     </modules>
 
     <properties>

@@ -27,3 +27,12 @@ export function HeaderCard(options:user){
   .height(120)
   .backgroundColor(Color.White)
 };
+
+export interface Param{
+  "email":string
+}
+
+export interface SelectItem{
+  text:string;
+  icon:Resource
+}
