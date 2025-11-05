@@ -1,5 +1,5 @@
 import { instance,Result } from '../base/index';
-import { LoginForm, UserInfo }from '../../entity/user/index';
+import { FundDto, LoginForm, UserInfo }from '../../entity/user/index';
 import { AxiosResponse } from '@ohos/axios';
 
 // 发送邮箱验证码接口
@@ -30,4 +30,14 @@ export const verificationToken=(token:string,email:string):Promise<AxiosResponse
 //获取当前用户
 export const getUser=(email:string):Promise<AxiosResponse<Result<UserInfo>>>=>{
   return instance.get(`/user/get/user/${email}`)
+}
+
+// 微信支付接口
+export const wechatRecharge=(fundDto:FundDto):Promise<AxiosResponse<Result<string>>>=>{
+  return instance.put('/fund/wx/recharge',fundDto)
+}
+
+// 支付宝支付接口
+export const alipayRecharge=(fundDto:FundDto):Promise<AxiosResponse<Result<string>>>=>{
+  return instance.put('/fund/ali/recharge',fundDto)
 }

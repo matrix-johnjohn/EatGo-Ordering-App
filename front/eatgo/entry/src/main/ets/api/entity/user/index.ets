@@ -21,3 +21,9 @@ export interface user{
   email:string;
   avatar:string;
 };
+
+export interface FundDto{
+  "email": string,
+  "amount": number,
+  "method": number
+}

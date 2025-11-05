@@ -5,31 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5b4db99-d618-4aea-bfc8-a23fdbf410b9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/eatgo-common/src/main/java/org/eatgo/common/domain/dto/BalanceDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/pages/user/collection/UserCollection.ets" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/pages/user/topup/TopUp.ets" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/resources/rawfile/user/balance.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/resources/rawfile/user/pay_icon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/resources/rawfile/user/rmb_icon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/resources/rawfile/user/top_up.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/resources/rawfile/user/user_balance.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/resources/rawfile/user/weixin_icon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eatgo-common/src/main/java/org/eatgo/common/domain/po/RechargeRecord.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fund-service/src/main/java/org/eatgo/fund/configuration/JedisProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fund-service/src/main/java/org/eatgo/fund/controller/FundController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fund-service/src/main/java/org/eatgo/fund/mapper/FundMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fund-service/src/main/java/org/eatgo/fund/service/FundService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fund-service/src/main/java/org/eatgo/fund/service/impl/FundServiceAlipayImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fund-service/src/main/java/org/eatgo/fund/service/impl/FundServiceWeChatPayImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fund-service/src/main/resources/application-dev.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fund-service/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fund-service/src/test/java/org/eatgo/fund/FundServiceApplicationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/77d944da-48be-4ba7-a610-9e4c02888bce.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/77d944da-48be-4ba7-a610-9e4c02888bce.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collection-service/src/main/java/org/eatgo/collection/config/JedisConnectionProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/collection-service/src/main/java/org/eatgo/collection/config/JedisConnectionProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collection-service/src/main/java/org/eatgo/collection/controller/CollectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/collection-service/src/main/java/org/eatgo/collection/controller/CollectionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collection-service/src/main/java/org/eatgo/collection/service/impl/CollectionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/collection-service/src/main/java/org/eatgo/collection/service/impl/CollectionServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/org/eatgo/user/configuration/JedisProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/org/eatgo/user/configuration/JedisProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eatgo-common/src/main/java/org/eatgo/common/domain/dto/BalanceDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/eatgo-common/src/main/java/org/eatgo/common/domain/dto/FundDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eatgo-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/eatgo-gateway/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fund-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/fund-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fund-service/src/main/java/org/eatgo/fund/FundServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/fund-service/src/main/java/org/eatgo/fund/FundServiceApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/src/main/java/org/eatgo/user/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/org/eatgo/user/mapper/UserMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/src/main/java/org/eatgo/user/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/org/eatgo/user/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/src/main/java/org/eatgo/user/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/org/eatgo/user/service/impl/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/src/test/java/org/eatgo/user/UserServiceApplicationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/test/java/org/eatgo/user/UserServiceApplicationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/api/request/collection/index.ets" beforeDir="false" afterPath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/api/request/collection/index.ets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/component/common/CommonTitle.ets" beforeDir="false" afterPath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/component/common/CommonTitle.ets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/component/login/LoginComponent.ets" beforeDir="false" afterPath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/component/login/LoginComponent.ets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/component/user/user.ets" beforeDir="false" afterPath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/component/user/user.ets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/pages/user/user.ets" beforeDir="false" afterPath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/pages/user/user.ets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/resources/base/profile/main_pages.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/resources/base/profile/main_pages.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/pages/user/topup/TopUp.ets" beforeDir="false" afterPath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/pages/user/topup/TopUp.ets" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../prds/03uml顺序图.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/../../prds/03uml顺序图.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../prds/需求文档.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../prds/需求文档.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,8 +39,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Exception" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -64,85 +64,95 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;JAR Application.user-service-1.0.0.jar.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CollectionServiceApplicationTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CollectionServiceApplicationTest.test1.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CollectionServiceApplicationTest.test2.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CollectionServiceApplicationTest.test3.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CollectionServiceApplicationTest.test4.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CollectionServiceApplicationTest.test5.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CollectionServiceApplicationTest.test6.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.EmailServiceApplicationTests.contextLoads.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MenuServiceApplicationTest.contextLoads.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MenuServiceApplicationTest.test1.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MenuServiceApplicationTest.test2.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MenuServiceApplicationTest.test3.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MenuServiceApplicationTest.test4.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MenuServiceApplicationTest.test5.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MenuServiceApplicationTest.test6.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceApplicationTest.resetPassword.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceApplicationTest.test1.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceApplicationTest.test2.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceApplicationTest.test3.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.eatgo [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.eatgo [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.email-service [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.email-service [package].executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.CollectionServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.EmailServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.EmailServiceApplication1.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.GateWayServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.MenuServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.UserServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.collection-service-01.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.email-service-01.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.email-service-02.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.gateway.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.menu-service-01.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.menu-service-02.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.user-service-01.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.user-service-02.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/project/github/EatGo-Ordering-App/back/eatgo/collection-service/src/main/resources&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;E:/project/github/EatGo-Ordering-App/back/eatgo/collection-service/src/main/java/org/eatgo/collection/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Debugger&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JAR Application.user-service-1.0.0.jar.executor": "Run",
+    "JUnit.CollectionServiceApplicationTest.executor": "Run",
+    "JUnit.CollectionServiceApplicationTest.test1.executor": "Run",
+    "JUnit.CollectionServiceApplicationTest.test2.executor": "Run",
+    "JUnit.CollectionServiceApplicationTest.test3.executor": "Run",
+    "JUnit.CollectionServiceApplicationTest.test4.executor": "Run",
+    "JUnit.CollectionServiceApplicationTest.test5.executor": "Run",
+    "JUnit.CollectionServiceApplicationTest.test6.executor": "Run",
+    "JUnit.EmailServiceApplicationTests.contextLoads.executor": "Run",
+    "JUnit.FundServiceApplicationTest.test1.executor": "Run",
+    "JUnit.FundServiceApplicationTest.weChatPay.executor": "Run",
+    "JUnit.FundServiceApplicationTest.weChatPayService.executor": "Run",
+    "JUnit.MenuServiceApplicationTest.contextLoads.executor": "Run",
+    "JUnit.MenuServiceApplicationTest.test1.executor": "Run",
+    "JUnit.MenuServiceApplicationTest.test2.executor": "Run",
+    "JUnit.MenuServiceApplicationTest.test3.executor": "Run",
+    "JUnit.MenuServiceApplicationTest.test4.executor": "Run",
+    "JUnit.MenuServiceApplicationTest.test5.executor": "Run",
+    "JUnit.MenuServiceApplicationTest.test6.executor": "Run",
+    "JUnit.UserServiceApplicationTest.resetPassword.executor": "Run",
+    "JUnit.UserServiceApplicationTest.test1.executor": "Run",
+    "JUnit.UserServiceApplicationTest.test2.executor": "Run",
+    "JUnit.UserServiceApplicationTest.test3.executor": "Run",
+    "Maven.eatgo [clean].executor": "Run",
+    "Maven.eatgo [package].executor": "Run",
+    "Maven.email-service [clean].executor": "Run",
+    "Maven.email-service [package].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.CollectionServiceApplication.executor": "Run",
+    "Spring Boot.EmailServiceApplication.executor": "Run",
+    "Spring Boot.EmailServiceApplication1.executor": "Run",
+    "Spring Boot.FundServiceApplication.executor": "Run",
+    "Spring Boot.GateWayServiceApplication.executor": "Run",
+    "Spring Boot.MenuServiceApplication.executor": "Run",
+    "Spring Boot.UserServiceApplication.executor": "Run",
+    "Spring Boot.collection-service-01.executor": "Run",
+    "Spring Boot.email-service-01.executor": "Run",
+    "Spring Boot.email-service-02.executor": "Run",
+    "Spring Boot.fund-service-01.executor": "Run",
+    "Spring Boot.gateway.executor": "Run",
+    "Spring Boot.menu-service-01.executor": "Run",
+    "Spring Boot.menu-service-02.executor": "Run",
+    "Spring Boot.user-service-01.executor": "Run",
+    "Spring Boot.user-service-02.executor": "Run",
+    "git-widget-placeholder": "main",
+    "jdk.selected.JAVA_MODULE": "17",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "E:/project/github/EatGo-Ordering-App/back/eatgo/fund-service/src/main/java/org/eatgo/fund",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "E:/project/github/EatGo-Ordering-App/back/eatgo/fund-service/src/main/java/org/eatgo/fund/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Debugger",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\project\github\EatGo-Ordering-App\back\eatgo\fund-service\src\main\java\org\eatgo\fund" />
+      <recent name="E:\project\github\EatGo-Ordering-App\back\eatgo\fund-service\src\main\resources" />
       <recent name="E:\project\github\EatGo-Ordering-App\back\eatgo\collection-service\src\main\resources" />
       <recent name="E:\project\github\EatGo-Ordering-App\back\eatgo\user-service\src\main\java\org\eatgo\user" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\project\github\EatGo-Ordering-App\back\eatgo\menu-service\src\main\resources" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.eatgo.fund" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="org.eatgo.user.handler" />
@@ -155,65 +165,50 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.UserServiceApplicationTest.test1">
-    <configuration name="CollectionServiceApplicationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="collection-service" />
+  <component name="RunManager" selected="JUnit.FundServiceApplicationTest.weChatPayService">
+    <configuration name="FundServiceApplicationTest.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="fund-service" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.eatgo.collection.*" />
+          <option name="PATTERN" value="org.eatgo.fund.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.eatgo.collection" />
-      <option name="MAIN_CLASS_NAME" value="org.eatgo.collection.CollectionServiceApplicationTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CollectionServiceApplicationTest.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="collection-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.eatgo.collection.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.eatgo.collection" />
-      <option name="MAIN_CLASS_NAME" value="org.eatgo.collection.CollectionServiceApplicationTest" />
+      <option name="PACKAGE_NAME" value="org.eatgo.fund" />
+      <option name="MAIN_CLASS_NAME" value="org.eatgo.fund.FundServiceApplicationTest" />
       <option name="METHOD_NAME" value="test1" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CollectionServiceApplicationTest.test6" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="collection-service" />
+    <configuration name="FundServiceApplicationTest.weChatPay" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="fund-service" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.eatgo.collection.*" />
+          <option name="PATTERN" value="org.eatgo.fund.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.eatgo.collection" />
-      <option name="MAIN_CLASS_NAME" value="org.eatgo.collection.CollectionServiceApplicationTest" />
-      <option name="METHOD_NAME" value="test6" />
+      <option name="PACKAGE_NAME" value="org.eatgo.fund" />
+      <option name="MAIN_CLASS_NAME" value="org.eatgo.fund.FundServiceApplicationTest" />
+      <option name="METHOD_NAME" value="weChatPay" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MenuServiceApplicationTest.test6" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="menu-service" />
+    <configuration name="FundServiceApplicationTest.weChatPayService" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="fund-service" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.eatgo.menu.*" />
+          <option name="PATTERN" value="org.eatgo.fund.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.eatgo.menu" />
-      <option name="MAIN_CLASS_NAME" value="org.eatgo.menu.MenuServiceApplicationTest" />
-      <option name="METHOD_NAME" value="test6" />
+      <option name="PACKAGE_NAME" value="org.eatgo.fund" />
+      <option name="MAIN_CLASS_NAME" value="org.eatgo.fund.FundServiceApplicationTest" />
+      <option name="METHOD_NAME" value="weChatPayService" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -249,6 +244,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="fund-service-01" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true">
+      <module name="fund-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.eatgo.fund.FundServiceApplication" />
+      <option name="VM_PARAMETERS" value="-Dserver.port=9005" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.eatgo.fund.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="gateway" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="eatgo-gateway" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.eatgo.gateway.GateWayServiceApplication" />
@@ -271,24 +280,24 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.FundServiceApplicationTest.test1" />
+      <item itemvalue="JUnit.FundServiceApplicationTest.weChatPay" />
+      <item itemvalue="JUnit.FundServiceApplicationTest.weChatPayService" />
       <item itemvalue="JUnit.UserServiceApplicationTest.test1" />
-      <item itemvalue="JUnit.CollectionServiceApplicationTest" />
-      <item itemvalue="JUnit.CollectionServiceApplicationTest.test1" />
-      <item itemvalue="JUnit.MenuServiceApplicationTest.test6" />
-      <item itemvalue="JUnit.CollectionServiceApplicationTest.test6" />
       <item itemvalue="Spring Boot.gateway" />
       <item itemvalue="Spring Boot.email-service-01" />
       <item itemvalue="Spring Boot.user-service-01" />
       <item itemvalue="Spring Boot.menu-service-01" />
       <item itemvalue="Spring Boot.collection-service-01" />
+      <item itemvalue="Spring Boot.fund-service-01" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.fund-service-01" />
+        <item itemvalue="JUnit.FundServiceApplicationTest.weChatPayService" />
+        <item itemvalue="JUnit.FundServiceApplicationTest.weChatPay" />
+        <item itemvalue="JUnit.FundServiceApplicationTest.test1" />
         <item itemvalue="JUnit.UserServiceApplicationTest.test1" />
-        <item itemvalue="JUnit.CollectionServiceApplicationTest.test1" />
-        <item itemvalue="JUnit.CollectionServiceApplicationTest" />
-        <item itemvalue="JUnit.MenuServiceApplicationTest.test6" />
-        <item itemvalue="JUnit.CollectionServiceApplicationTest.test6" />
       </list>
     </recent_temporary>
   </component>
@@ -348,6 +357,7 @@
       <workItem from="1762181248019" duration="258000" />
       <workItem from="1762222200477" duration="2070000" />
       <workItem from="1762231776482" duration="875000" />
+      <workItem from="1762256901219" duration="8955000" />
     </task>
     <servers />
   </component>

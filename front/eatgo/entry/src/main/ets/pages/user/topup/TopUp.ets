@@ -1,6 +1,6 @@
 import { AxiosResponse } from '@ohos/axios';
 import { UserInfo } from '../../../api/entity/user';
-import { getUser } from '../../../api/request/user';
+import { alipayRecharge, getUser, wechatRecharge } from '../../../api/request/user';
 import { TextTitleBack } from '../../../component/common/CommonTitle';
 import { Result } from '../../../api/request/base'
 import { SelectItem,Param } from '../../../component/user/user';
@@ -89,19 +89,37 @@ struct CustomDialogTopUp {
         .border({width:{bottom:1},color:'#ffd4d4d4'})
         .padding({bottom:20})
 
-        Button('转入')
+        Button('转入金额')
           .width('80%')
           .backgroundColor("#FF7302")
           .margin({top:20})
           .onClick((event: ClickEvent) => {
             console.log(
-              this.balance.toString(),
-              preferences.getPreferencesSync(this.getUIContext().getHostContext(),
+              this.balance.toString(),// 金额
+              preferences.getPreferencesSync(
+                this.getUIContext().getHostContext(),
                 {name:"user"}).getSync("email","").toString(),
-                this.currIndex.toString())
+                this.currIndex.toString()) // email
             this.controller?.close();
 
             // Todo:充值接口嵌入
+            if(this.currIndex===0){
+              wechatRecharge({
+                email: preferences.getPreferencesSync(this.getUIContext().getHostContext(), {name:"user"}).getSync("email","").toString(),
+                amount:this.balance,
+                method:this.currIndex
+              }).then(()=>{
+                console.log('微信支付成功')
+              })
+            }else if(this.currIndex===1){
+              alipayRecharge({
+                email: preferences.getPreferencesSync(this.getUIContext().getHostContext(), {name:"user"}).getSync("email","").toString(),
+                amount:this.balance,
+                method:this.currIndex
+              }).then(()=>{
+                console.log('支付宝支付成功')
+              })
+            }
           })
       }
       .width('100%')

@@ -4,7 +4,6 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
-import org.eatgo.common.domain.dto.BalanceDto;
 import org.eatgo.common.domain.dto.LoginDto;
 import org.eatgo.common.domain.po.User;
 
@@ -20,6 +19,5 @@ public interface UserMapper {
     @Update("update user set password=#{password} where email=#{email}")
     public void resetPassword(LoginDto dto);//重设密码
 
-    @Update("update user set balance=balance+#{money} where email=#{email}")
-    public void topUp(BalanceDto dto);//充值
+
 }

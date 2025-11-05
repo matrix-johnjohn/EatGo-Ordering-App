@@ -4,7 +4,6 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.json.JSONUtil;
 import cn.hutool.jwt.JWTUtil;
 import lombok.RequiredArgsConstructor;
-import org.eatgo.common.domain.dto.BalanceDto;
 import org.eatgo.common.domain.dto.LoginDto;
 import org.eatgo.common.domain.po.User;
 import org.eatgo.common.domain.vo.ResultVo;
@@ -126,21 +125,5 @@ public class UserServiceImpl implements UserService {
         jedis.close();
 
         return JSONUtil.toBean(s, User.class);
-    }
-
-    @Override
-    public void topUp(BalanceDto balanceDto) {
-        Jedis jedis=jedisPool.getResource();
-
-        String user=jedis.get("info:" + balanceDto.getEmail());
-
-        // 更新缓存数据
-        User u=JSONUtil.toBean(user, User.class);
-        u.setBalance(u.getBalance()+ balanceDto.getMoney());
-        jedis.set("info:" + u.getEmail(),JSONUtil.toJsonStr(u));
-        jedis.close();
-
-        // 更新数据库数据
-        userMapper.topUp(balanceDto);
     }
 }
