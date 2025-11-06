@@ -1,6 +1,7 @@
 import { instance,Result } from '../base/index';
 import { FundDto, LoginForm, UserInfo }from '../../entity/user/index';
 import { AxiosResponse } from '@ohos/axios';
+import { User } from '../../../pages/user/user';
 
 // 发送邮箱验证码接口
 export const sendEmailValid=(options:LoginForm):Promise<Result<Result<undefined>>>=>{
@@ -40,4 +41,19 @@ export const wechatRecharge=(fundDto:FundDto):Promise<AxiosResponse<Result<strin
 // 支付宝支付接口
 export const alipayRecharge=(fundDto:FundDto):Promise<AxiosResponse<Result<string>>>=>{
   return instance.put('/fund/ali/recharge',fundDto)
+}
+
+// 微信取款接口
+export const wechatWithdraw=(fundDto:FundDto):Promise<AxiosResponse<Result<string>>>=>{
+  return instance.put('/fund/ali/withdraw',fundDto);
+}
+
+// 支付宝取款接口
+export const alipayWithdraw=(fundDto:FundDto):Promise<AxiosResponse<Result<string>>>=>{
+  return instance.put('/fund/ali/withdraw',fundDto)
+}
+
+// 编辑用户
+export const editUser=(user:UserInfo):Promise<AxiosResponse<Result<string>>>=>{
+  return instance.put('/user/edit/user',user);
 }

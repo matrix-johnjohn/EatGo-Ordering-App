@@ -1,17 +1,22 @@
 import { goods } from '../../api/entity/goods/index';
-import { DishCate, DishQuery,DishTag } from '../../api/entity/menu';
+import { Dish, DishCate, DishQuery,DishTag } from '../../api/entity/menu';
 import { UserInfo } from '../../api/entity/user';
-import { cateList } from '../../api/request/menu';
+import { cateList, popularList } from '../../api/request/menu';
 import { GoodsCardBuilder } from '../../component/home/GoodCard';
 import { preferences } from '@kit.ArkData';
 import { getUser } from '../../api/request/user';
 import { AxiosResponse } from '@ohos/axios';
 import { Result } from '../../api/request/base';
-
+import { cancelCollect, collect, collectionList } from '../../api/request/collection';
+import { isCollection, UserCollection } from '../../api/entity/collection';
+import { promptAction } from '@kit.ArkUI';
 @Component
 export struct Home {
 
-  @State userInfo:UserInfo={//用户身份信息
+  //当前页数
+  @State currentPage:number=1;
+  //用户身份信息
+  @State userInfo:UserInfo={
     id:15,
     username:'matrix',
     password:'123456',
@@ -21,13 +26,17 @@ export struct Home {
     auth: 0,
     avatar:""
   };
+  //菜品分类列表
+  @State Cates:DishCate[]=[];
+  //用户收藏数据
+  @State CollectionList:UserCollection[]=[];
+  //热门菜品
+  @State PopularDishList:Dish[]=[];
 
-  @State Cates:DishCate[]=[];//菜品分类列表
 
   aboutToAppear(): void {
-    let preference=preferences.getPreferencesSync(
-      this.getUIContext().getHostContext(),
-      {name:"user"});
+    //磁盘通道
+    let preference=preferences.getPreferencesSync(this.getUIContext().getHostContext(), {name:"user"});
     //获取用户邮箱
     let email=preference.getSync("email",'');
     //获取分类列表
@@ -36,11 +45,17 @@ export struct Home {
     })
     //获取用户身份信息
     getUser(email as string).then((res:AxiosResponse<Result<UserInfo>>)=>{
+      //设置当前用户数据
       let u=res.data.data;
-
       this.userInfo=u;
-
-      console.log('当前用户,id:',JSON.stringify(u));
+      //获取当前用户收藏列表
+      collectionList(u.id).then((res:AxiosResponse<Result<UserCollection[]>>)=>{
+        this.CollectionList=res.data.data;
+      })
+      //热门菜品数据
+      popularList({pageNum:this.currentPage,pageSize:10}).then((res:AxiosResponse<Result<Dish[]>>)=>{
+        this.PopularDishList.push(...res.data.data);
+      })
     })
   }
 
@@ -103,21 +118,39 @@ export struct Home {
 
           Column(){
             List(){
-              //菜品卡片
-              GoodsCardBuilder(
-                {
-                  title:'虾仁配蔬菜',
-                  image:'https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc_gen_image/7724d435864d4b6dbbc8f0ac5cff4b01preview.jpeg~tplv-a9rns2rl98-downsize_watermark_1_5.png?rcl=20251021203529C7A8A68F514DB07D68C7&rk3s=8e244e95&rrcfp=ddbb2dc7&x-expires=2076410144&x-signature=Dds4DesMHTFPrPS48T9vFuhJ8Co%3D',
-                  description:'好吃',
-                  price:22.1,
-                  collection_count:10
-                } as goods)
+              ForEach(this.PopularDishList,(item:Dish,index:number)=>{
+                GoodsCardBuilder(
+                  {
+                    title:item.title,
+                    image:item.image,
+                    description:item.description,
+                    price:item.price,
+                    collection_count:item.collectionCount,
+                    isCollection:isCollection(this.CollectionList,item.id as number),
+                    collect:()=>{collect({userId:this.userInfo.id,dishId:item.id as number}).then(()=>{
+                      console.log('success');
+                    })},
+                    cancel:()=>{cancelCollect({userId:this.userInfo.id,dishId:item.id as number}).then(()=>{
+                      this.CollectionList.splice(index,1);
+                    })}
+                  } as goods)
+              })
             }
             .onReachEnd(()=>{
-              console.log('滑动到底部了')
+              this.currentPage++;
+
+              popularList({pageNum:this.currentPage,pageSize:10}).then((res:AxiosResponse<Result<Dish[]>>)=>{
+                console.log(JSON.stringify(res.data.data))
+                console.log(this.currentPage.toString())
+                this.PopularDishList.push(...res.data.data);
+              })
+
+              promptAction.openToast({message:"已经滑到底部了",duration:1000,bottom:100})
+
             })
           }
           .width('95%')
+          .height('70%')
         }
         .width('100%')
         .height('100%')

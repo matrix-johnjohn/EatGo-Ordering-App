@@ -1,11 +1,14 @@
 package org.eatgo.menu.service.impl;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import lombok.RequiredArgsConstructor;
 import org.eatgo.common.domain.po.Dish;
 import org.eatgo.common.domain.po.DishCategorize;
 import org.eatgo.common.domain.po.DishTag;
 import org.eatgo.common.domain.query.CollectionQuery;
 import org.eatgo.common.domain.query.DishQuery;
+import org.eatgo.common.domain.query.PageQuery;
 import org.eatgo.menu.mapper.MenuMapper;
 import org.eatgo.menu.service.MenuService;
 import org.springframework.stereotype.Service;
@@ -45,5 +48,22 @@ public class MenuServiceImpl implements MenuService {
     @Override
     public List<Dish>dishesListByids(List<Integer> list) {
         return menuMapper.dishesByIds(list);
+    }
+
+    @Override
+    public List<Dish> recommandList(PageQuery pageQuery) {
+
+        PageHelper.startPage(pageQuery.getPageNum(), pageQuery.getPageSize());
+
+        List<Dish>dishes=menuMapper.recommendList();
+
+        Page<Dish> pageData=(Page<Dish>)(dishes);
+
+        return pageData.getResult();
+    }
+
+    @Override
+    public Dish findById(Integer dishId) {
+        return menuMapper.getDishById(dishId);
     }
 }

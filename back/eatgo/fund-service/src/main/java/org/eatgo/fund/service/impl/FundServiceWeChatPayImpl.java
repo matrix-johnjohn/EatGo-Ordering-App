@@ -46,4 +46,23 @@ public class FundServiceWeChatPayImpl implements FundService {
         // 关闭连接
         jedis.close();
     }
+
+    @Override
+    public void withdraw(FundDto fundDto) {
+        // 数据库修改数据
+        fundMapper.withdraw(fundDto);
+
+        // 数据库缓存修改数据
+        Jedis jedis=jedisPool.getResource();
+
+        String bean=jedis.get("info:" + fundDto.getEmail());
+
+        User user=JSONUtil.toBean(bean, User.class);// 获取当前数据
+
+        user.setBalance(user.getBalance()-fundDto.getAmount());// 修改数据
+
+        jedis.set("info:" + fundDto.getEmail(),JSONUtil.toJsonStr(user));// 缓存写入数据
+
+        jedis.close();
+    }
 }

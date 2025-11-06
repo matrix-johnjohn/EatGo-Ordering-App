@@ -6,7 +6,8 @@ import org.eatgo.common.domain.po.User;
 import org.eatgo.common.domain.vo.ResultVo;
 import org.eatgo.user.service.UserService;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/user")
@@ -15,27 +16,31 @@ public class userController {
 
     private final UserService userService;
 
+    // 发送邮箱验证码
     @PostMapping("/send")
     public ResultVo<String> sendValidCode(@RequestBody LoginDto loginDto){//发送邮件
         return userService.sendEmail(loginDto);
     }
 
+    // 注册
     @PutMapping("/register")
     public ResultVo<String>register(@RequestBody LoginDto loginDto){//注册
         return userService.register(loginDto);
     }
 
+    // 登录
     @PostMapping("/login")
     public ResultVo<String>login(@RequestBody LoginDto loginDto){//登录
         return userService.login(loginDto);
     }
 
+    // 重设密码
     @PostMapping("/reset/passwd")
     public ResultVo<String>resetPassword(@RequestBody LoginDto loginDto){
         return userService.resetPassword(loginDto);
     }
 
-    //验证token是否有效
+    // 验证当前token是否有效
     @GetMapping("/verification/token/{token}/{email}")
     public ResultVo<Boolean> verificationToken(@PathVariable("token") String token,@PathVariable("email") String email){
         Boolean f=userService.verifyToken(token, email);
@@ -43,6 +48,7 @@ public class userController {
         return f?ResultVo.success("已经登录", true):ResultVo.error(500,"当前用户非法");
     }
 
+    // 获取当前用户
     @GetMapping("/get/user/{email}")
     public ResultVo<User> getUser(@PathVariable("email")String email){
         User u=userService.getUserByEmail(email);
@@ -50,12 +56,19 @@ public class userController {
         return ResultVo.success("",u);
     }
 
-    //切换头像
-    @PostMapping("/reset/avatar")
-    public ResultVo<String>setAvatar(@RequestParam("avatar")MultipartFile avatar){
-        System.out.println(avatar.getOriginalFilename());
+    // 更新用户信息
+    @PutMapping("/edit/user")
+    public ResultVo<String> editUser(@RequestBody User user){
 
-        return ResultVo.success("文件上传成功",null);
+        userService.EditUser(user);
+
+        return ResultVo.success("",null);
     }
 
+    @GetMapping("/user/list")
+    public ResultVo<List<User>>userList(){
+        List<User> list=userService.list();
+
+        return ResultVo.success("获取列表",list);
+    }
 }

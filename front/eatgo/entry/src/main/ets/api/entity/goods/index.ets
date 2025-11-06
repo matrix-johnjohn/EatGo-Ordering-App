@@ -4,4 +4,7 @@ export interface goods{
   description:string;//菜品详情
   price:number;//价格
   collection_count:number;//菜品收藏数
+  isCollection:boolean;//是否收藏
+  collect:()=>void;//收藏
+  cancel:()=>void;//取消收藏
 }

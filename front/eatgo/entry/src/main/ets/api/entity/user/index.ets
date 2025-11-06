@@ -20,6 +20,7 @@ export interface user{
   username:string;
   email:string;
   avatar:string;
+  onAction?:()=>void
 };
 
 export interface FundDto{

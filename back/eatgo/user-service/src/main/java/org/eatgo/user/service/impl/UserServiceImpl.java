@@ -16,6 +16,7 @@ import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
 import java.util.HashMap;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -125,5 +126,24 @@ public class UserServiceImpl implements UserService {
         jedis.close();
 
         return JSONUtil.toBean(s, User.class);
+    }
+
+    @Override
+    public void EditUser(User user) {
+
+        // 数据库更新数据
+        userMapper.EditUser(user);
+
+        // 数据库更新缓存
+        Jedis jedis=jedisPool.getResource();
+
+        jedis.set("info:"+user.getEmail(),JSONUtil.toJsonStr(user));
+
+        jedis.close();
+    }
+
+    @Override
+    public List<User> list() {
+        return userMapper.list();
     }
 }

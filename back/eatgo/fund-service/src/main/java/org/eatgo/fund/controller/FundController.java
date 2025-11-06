@@ -27,4 +27,16 @@ public class FundController {
         fundServiceAlipay.recharge(fundDto);
         return ResultVo.success("支付宝充值","充值成功");
     }
+
+    @PutMapping("/wx/withdraw")// 微信提现接口
+    public ResultVo<String> wxWithdraw(@RequestBody FundDto fundDto) {
+        fundServiceWechat.withdraw(fundDto);
+        return ResultVo.success("微信取款","取款成功");
+    }
+
+    @PutMapping("/ali/withdraw")// 支付宝提现接口
+    public ResultVo<String> aliWithdraw(@RequestBody FundDto fundDto) {
+        fundServiceAlipay.withdraw(fundDto);
+        return ResultVo.success("支付宝取款","取款成功");
+    }
 }

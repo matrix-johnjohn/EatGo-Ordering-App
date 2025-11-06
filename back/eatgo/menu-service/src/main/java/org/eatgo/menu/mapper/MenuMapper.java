@@ -27,4 +27,9 @@ public interface MenuMapper {
     public void minusCount(CollectionQuery collectionQuery);
 
     public List<Dish>dishesByIds(List<Integer>list);
+
+    public List<Dish>recommendList();
+
+    @Select("select * from dish where id=#{dishId}")
+    public Dish getDishById(Integer dishId);
 }

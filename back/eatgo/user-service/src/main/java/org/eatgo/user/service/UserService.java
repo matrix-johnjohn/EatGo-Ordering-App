@@ -4,6 +4,8 @@ import org.eatgo.common.domain.dto.LoginDto;
 import org.eatgo.common.domain.po.User;
 import org.eatgo.common.domain.vo.ResultVo;
 
+import java.util.List;
+
 public interface UserService {
 
     public ResultVo<String> sendEmail(LoginDto loginDto);
@@ -17,4 +19,8 @@ public interface UserService {
     public Boolean verifyToken(String token,String email);
 
     public User getUserByEmail(String email);//根据email获取用户信息
+
+    public void EditUser(User user);
+
+    public List<User> list();
 }

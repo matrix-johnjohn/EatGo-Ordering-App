@@ -3,6 +3,8 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/collection-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/collection-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/comment-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/comment-service/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/eatgo-common/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/eatgo-common/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/eatgo-gateway/src/main/java" charset="UTF-8" />
@@ -13,6 +15,8 @@
     <file url="file://$PROJECT_DIR$/fund-service/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/menu-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/menu-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/order-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/order-service/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/user-service/src/main/java" charset="UTF-8" />

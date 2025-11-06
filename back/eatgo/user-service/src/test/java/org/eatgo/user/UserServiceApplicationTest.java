@@ -1,6 +1,7 @@
 package org.eatgo.user;
 
 import org.eatgo.common.domain.dto.FundDto;
+import org.eatgo.common.domain.po.User;
 import org.eatgo.user.mapper.UserMapper;
 import org.eatgo.user.service.UserService;
 import org.junit.jupiter.api.Test;
@@ -21,5 +22,19 @@ public class UserServiceApplicationTest {
 
     @Autowired
     private JedisPool jedisPool;
+
+    @Test
+    public void test1(){
+        User user=new User();
+        user.setId(18);
+        user.setUsername("admin");
+        user.setPassword("123456");
+        user.setAvatar("http://192.168.174.130:9000/eatgo/avatar/1.jpg");
+        user.setEmail("matrix@skyhub.com");
+        userMapper.EditUser(user);
+
+
+
+    }
 
 }

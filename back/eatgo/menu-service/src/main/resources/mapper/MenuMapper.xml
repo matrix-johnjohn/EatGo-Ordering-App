@@ -10,15 +10,15 @@
 
     <!--标签列表-->
     <select id="tagList" resultType="org.eatgo.common.domain.po.DishTag">
-        <include refid="tags"></include>
-        <if test="id!=null">
+        <include refid="tags" />
+        <if test="id != null">
             where categorize_id=#{id}
         </if>
     </select>
 
     <!--菜品列表-->
     <select id="dishList" resultType="org.eatgo.common.domain.po.Dish">
-        <include refid="dishes"></include>
+        <include refid="dishes" />
         <if test="categorizeId!=null">
             where categorize_id=#{categorizeId}
         </if>
@@ -27,7 +27,7 @@
         </if>
     </select>
 
-    <!--菜品列表根据ids-->
+    <!-- 菜品列表根据ids -->
     <select id="dishesByIds" resultType="org.eatgo.common.domain.po.Dish">
         <include refid="dishes" />
         <where>
@@ -40,5 +40,10 @@
             </foreach>
             )
         </where>
+    </select>
+
+    <!-- 推荐列表 -->
+    <select id="recommendList" resultType="org.eatgo.common.domain.po.Dish">
+        <include refid="dishes"/> order by collection_count desc
     </select>
 </mapper>

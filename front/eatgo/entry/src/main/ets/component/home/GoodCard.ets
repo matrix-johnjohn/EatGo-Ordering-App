@@ -37,15 +37,7 @@ export function GoodsCardBuilder(data:goods){
       .width('50%')
       //过渡
       Column(){}.layoutWeight(1)
-      //collection
-      Column(){
-        Image($rawfile('home/icon/ic_collection.svg'))
-          .width(35)
-          .fillColor('#ffababab')
-        Text(data.collection_count.toString())
-          .fontSize(15)
-          .fontColor('#FFABABAB')
-      }
+
 
     }
     .width('100%')

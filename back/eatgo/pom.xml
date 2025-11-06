@@ -17,6 +17,8 @@
         <module>menu-service</module>
         <module>collection-service</module>
         <module>fund-service</module>
+        <module>comment-service</module>
+        <module>order-service</module>
     </modules>
 
     <properties>

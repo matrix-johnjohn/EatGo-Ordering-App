@@ -7,16 +7,17 @@ import { Result } from '../../api/request/base/index'
 import { collectionDishList } from '../../api/request/collection';
 import { Dish } from '../../api/entity/menu';
 
+
 @Component
 export struct User {
 
   @State userInfo:UserInfo={//用户身份信息
-    id:15,
-    username:'matrix',
-    password:'123456',
-    email:'1596903229@qq.com',
+    id: 0,
+    username:'',
+    password:'',
+    email:'',
     balance:0,
-    isEffective:1,
+    isEffective:0,
     auth: 0,
     avatar: ""
   };
@@ -34,10 +35,11 @@ export struct User {
     getUser(e).then((res:AxiosResponse<Result<UserInfo>>)=>{
       this.userInfo=res.data.data;
       //调用用户菜品数据
-      collectionDishList(this.userInfo.id).then((res:AxiosResponse<Result<Dish[]>>)=>{
+      collectionDishList(this.userInfo.id)
+        .then((res:AxiosResponse<Result<Dish[]>>)=>{
         this.userCollectionDishList=res.data.data;
       })
-      console.log('登录用户数据',JSON.stringify(res));
+      console.log(JSON.stringify(this.userInfo))
     })
   }
 
@@ -46,8 +48,10 @@ export struct User {
       // 头部用户信息卡片
       HeaderCard({
         username:this.userInfo.username,
-        avatar:this.userInfo.avatar,
-        email:this.userInfo.email
+        avatar: this.userInfo.avatar as string,
+        email:this.userInfo.email,
+        onAction:()=>{
+          this.getUIContext().getRouter().pushUrl({url:"pages/user/edit/edit"})}
       })
       // 收藏卡片
       Column(){

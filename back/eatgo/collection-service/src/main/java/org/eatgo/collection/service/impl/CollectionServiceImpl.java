@@ -125,7 +125,7 @@ public class CollectionServiceImpl implements CollectionService {
     @Override
     public List<Dish> collectionDishList(Integer userId) {//收藏菜品列表逻辑处理
 
-        List<Integer>ids=getUserCollectionDishIdByUserId(15);
+        List<Integer>ids=getUserCollectionDishIdByUserId(userId);
 
         ResultVo<List<Dish>>res=menuClient.dishesList(ids);
 

@@ -6,6 +6,7 @@ import org.eatgo.common.domain.po.DishCategorize;
 import org.eatgo.common.domain.po.DishTag;
 import org.eatgo.common.domain.query.CollectionQuery;
 import org.eatgo.common.domain.query.DishQuery;
+import org.eatgo.common.domain.query.PageQuery;
 import org.eatgo.common.domain.vo.ResultVo;
 import org.eatgo.menu.service.MenuService;
 import org.springframework.web.bind.annotation.*;
@@ -62,5 +63,22 @@ public class MenuController {
     public ResultVo<List<Dish>> dishesList(@RequestParam("ids")List<Integer>ids){
         List<Dish>dishes=menuService.dishesListByids(ids);
         return ResultVo.success("用户收藏列表",dishes);
+    }
+
+    @GetMapping("/popular/list/{pageNum}/{pageSize}")
+    public ResultVo<List<Dish>> popularList(
+            @PathVariable("pageNum")Integer pageNum,
+            @PathVariable("pageSize")Integer pageSize){
+
+        List<Dish>dishes=menuService.recommandList(new PageQuery(pageNum,pageSize));
+
+        return ResultVo.success("收藏热门",dishes);
+    }
+
+    @GetMapping("/dish/detail/{dishId}")
+    public ResultVo<Dish> getDishById(@PathVariable("dishId") Integer dishId){
+        Dish dish=menuService.findById(dishId);
+
+        return ResultVo.success("成功获取菜品数据",dish);
     }
 }

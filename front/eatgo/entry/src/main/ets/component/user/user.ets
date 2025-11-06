@@ -21,7 +21,10 @@ export function HeaderCard(options:user){
     .height(100)
     .margin({top:10,bottom:10,left:10})
 
-
+    Image($rawfile('user/return.svg'))
+      .width(30)
+      .margin({right:10})
+      .onClick(options.onAction)
   }
   .width('100%')
   .height(120)

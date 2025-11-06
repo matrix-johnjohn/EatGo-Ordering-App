@@ -2,7 +2,6 @@ package org.eatgo.fund;
 
 import cn.hutool.json.JSONUtil;
 import org.eatgo.common.domain.dto.FundDto;
-import org.eatgo.common.domain.po.RechargeRecord;
 import org.eatgo.common.domain.po.User;
 import org.eatgo.fund.mapper.FundMapper;
 import org.eatgo.fund.service.FundService;
@@ -29,36 +28,22 @@ public class FundServiceApplicationTest {
     private final FundDto fundDto=new FundDto("1596903229@qq.com",20,1);
 
     @Test
-    public void weChatPayMapper(){
-        // 从jedis连接池中获取一个可用的jedis连接
+    public void withdraw(){
+        // 数据库修改数据
+        fundMapper.withdraw(fundDto);
+
+        // 数据库缓存修改数据
         Jedis jedis=jedisPool.getResource();
 
-        // 更改数据库的数据
-        fundMapper.recharge(fundDto);
-
-        // 更新数据库缓存数据
         String bean=jedis.get("info:" + fundDto.getEmail());
-        User u=JSONUtil.toBean(bean, User.class);// 获取当前数据
-        u.setBalance(u.getBalance()+fundDto.getAmount());// 设置数据
-        jedis.set("info:" + fundDto.getEmail(),JSONUtil.toJsonStr(u));// 重新设置数据
 
-        // 往数据库添加充值记录
-        RechargeRecord rechargeRecord=new RechargeRecord();//组装需要添加的数据
-        rechargeRecord.setUserId(u.getId());
-        rechargeRecord.setMethod(fundDto.getMethod());
-        rechargeRecord.setAmount(fundDto.getAmount());
-        fundMapper.insertRechargeRecord(rechargeRecord);
+        User user=JSONUtil.toBean(bean, User.class);// 获取当前数据
 
-        // Todo: 接入微信支付沙箱
-        System.out.println("接入微信支付沙箱");
+        user.setBalance(user.getBalance()-fundDto.getAmount());// 修改数据
 
-        // 关闭连接
+        jedis.set("info:" + fundDto.getEmail(),JSONUtil.toJsonStr(user));// 缓存写入数据
+
         jedis.close();
-    }
-
-    @Test
-    public void weChatPayService(){
-        fundService.recharge(fundDto);
     }
 
 }

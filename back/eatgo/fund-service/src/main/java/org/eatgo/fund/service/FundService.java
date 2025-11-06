@@ -5,4 +5,6 @@ import org.eatgo.common.domain.dto.FundDto;
 public interface FundService {
 
     public void recharge(FundDto balanceDto);//根据email进行充值
+
+    public void withdraw(FundDto balanceDto);// 取款
 }

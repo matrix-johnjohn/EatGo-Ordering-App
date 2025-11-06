@@ -7,10 +7,49 @@ import { EmptyStatusForDish } from '../../../component/common/EmptyStatus';
 import { UserInfo } from '../../../api/entity/user';
 import { cancelCollect, collect, collectionList } from '../../../api/request/collection';
 import { isCollection, UserCollection } from '../../../api/entity/collection';
+import { preferences } from '@kit.ArkData';
+import { getUser } from '../../../api/request/user';
+
+@CustomDialog
+@Component
+struct CustomDialogSelectSpecs{
+  @Link dish:Dish;
+  controller?: CustomDialogController;
+
+  aboutToAppear(): void {
+    console.log('当前选择菜品',JSON.stringify(this.dish));
+  }
+  build() {
+    Column(){
+
+    }
+    .width('100%')
+    .height(300)
+    .backgroundColor(Color.White)
+  }
+}
 
 @Entry
 @Component
 export struct CateDetail {
+  // 当前菜品
+  @State currentDish:Dish={};
+  dialogSelectSpecsController: CustomDialogController | null = new CustomDialogController({
+    builder: CustomDialogSelectSpecs({
+      dish:this.currentDish
+    })
+  });
+  // 用户身份信息
+  @State info:UserInfo= {
+    id: 0,
+    username: '',
+    password: '',
+    email: '',
+    balance: 0,
+    isEffective: 0,
+    auth: 0,
+    avatar: ''
+  };
 
   @State currHighLightIndex:number=0;//当前标签,0:全部,other:当前标签id
 
@@ -158,7 +197,7 @@ export struct CateDetail {
   @Builder//菜品数据渲染
   DishListRender(){
     List(){
-      ForEach(this.dishList,(item:Dish)=>{
+      ForEach(this.dishList,(item:Dish,index:number)=>{
         ListItem(){
           Row(){
             Image(item.image)
@@ -195,26 +234,29 @@ export struct CateDetail {
                 .backgroundColor(Color.Orange)
                 .margin({right:5})
                 .onClick((event: ClickEvent) => {
-
+                  this.currentDish=this.dishList[index];
+                  // Todo:启动弹窗
+                  this.dialogSelectSpecsController?.open();
                 })
+
               //按钮状态审查
               if(isCollection(this.collectionList,item.id as number)){
                 Button('收藏')
                   .fontSize(12)
                   .backgroundColor('#FFC300')
                   .onClick((event: ClickEvent) => {
-                    console.log('id-test',item.id?.toString());
+                    console.log('id-test',item.id?.toString(),JSON.stringify(this.collectionList.length));
 
                     //数据库添加数据
                     collect({
-                      userId:AppStorage.get<UserInfo>('info')?.id as number
+                      userId:this.info.id
                     ,dishId:item.id as number
                     }).then(()=>{
-
+                      console.log((AppStorage.get<UserInfo>('info')?.id as number).toString())
                     })
                     //页面添加数据
                     this.collectionList.push({
-                      userId: AppStorage.get<UserInfo>('info')?.id as number,
+                      userId: this.info.id,
                       dishId: item.id as number,
                       id: 0,
                       createTime: '',
@@ -228,7 +270,7 @@ export struct CateDetail {
                   .onClick((event: ClickEvent) => {
                     //数据库删除数据
                     cancelCollect({
-                      userId:AppStorage.get<UserInfo>('info')?.id as number
+                      userId:this.info.id
                     ,dishId:item.id as number
                     }).then(()=>{
                       console.log('删除成功')
@@ -249,6 +291,9 @@ export struct CateDetail {
           .height(100)
           .margin({top:10})
         }
+        .onClick(()=>{
+          this.getUIContext().getRouter().pushUrl({url:"pages/home/DishDetail/index",params:item as Dish});
+        })
       })
     }
     .scrollBar(BarState.Off)
@@ -262,7 +307,16 @@ export struct CateDetail {
 
     this.setDishList({categorizeId:this.pageData.categorizeId,tagId:0});//获取菜品数据
 
-    this.setCollectionList(AppStorage.get<UserCollection>('info')?.id as number);//获取用户收藏数据
+
+
+    let email=preferences.getPreferencesSync(this.getUIContext().getHostContext(),{name:'user'}).getSync("email","");
+    getUser(email as string).then((res:AxiosResponse<Result<UserInfo>>)=>{
+      console.log(JSON.stringify(res.data.data))
+
+      this.info=res.data.data;
+
+      this.setCollectionList(this.info.id);//获取用户收藏数据
+    })
   }
 
   build() {
@@ -287,14 +341,6 @@ export struct CateDetail {
           //TODO:菜品列表
           if(this.dishList.length===0){
             EmptyStatusForDish('商家还没有推出菜品哦');
-            // Column(){
-            //   Image($rawfile('component/empty_status.svg'))
-            //     .width('30%')
-            //   Text('商家还没有推出菜品哦')
-            //     .fontColor('#ff7e7e7e')
-            // }
-            // .width('100%')
-            // .margin({top:40})
           }else{
             this.DishListRender();
           }

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.eatgo.user.mapper.UserMapper">
+
+    <!-- 修改用户 -->
+    <update id="EditUser" parameterType="org.eatgo.common.domain.po.User">
+        update user
+            <set>
+                <if test="username != null">
+                    username=#{username},
+                </if>
+                <if test="password != null">
+                    password=#{password},
+                </if>
+                <if test="avatar != null">
+                    avatar=#{avatar},
+                </if>
+                <if test="email != null">
+                    email=#{email}
+                </if>
+            </set>
+        <where>id=#{id}</where>
+    </update>
+</mapper>

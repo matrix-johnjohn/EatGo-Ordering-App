@@ -10,7 +10,7 @@ export struct TextTitle{
     .width('100%')
     .height(70)
     .backgroundColor(Color.White)
-    .shadow({color:'#ff7e7e7e',radius:10,offsetX:5,offsetY:5})
+    .shadow({color:'#ffdddddd',radius:10,offsetX:10,offsetY:10})
   }
 }
 
@@ -25,14 +25,11 @@ export struct TextTitleBack{
         .fillColor('#ff999999')
         .width(30)
         .onClick(()=>{
-          this
-            .getUIContext()
-            .getRouter()
-            .back()
+          this.getUIContext().getRouter().back();
         })
 
       Text(this.title)
-        .fontSize(20)
+        .fontSize(15)
 
       Column()
     }
@@ -40,6 +37,6 @@ export struct TextTitleBack{
     .height(70)
     .backgroundColor(Color.White)
     .justifyContent(FlexAlign.SpaceBetween)
-    .shadow({color:'#ff7e7e7e',radius:10,offsetX:5,offsetY:5})
+    .shadow({color:'#ffcdcdcd',radius:10,offsetX:10,offsetY:10})
   }
 }

@@ -1,5 +1,3 @@
-import { User } from "../../../pages/user/user";
-
 export interface UserCollection{
   id:0;
   userId:number;
@@ -13,6 +11,7 @@ export interface CollectionQuery{
   userId:number;
   dishId:number
 }
+
 /*
  * true:收藏
  * false:取消收藏

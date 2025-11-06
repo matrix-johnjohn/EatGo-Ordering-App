@@ -32,3 +32,10 @@ spring:
           uri: lb://fund-service
           predicates:
             - Path=/fund/**
+        - id: comment
+          uri: lb://comment-service
+          predicates:
+            - Path=/comment/**
+
+
+

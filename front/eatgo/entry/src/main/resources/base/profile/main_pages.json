@@ -4,6 +4,8 @@
     "pages/login/Login",
     "pages/home/CateDetail/index",
     "pages/user/collection/UserCollection",
-    "pages/user/topup/TopUp"
+    "pages/user/topup/TopUp",
+    "pages/user/edit/edit",
+    "pages/home/DishDetail/index"
   ]
 }
