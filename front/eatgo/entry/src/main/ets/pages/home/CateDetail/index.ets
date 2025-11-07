@@ -1,7 +1,7 @@
 import { Dish, DishQuery, DishTag } from '../../../api/entity/menu/index';
 import { Router } from '@ohos.arkui.UIContext';
 import { dishList, tagList } from '../../../api/request/menu';
-import { AxiosResponse } from '@ohos/axios';
+import {  AxiosResponse } from '@ohos/axios';
 import { Result } from '../../../api/request/base';
 import { EmptyStatusForDish } from '../../../component/common/EmptyStatus';
 import { UserInfo } from '../../../api/entity/user';
@@ -9,19 +9,104 @@ import { cancelCollect, collect, collectionList } from '../../../api/request/col
 import { isCollection, UserCollection } from '../../../api/entity/collection';
 import { preferences } from '@kit.ArkData';
 import { getUser } from '../../../api/request/user';
+import { OrderDto } from '../../../api/entity/order';
+import { insertOrder } from '../../../api/request/order';
+import { promptAction } from '@kit.ArkUI';
 
 @CustomDialog
 @Component
-struct CustomDialogSelectSpecs{
+struct CustomDialogSelectSpecs {
   @Link dish:Dish;
+
+  @State user:UserInfo= {
+    id: 0,
+    username: '',
+    password: '',
+    email: '',
+    balance: 0,
+    isEffective: 0,
+    auth: 0,
+    avatar: ''
+  };
+
+  @State orderDto:OrderDto= {
+    userId: 0,
+    dishId: 0,
+    price: 0,
+    count: 1,
+    totalPrice: 0
+  };
   controller?: CustomDialogController;
 
   aboutToAppear(): void {
-    console.log('当前选择菜品',JSON.stringify(this.dish));
+
+    let email=preferences.getPreferencesSync(this.getUIContext().getHostContext(),{name:"user"}).getSync("email","") as string;
+
+    getUser(email).then((res:AxiosResponse<Result<UserInfo>>)=>{
+      this.user=res.data.data;
+      this.orderDto.userId=res.data.data.id;
+      this.orderDto.dishId=this.dish.id as number
+    })
+
+    this.orderDto.price=this.dish.price as number;
+
+    this.orderDto.totalPrice=(this.dish.price as number);
+
+    this.orderDto.totalPrice=parseFloat(this.orderDto.totalPrice.toFixed(2).valueOf());
   }
+
   build() {
     Column(){
+      Row(){
+        Image($rawfile('home/close.svg'))
+          .width(15)
+          .margin({left:20,top:20})
+          .onClick(()=>{this.controller?.close()})
 
+        Text(this.dish.title)
+          .margin({top:20})
+        Column()
+      }
+      .width('100%')
+      .justifyContent(FlexAlign.SpaceBetween)
+
+      Row(){
+        Button('-')
+          .onClick(()=>{
+            this.orderDto.count--;
+
+            this.orderDto.totalPrice=this.orderDto.count*(this.dish.price as number);
+          })
+        Text(this.orderDto.count.toString())
+        Button('+')
+          .onClick(()=>{
+            this.orderDto.count++;
+
+            this.orderDto.totalPrice=this.orderDto.count*(this.dish.price as number);
+          })
+      }
+      .width('100%')
+
+      Row(){
+        Text('￥'+this.orderDto.totalPrice)
+        Button('点击购买')
+          .backgroundColor('#FFC300')
+          .onClick(()=>{
+            console.log(JSON.stringify(this.orderDto));
+
+            insertOrder(this.orderDto).then((res:AxiosResponse<Result<string>>)=>{
+              console.log(JSON.stringify(res.data))
+
+              promptAction.openToast({
+                message:"下单成功",
+                duration:1000,
+                bottom:100
+              })
+
+              this.controller?.close();
+            })
+          })
+      }
     }
     .width('100%')
     .height(300)
@@ -34,6 +119,7 @@ struct CustomDialogSelectSpecs{
 export struct CateDetail {
   // 当前菜品
   @State currentDish:Dish={};
+  // 弹窗
   dialogSelectSpecsController: CustomDialogController | null = new CustomDialogController({
     builder: CustomDialogSelectSpecs({
       dish:this.currentDish
@@ -216,7 +302,7 @@ export struct CateDetail {
                 .fontSize(15)
               Row(){
                 Image($rawfile('home/icon/ic_rmb.svg')).width(20)
-                Text('20')
+                Text(item.price?.toString()).margin({left:5})
               }
               .width('100%')
               .margin({top:10})

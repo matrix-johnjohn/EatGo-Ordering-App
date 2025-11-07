@@ -12,7 +12,7 @@ spring:
         dashboard: 192.168.174.130:9090
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://${mysql.connect.url}:3306/menu
+    url: jdbc:mysql://${mysql.connect.url}:3306/order
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: ${mysql.connect.username}
     password: ${mysql.connect.password}
