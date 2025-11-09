@@ -2,6 +2,7 @@ package org.eatgo.comment.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.eatgo.common.domain.query.CommentQuery;
 import org.eatgo.common.domain.query.UserComment;
 
 import java.util.List;
@@ -11,4 +12,6 @@ public interface CommentMapper {
 
     @Select("select * from user_comment where dish_id=#{dishId}")
     public List<UserComment> commentList(Integer dishId);
+
+    public void uploadComment(CommentQuery commentQuery);
 }

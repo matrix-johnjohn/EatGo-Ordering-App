@@ -81,4 +81,9 @@ public class MenuController {
 
         return ResultVo.success("成功获取菜品数据",dish);
     }
+
+    @GetMapping("/dish/list")
+    public ResultVo<List<Dish>>DishList(){
+        return ResultVo.success("全部菜品数据",menuService.dishList());
+    }
 }

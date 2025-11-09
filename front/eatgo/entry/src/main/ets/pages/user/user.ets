@@ -24,6 +24,27 @@ export struct User {
 
   @State userCollectionDishList:Dish[]=[];
 
+  @Prop @Watch('change') num: number = 3;
+  change() {
+    if (this.num===3){
+      // 读取磁盘通道
+      let p=preferences.getPreferencesSync(this.getUIContext().getHostContext(),{name:"user"});
+
+      // 读取磁盘中的email
+      let e=p.getSync("email",0) as string;
+
+      //获取登录用户
+      getUser(e).then((res:AxiosResponse<Result<UserInfo>>)=>{
+        this.userInfo=res.data.data;
+        //调用用户菜品数据
+        collectionDishList(this.userInfo.id)
+          .then((res:AxiosResponse<Result<Dish[]>>)=>{
+            this.userCollectionDishList=res.data.data;
+          })
+        console.log(JSON.stringify(this.userInfo))
+      })
+    }
+  }
   aboutToAppear() {
     // 读取磁盘通道
     let p=preferences.getPreferencesSync(this.getUIContext().getHostContext(),{name:"user"});

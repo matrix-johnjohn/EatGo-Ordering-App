@@ -42,24 +42,38 @@ struct Layout {
     NavDestination(){
       Tabs({barPosition:BarPosition.End}){
         ForEach((this.tableData),(item:TabClass,index:number)=>{
-          TabContent(){
             if (index===0){
-              Home();
+              TabContent(){
+                Home()
+              }.tabBar(this.tabBuilder(item,index))
+              .backgroundColor('#ffefefef')
+              .expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM])
+
             }else if(index===1){
-              Order();
+              TabContent(){
+                Order({num:this.currentIndex})
+              }.tabBar(this.tabBuilder(item,index))
+              .backgroundColor('#ffefefef')
+              .expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM])
             }else if(index===2){
-              Chat();
+              TabContent(){
+                Chat()
+              }.tabBar(this.tabBuilder(item,index))
+              .backgroundColor('#ffefefef')
+              .expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM])
             }else if(index===3){
-              User();
+              TabContent(){
+                User({num:this.currentIndex})
+              }.tabBar(this.tabBuilder(item,index))
+              .backgroundColor('#ffefefef')
+              .expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM])
             }
-          }
-          .tabBar(this.tabBuilder(item,index))
-          .backgroundColor('#ffefefef')
-          .expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM])
         })
       }
       .onChange((index:number)=>{
         this.currentIndex=index;
+
+        console.log(index.toString())
       })
       .backgroundColor('#fff6f6f6')
     }

@@ -8,3 +8,9 @@ export interface comment{
   "createTime": string,
   "updateTime": string
 }
+
+export interface CommentQuery{
+  "comment":string,
+  "userId":number,
+  "dishId":number
+}

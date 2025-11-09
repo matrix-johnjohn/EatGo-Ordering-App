@@ -91,4 +91,9 @@ public class MenuServiceApplicationTest {
     public void test8(){
         Dish dish=menuMapper.getDishById(2);
     }
+
+    @Test
+    public void test9(){
+        menuService.dishList().forEach(System.out::println);
+    }
 }

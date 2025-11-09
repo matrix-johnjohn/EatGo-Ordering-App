@@ -7,7 +7,6 @@ import org.eatgo.common.domain.po.DishCategorize;
 import org.eatgo.common.domain.po.DishTag;
 import org.eatgo.common.domain.query.CollectionQuery;
 import org.eatgo.common.domain.query.DishQuery;
-
 import java.util.List;
 
 

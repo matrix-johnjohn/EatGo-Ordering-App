@@ -6,6 +6,7 @@ import { TextTitleBack } from '../../../component/common/CommonTitle'
 import { preferences } from '@kit.ArkData'
 import  { picker } from '@kit.CoreFileKit';
 import { common } from '@kit.AbilityKit'
+import { promptAction } from '@kit.ArkUI';
 
 @Entry
 @Component
@@ -131,7 +132,14 @@ struct edit{
         .margin({top:100})
         .onClick((event: ClickEvent) => {
           console.log(JSON.stringify(this.info))
+          this.getUIContext().getRouter().back();
+
           editUser(this.info).then(()=>{
+            promptAction.openToast({
+              message:"用户信息更新成功",
+              duration:2000,
+              bottom:100
+            })
             console.log("success");
           })
         })

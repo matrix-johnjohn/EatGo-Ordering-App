@@ -1,16 +1,17 @@
 @Builder
-export function OrderCardComing(){
+export function OrderCardComing(title:string,desc:string,image:string,setStatus:()=>void){
+
   ListItem(){
     Row(){
-      Image('https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc_gen_image/9595dcc5012d4dadb3fc921ee6a1d8e6preview.jpeg~tplv-a9rns2rl98-downsize_watermark_1_5.png?rcl=20251021203529C7A8A68F514DB07D68C7&rk3s=8e244e95&rrcfp=ddbb2dc7&x-expires=2076410144&x-signature=BC9mZ3C282w3OX6f%2BoOoQ4hz%2Fgs%3D')
+      Image(image)
         .width(100)
         .borderRadius(10)
 
       Flex({direction:FlexDirection.Column,justifyContent:FlexAlign.SpaceBetween,alignItems:ItemAlign.Start}){
-        Text('kimo·轻食减脂餐')
+        Text(title)
           .fontSize(18)
           .fontWeight(FontWeight.Bold)
-        Text('简介: 味道很不错')
+        Text(desc)
           .fontColor(Color.Gray)
         Text('进行中')
           .padding({left:10,right:10,top:5,bottom:5})
@@ -21,7 +22,7 @@ export function OrderCardComing(){
       .width('40%')
       .margin({left:10})
 
-      Column().layoutWeight(1)
+      Column().layoutWeight(1);
 
       Flex({direction:FlexDirection.Column,justifyContent:FlexAlign.SpaceBetween,alignItems:ItemAlign.End}){
         Row(){
@@ -35,10 +36,14 @@ export function OrderCardComing(){
         }
         .alignItems(VerticalAlign.Center)
 
-        Text('取消订单')
-          .textAlign(TextAlign.End)
+        Button('取消订单')
           .padding(10)
           .border({width:2,color:Color.Gray,radius:10})
+          .backgroundColor(Color.White)
+          .fontColor(Color.Black)
+          .onClick(()=>{
+            setStatus();
+          })
       }
       .height(100)
 
@@ -52,18 +57,18 @@ export function OrderCardComing(){
 }
 
 @Builder
-export function OrderCardAlready(){
+export function OrderCardAlready(title:string,desc:string,image:string,setStatus:()=>void){
   ListItem(){
     Row(){
-      Image('https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc_gen_image/9595dcc5012d4dadb3fc921ee6a1d8e6preview.jpeg~tplv-a9rns2rl98-downsize_watermark_1_5.png?rcl=20251021203529C7A8A68F514DB07D68C7&rk3s=8e244e95&rrcfp=ddbb2dc7&x-expires=2076410144&x-signature=BC9mZ3C282w3OX6f%2BoOoQ4hz%2Fgs%3D')
+      Image(image)
         .width(100)
         .borderRadius(10)
 
       Flex({direction:FlexDirection.Column,justifyContent:FlexAlign.SpaceBetween,alignItems:ItemAlign.Start}){
-        Text('kimo·轻食减脂餐')
+        Text(title)
           .fontSize(18)
           .fontWeight(FontWeight.Bold)
-        Text('简介: 味道很不错')
+        Text(desc)
           .fontColor(Color.Gray)
         Text('已出餐')
           .padding({left:10,right:10,top:5,bottom:5})
@@ -92,6 +97,9 @@ export function OrderCardAlready(){
           .type(ButtonType.Normal)
           .backgroundColor('#FFC300')
           .borderRadius(10)
+          .onClick(()=>{
+            setStatus();
+          })
       }
       .height(100)
 
@@ -105,18 +113,18 @@ export function OrderCardAlready(){
 }
 
 @Builder
-export function OrderCardFinish(){
+export function OrderCardFinish(title:string,desc:string,image:string,setStatus:()=>void){
   ListItem(){
     Row(){
-      Image('https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc_gen_image/9595dcc5012d4dadb3fc921ee6a1d8e6preview.jpeg~tplv-a9rns2rl98-downsize_watermark_1_5.png?rcl=20251021203529C7A8A68F514DB07D68C7&rk3s=8e244e95&rrcfp=ddbb2dc7&x-expires=2076410144&x-signature=BC9mZ3C282w3OX6f%2BoOoQ4hz%2Fgs%3D')
+      Image(image)
         .width(100)
         .borderRadius(10)
 
       Flex({direction:FlexDirection.Column,justifyContent:FlexAlign.SpaceBetween,alignItems:ItemAlign.Start}){
-        Text('kimo·轻食减脂餐')
+        Text(title)
           .fontSize(18)
           .fontWeight(FontWeight.Bold)
-        Text('简介: 味道很不错')
+        Text(desc)
           .fontColor(Color.Gray)
         Text('已完成')
           .padding({left:10,right:10,top:5,bottom:5})
@@ -141,10 +149,13 @@ export function OrderCardFinish(){
         }
         .alignItems(VerticalAlign.Center)
 
-        Button('已完成')
+        Button('发表评论')
           .type(ButtonType.Normal)
           .backgroundColor('#FF8D1A')
           .borderRadius(10)
+          .onClick(()=>{
+            setStatus()
+          })
       }
       .height(100)
 

@@ -10,6 +10,9 @@ spring:
     sentinel:
       transport:
         dashboard: 192.168.174.130:9090
+    openfeign:
+      okhttp:
+        enabled: true
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     url: jdbc:mysql://${mysql.connect.url}:3306/order

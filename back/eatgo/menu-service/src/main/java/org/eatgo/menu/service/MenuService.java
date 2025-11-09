@@ -25,4 +25,6 @@ public interface MenuService {
     public List<Dish> recommandList(PageQuery pageQuery);
 
     public Dish findById(Integer id);
+
+    public List<Dish> dishList();
 }

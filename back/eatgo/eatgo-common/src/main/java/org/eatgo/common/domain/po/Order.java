@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 public class Order{
     private Integer id;
     private Integer userId;
+    private Integer dishId;
     private Integer price;
     private Integer count;
     private Integer totalPrice;

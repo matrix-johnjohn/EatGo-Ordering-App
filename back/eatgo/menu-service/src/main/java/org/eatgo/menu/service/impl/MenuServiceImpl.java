@@ -66,4 +66,9 @@ public class MenuServiceImpl implements MenuService {
     public Dish findById(Integer dishId) {
         return menuMapper.getDishById(dishId);
     }
+
+    @Override
+    public List<Dish> dishList() {
+        return menuMapper.dishList(new DishQuery());
+    }
 }

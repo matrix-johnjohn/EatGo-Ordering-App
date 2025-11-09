@@ -5,6 +5,7 @@ import org.eatgo.comment.client.UserClient;
 import org.eatgo.comment.mapper.CommentMapper;
 import org.eatgo.comment.service.CommentService;
 import org.eatgo.common.domain.po.User;
+import org.eatgo.common.domain.query.CommentQuery;
 import org.eatgo.common.domain.query.UserComment;
 import org.springframework.stereotype.Service;
 
@@ -40,5 +41,10 @@ public class CommentServiceImpl implements CommentService {
         }
 
         return comments;
+    }
+
+    @Override
+    public void uploadComment(CommentQuery commentQuery) {
+        commentMapper.uploadComment(commentQuery);
     }
 }
