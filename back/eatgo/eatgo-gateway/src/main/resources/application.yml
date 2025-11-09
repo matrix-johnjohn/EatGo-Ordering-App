@@ -40,6 +40,10 @@ spring:
           uri: lb://order-service
           predicates:
             - Path=/order/**
+        - id: chat
+          uri: lb://chat-service
+          predicates:
+            - Path=/ws/**
 
 
 

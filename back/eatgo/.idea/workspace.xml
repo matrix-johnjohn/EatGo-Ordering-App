@@ -5,39 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5b4db99-d618-4aea-bfc8-a23fdbf410b9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/comment-service/src/main/resources/mapper/CommentMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eatgo-common/src/main/java/org/eatgo/common/domain/query/CommentQuery.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/org/eatgo/order/client/MenuClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/resources/mapper/OrderMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-service/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-service/src/main/java/org/eatgo/chat/config/WebSocketConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-service/src/main/java/org/eatgo/chat/controller/ChatController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-service/src/main/java/org/eatgo/chat/handler/WebSocketHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-service/src/main/resources/application-dev.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-service/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eatgo-common/src/main/java/org/eatgo/common/domain/query/ChatMessageQuery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/api/request/chat/index.ets" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/77d944da-48be-4ba7-a610-9e4c02888bce.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/77d944da-48be-4ba7-a610-9e4c02888bce.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comment-service/src/main/java/org/eatgo/comment/controller/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/comment-service/src/main/java/org/eatgo/comment/controller/CommentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comment-service/src/main/java/org/eatgo/comment/mapper/CommentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/comment-service/src/main/java/org/eatgo/comment/mapper/CommentMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comment-service/src/main/java/org/eatgo/comment/service/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/comment-service/src/main/java/org/eatgo/comment/service/CommentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comment-service/src/main/java/org/eatgo/comment/service/impl/CommentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/comment-service/src/main/java/org/eatgo/comment/service/impl/CommentServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comment-service/src/test/java/org/eatgo/comment/CommentServiceApplicationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/comment-service/src/test/java/org/eatgo/comment/CommentServiceApplicationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eatgo-common/src/main/java/org/eatgo/common/domain/po/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/eatgo-common/src/main/java/org/eatgo/common/domain/po/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/menu-service/src/main/java/org/eatgo/menu/controller/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/menu-service/src/main/java/org/eatgo/menu/controller/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/menu-service/src/main/java/org/eatgo/menu/mapper/MenuMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/menu-service/src/main/java/org/eatgo/menu/mapper/MenuMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/menu-service/src/main/java/org/eatgo/menu/service/MenuService.java" beforeDir="false" afterPath="$PROJECT_DIR$/menu-service/src/main/java/org/eatgo/menu/service/MenuService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/menu-service/src/main/java/org/eatgo/menu/service/impl/MenuServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/menu-service/src/main/java/org/eatgo/menu/service/impl/MenuServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/menu-service/src/test/java/org/eatgo/menu/MenuServiceApplicationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/menu-service/src/test/java/org/eatgo/menu/MenuServiceApplicationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/org/eatgo/order/OrderServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/org/eatgo/order/OrderServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/org/eatgo/order/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/org/eatgo/order/controller/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/org/eatgo/order/mapper/OrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/org/eatgo/order/mapper/OrderMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/org/eatgo/order/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/org/eatgo/order/service/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/org/eatgo/order/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/org/eatgo/order/service/impl/OrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/test/java/org/eatgo/order/OrderServiceApplicationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/test/java/org/eatgo/order/OrderServiceApplicationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/api/entity/order/index.ets" beforeDir="false" afterPath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/api/entity/order/index.ets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/api/request/order/index.ets" beforeDir="false" afterPath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/api/request/order/index.ets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/component/order/OrderCard.ets" beforeDir="false" afterPath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/component/order/OrderCard.ets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/pages/Layout.ets" beforeDir="false" afterPath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/pages/Layout.ets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/pages/order/order.ets" beforeDir="false" afterPath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/pages/order/order.ets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/pages/user/edit/edit.ets" beforeDir="false" afterPath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/pages/user/edit/edit.ets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/pages/user/user.ets" beforeDir="false" afterPath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/pages/user/user.ets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eatgo-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/eatgo-gateway/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/pages/chat/chat.ets" beforeDir="false" afterPath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/pages/chat/chat.ets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../prds/01uml用例图.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/../../prds/01uml用例图.drawio" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../prds/需求文档.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../prds/需求文档.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -118,6 +101,7 @@
     &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.ChatServiceApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.CollectionServiceApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.EmailServiceApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.EmailServiceApplication1.executor&quot;: &quot;Run&quot;,
@@ -126,6 +110,7 @@
     &quot;Spring Boot.MenuServiceApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.OrderServiceApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.UserServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.chat-service-01.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.collection-service-01.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.comment-service-01.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.email-service-01.executor&quot;: &quot;Run&quot;,
@@ -141,13 +126,13 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/project/github/EatGo-Ordering-App/back/eatgo/order-service/src/main/resources&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/project/github/EatGo-Ordering-App/back/eatgo/chat-service/src/main/resources&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;E:/project/github/EatGo-Ordering-App/back/eatgo/order-service/src/main/java/org/eatgo/order/Main.java&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;E:/project/github/EatGo-Ordering-App/back/eatgo/chat-service/src/main/java/org/eatgo/chat/Main.java&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
@@ -166,11 +151,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\project\github\EatGo-Ordering-App\back\eatgo\chat-service\src\main\resources" />
       <recent name="E:\project\github\EatGo-Ordering-App\back\eatgo\order-service\src\main\resources" />
       <recent name="E:\project\github\EatGo-Ordering-App\back\eatgo\comment-service\src\main\resources" />
       <recent name="E:\project\github\EatGo-Ordering-App\back\eatgo\fund-service\src\main\java\org\eatgo\fund" />
       <recent name="E:\project\github\EatGo-Ordering-App\back\eatgo\fund-service\src\main\resources" />
-      <recent name="E:\project\github\EatGo-Ordering-App\back\eatgo\collection-service\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\project\github\EatGo-Ordering-App\back\eatgo\menu-service\src\main\resources" />
@@ -255,6 +240,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="chat-service-01" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="chat-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.eatgo.chat.ChatServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="collection-service-01" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="collection-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.eatgo.collection.CollectionServiceApplication" />
@@ -330,6 +322,7 @@
       <item itemvalue="Spring Boot.collection-service-01" />
       <item itemvalue="Spring Boot.comment-service-01" />
       <item itemvalue="Spring Boot.order-service-01" />
+      <item itemvalue="Spring Boot.chat-service-01" />
       <item itemvalue="Spring Boot.fund-service-01" />
     </list>
     <recent_temporary>
@@ -412,6 +405,8 @@
       <workItem from="1762560980335" duration="5470000" />
       <workItem from="1762600208546" duration="2889000" />
       <workItem from="1762612099034" duration="1588000" />
+      <workItem from="1762655643755" duration="10647000" />
+      <workItem from="1762681292952" duration="552000" />
     </task>
     <servers />
   </component>

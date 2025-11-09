@@ -19,6 +19,7 @@
         <module>fund-service</module>
         <module>comment-service</module>
         <module>order-service</module>
+        <module>chat-service</module>
     </modules>
 
     <properties>

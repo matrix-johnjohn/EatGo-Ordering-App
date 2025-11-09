@@ -13,6 +13,7 @@
         <introspection-scope>
           <node kind="schema">
             <name qname="@" />
+            <name qname="chat" />
             <name qname="collection" />
             <name qname="comment" />
             <name qname="menu" />
