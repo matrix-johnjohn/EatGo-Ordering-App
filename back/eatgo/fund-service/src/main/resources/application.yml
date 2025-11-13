@@ -25,4 +25,4 @@ mybatis:
   mapper-locations: classpath:mapper/*.xml
 
 server:
-  port: 9002
+  port: 9005

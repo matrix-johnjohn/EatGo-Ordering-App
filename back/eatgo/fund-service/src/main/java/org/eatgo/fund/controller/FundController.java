@@ -2,6 +2,7 @@ package org.eatgo.fund.controller;
 
 import jakarta.annotation.Resource;
 import org.eatgo.common.domain.dto.FundDto;
+import org.eatgo.common.domain.query.DeductionQuery;
 import org.eatgo.common.domain.vo.ResultVo;
 import org.eatgo.fund.service.FundService;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,9 @@ public class FundController {
 
     @Resource(name = "alipay")
     private FundService fundServiceAlipay;
+
+    @Resource(name="common")
+    private FundService fundServiceCommon;
 
     @PutMapping("/wx/recharge")// 微信充值接口
     public ResultVo<String> wxRecharge(@RequestBody FundDto fundDto) {
@@ -38,5 +42,12 @@ public class FundController {
     public ResultVo<String> aliWithdraw(@RequestBody FundDto fundDto) {
         fundServiceAlipay.withdraw(fundDto);
         return ResultVo.success("支付宝取款","取款成功");
+    }
+
+    @PutMapping("/common/deduct")
+    public ResultVo<String> deduct(@RequestBody DeductionQuery deductionQuery) {
+        fundServiceCommon.Deduct(deductionQuery);
+
+        return ResultVo.success("购买成功",null);
     }
 }

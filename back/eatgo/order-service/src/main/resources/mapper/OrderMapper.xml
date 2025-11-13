@@ -23,7 +23,7 @@
     <select id="OrderList" resultType="org.eatgo.common.domain.vo.OrderVo">
         select * from dish_order
         <where>
-            <if test="userId != null">
+            <if test="userId != -1">
                 user_id=#{userId}
             </if>
             <if test="status != -1">

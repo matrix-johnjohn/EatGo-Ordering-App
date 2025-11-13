@@ -83,6 +83,62 @@ export struct Home {
     })
   }
 
+  @Builder GoodsCardBuilder(data:Dish){
+    ListItem(){
+      Row(){
+        //菜品图片
+        Image(data.image)
+          .width(100)
+          .borderRadius(10)
+          .margin({right:10})
+        //text
+        Flex({direction:FlexDirection.Column,justifyContent:FlexAlign.SpaceBetween}){
+          Text(data.title)
+            .fontSize(18)
+            .textAlign(TextAlign.Start)
+            .fontWeight(FontWeight.Bold)
+            .width('100%')
+          Text(data.description)
+            .fontSize(12)
+            .textAlign(TextAlign.Start)
+            .fontColor(Color.Gray)
+            .width('100%')
+          Row(){
+            Image($rawfile('home/icon/ic_rmb.svg'))
+              .width(25)
+              .margin({right:5})
+            Text(data.price?.toString())
+              .textAlign(TextAlign.Start)
+              .fontSize(20)
+              .fontWeight(FontWeight.Bold)
+              .fontColor('#FFC300')
+              .width('100%')
+          }
+          .alignItems(VerticalAlign.Center)
+        }
+        .width('50%')
+        //过渡
+        Column(){}.layoutWeight(1)
+      }
+      .onClick(()=>{
+        this
+          .getUIContext()
+          .getRouter()
+          .pushUrl({url:"pages/home/DishDetail/index",params:data})
+          .catch(() => {
+          // TODO: Implement error handling.
+        })
+      })
+      .width('100%')
+    }
+    .width('100%')
+    .height(120)
+    .margin({bottom:10})
+    .padding(10)
+    .borderRadius(10)
+    .backgroundColor(Color.White)
+  }
+
   build() {
         Column(){
           //头部搜索栏
@@ -119,21 +175,7 @@ export struct Home {
           Column(){
             List(){
               ForEach(this.PopularDishList,(item:Dish,index:number)=>{
-                GoodsCardBuilder(
-                  {
-                    title:item.title,
-                    image:item.image,
-                    description:item.description,
-                    price:item.price,
-                    collection_count:item.collectionCount,
-                    isCollection:isCollection(this.CollectionList,item.id as number),
-                    collect:()=>{collect({userId:this.userInfo.id,dishId:item.id as number}).then(()=>{
-                      console.log('success');
-                    })},
-                    cancel:()=>{cancelCollect({userId:this.userInfo.id,dishId:item.id as number}).then(()=>{
-                      this.CollectionList.splice(index,1);
-                    })}
-                  } as goods)
+                this.GoodsCardBuilder(item)
               })
             }
             .onReachEnd(()=>{

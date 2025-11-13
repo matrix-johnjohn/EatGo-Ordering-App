@@ -27,3 +27,9 @@ export interface DishQuery{
   categorizeId?: number;
   tagId?: number;
 }
+
+export interface DeductQuery{
+  "userId":number,
+  "price":number,
+  "email":string
+}

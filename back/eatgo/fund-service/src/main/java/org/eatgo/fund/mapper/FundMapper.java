@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Update;
 import org.eatgo.common.domain.dto.FundDto;
 import org.eatgo.common.domain.po.RechargeRecord;
 import org.eatgo.common.domain.po.User;
+import org.eatgo.common.domain.query.DeductionQuery;
 
 @Mapper
 public interface FundMapper {
@@ -18,4 +19,7 @@ public interface FundMapper {
 
     @Insert("insert into user_recharge_record (user_id,method,amount) values (#{userId},#{method},#{amount});")
     public void insertRechargeRecord(RechargeRecord record); // 添加充值记录
+
+    @Update("update user set balance=balance-#{price} where id=#{userId}")
+    public void Deduction(DeductionQuery deductionQuery);
 }

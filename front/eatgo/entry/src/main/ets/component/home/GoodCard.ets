@@ -37,8 +37,6 @@ export function GoodsCardBuilder(data:goods){
       .width('50%')
       //过渡
       Column(){}.layoutWeight(1)
-
-
     }
     .width('100%')
   }

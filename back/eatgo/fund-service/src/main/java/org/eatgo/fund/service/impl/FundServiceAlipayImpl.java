@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.eatgo.common.domain.dto.FundDto;
 import org.eatgo.common.domain.po.RechargeRecord;
 import org.eatgo.common.domain.po.User;
+import org.eatgo.common.domain.query.DeductionQuery;
 import org.eatgo.fund.mapper.FundMapper;
 import org.eatgo.fund.service.FundService;
 import org.springframework.stereotype.Service;
@@ -65,4 +66,7 @@ public class FundServiceAlipayImpl implements FundService {
 
         jedis.close();
     }
+
+    @Override
+    public void Deduct(DeductionQuery deductionQuery) {}
 }

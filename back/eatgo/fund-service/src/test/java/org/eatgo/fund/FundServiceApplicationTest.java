@@ -3,6 +3,7 @@ package org.eatgo.fund;
 import cn.hutool.json.JSONUtil;
 import org.eatgo.common.domain.dto.FundDto;
 import org.eatgo.common.domain.po.User;
+import org.eatgo.common.domain.query.DeductionQuery;
 import org.eatgo.fund.mapper.FundMapper;
 import org.eatgo.fund.service.FundService;
 import org.junit.jupiter.api.Test;
@@ -25,8 +26,13 @@ public class FundServiceApplicationTest {
     @Autowired
     private FundService fundService;
 
-    private final FundDto fundDto=new FundDto("1596903229@qq.com",20,1);
+    @Qualifier("common")
+    @Autowired
+    private FundService fundServiceCommon;
 
+    private final FundDto fundDto=new FundDto("1596903229@qq.com",200,1);
+
+    private final DeductionQuery deductionQuery=new DeductionQuery(15,200,"1596903229@qq.com");
     @Test
     public void withdraw(){
         // 数据库修改数据
@@ -46,4 +52,8 @@ public class FundServiceApplicationTest {
         jedis.close();
     }
 
+    @Test
+    public void deduction(){
+        fundServiceCommon.Deduct(deductionQuery);
+    }
 }

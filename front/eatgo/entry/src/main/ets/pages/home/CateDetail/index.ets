@@ -1,6 +1,6 @@
 import { Dish, DishQuery, DishTag } from '../../../api/entity/menu/index';
 import { Router } from '@ohos.arkui.UIContext';
-import { dishList, tagList } from '../../../api/request/menu';
+import { Deduct, dishList, tagList } from '../../../api/request/menu';
 import {  AxiosResponse } from '@ohos/axios';
 import { Result } from '../../../api/request/base';
 import { EmptyStatusForDish } from '../../../component/common/EmptyStatus';
@@ -36,6 +36,7 @@ struct CustomDialogSelectSpecs {
     count: 1,
     totalPrice: 0
   };
+
   controller?: CustomDialogController;
 
   aboutToAppear(): void {
@@ -71,21 +72,28 @@ struct CustomDialogSelectSpecs {
       .justifyContent(FlexAlign.SpaceBetween)
 
       Row(){
-        Button('-')
-          .onClick(()=>{
-            this.orderDto.count--;
+        Row(){
+          Button('-')
+            .onClick(()=>{
+              this.orderDto.count--;
 
-            this.orderDto.totalPrice=this.orderDto.count*(this.dish.price as number);
-          })
-        Text(this.orderDto.count.toString())
-        Button('+')
-          .onClick(()=>{
-            this.orderDto.count++;
+              this.orderDto.totalPrice=this.orderDto.count*(this.dish.price as number);
+            })
+          Text(this.orderDto.count.toString())
+          Button('+')
+            .onClick(()=>{
+              console.log('价格对比',this.user.balance,this.orderDto.price*this.orderDto.count)
 
-            this.orderDto.totalPrice=this.orderDto.count*(this.dish.price as number);
-          })
+              this.orderDto.count++;
+
+              this.orderDto.totalPrice=this.orderDto.count*(this.dish.price as number);
+            })
+        }
+        .margin({top:20})
       }
+      .justifyContent(FlexAlign.Center)
       .width('100%')
+      .margin({top:20,bottom:20})
 
       Row(){
         Text('￥'+this.orderDto.totalPrice)
@@ -94,19 +102,40 @@ struct CustomDialogSelectSpecs {
           .onClick(()=>{
             console.log(JSON.stringify(this.orderDto));
 
-            insertOrder(this.orderDto).then((res:AxiosResponse<Result<string>>)=>{
-              console.log(JSON.stringify(res.data))
-
+            if (this.orderDto.count*this.orderDto.price>this.user.balance){
               promptAction.openToast({
-                message:"下单成功",
-                duration:1000,
-                bottom:100
+                message:'余额不足',
+                duration:2500
+              })
+            }else{
+              insertOrder(this.orderDto).then((res:AxiosResponse<Result<string>>)=>{
+                console.log(JSON.stringify(res.data))
+                  promptAction.openToast({
+                    message:"下单成功",
+                    duration:1000,
+                    bottom:100
+                  })
+                  this.controller?.close();
               })
 
-              this.controller?.close();
-            })
+              Deduct({
+                userId:this.user.id,
+                email:this.user.email,
+                price:this.orderDto.count*this.orderDto.price
+              }).then(()=>{
+                promptAction.openToast({
+                  message:"支付成功",
+                  duration:1000,
+                  bottom:100
+                })
+              })
+            }
+
           })
       }
+      .width('100%')
+      .padding(20)
+      .justifyContent(FlexAlign.SpaceBetween)
     }
     .width('100%')
     .height(300)

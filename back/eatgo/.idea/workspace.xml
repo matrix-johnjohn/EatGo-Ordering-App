@@ -5,22 +5,52 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5b4db99-d618-4aea-bfc8-a23fdbf410b9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/chat-service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat-service/src/main/java/org/eatgo/chat/config/WebSocketConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat-service/src/main/java/org/eatgo/chat/controller/ChatController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat-service/src/main/java/org/eatgo/chat/handler/WebSocketHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat-service/src/main/resources/application-dev.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat-service/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eatgo-common/src/main/java/org/eatgo/common/domain/query/ChatMessageQuery.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/api/request/chat/index.ets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/77d944da-48be-4ba7-a610-9e4c02888bce.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/77d944da-48be-4ba7-a610-9e4c02888bce.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo/src/main/java/com/example/demo/mapper/DemoMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo/src/main/java/com/example/demo/po/Gender.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo/src/main/java/com/example/demo/po/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo/src/test/java/com/example/demo/DemoApplicationTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-service/src/main/java/org/eatgo/chat/config/JedisConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-service/src/main/java/org/eatgo/chat/mapper/ChatMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-service/src/main/java/org/eatgo/chat/service/ChatService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-service/src/main/java/org/eatgo/chat/service/impl/ChatServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-service/src/test/java/org/eatgo/chat/ChatServiceApplicationTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eatgo-common/src/main/java/org/eatgo/common/domain/query/DeductionQuery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fund-service/src/main/java/org/eatgo/fund/service/impl/FundServiceCommon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/api/entity/chat/index.ets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/api/request/chat/chat.ets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/test/java/com/example/demo/DemoApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/org/eatgo/chat/config/WebSocketConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/org/eatgo/chat/config/WebSocketConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/org/eatgo/chat/controller/ChatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/org/eatgo/chat/controller/ChatController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/org/eatgo/chat/handler/WebSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/org/eatgo/chat/handler/WebSocketHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collection-service/src/test/java/org/eatgo/collection/CollectionServiceApplicationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/collection-service/src/test/java/org/eatgo/collection/CollectionServiceApplicationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comment-service/src/test/java/org/eatgo/comment/CommentServiceApplicationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/comment-service/src/test/java/org/eatgo/comment/CommentServiceApplicationTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eatgo-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/eatgo-gateway/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fund-service/src/main/java/org/eatgo/fund/controller/FundController.java" beforeDir="false" afterPath="$PROJECT_DIR$/fund-service/src/main/java/org/eatgo/fund/controller/FundController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fund-service/src/main/java/org/eatgo/fund/mapper/FundMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/fund-service/src/main/java/org/eatgo/fund/mapper/FundMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fund-service/src/main/java/org/eatgo/fund/service/FundService.java" beforeDir="false" afterPath="$PROJECT_DIR$/fund-service/src/main/java/org/eatgo/fund/service/FundService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fund-service/src/main/java/org/eatgo/fund/service/impl/FundServiceAlipayImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/fund-service/src/main/java/org/eatgo/fund/service/impl/FundServiceAlipayImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fund-service/src/main/java/org/eatgo/fund/service/impl/FundServiceWeChatPayImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/fund-service/src/main/java/org/eatgo/fund/service/impl/FundServiceWeChatPayImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fund-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/fund-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fund-service/src/test/java/org/eatgo/fund/FundServiceApplicationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/fund-service/src/test/java/org/eatgo/fund/FundServiceApplicationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/menu-service/src/main/resources/mapper/MenuMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/menu-service/src/main/resources/mapper/MenuMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/resources/mapper/OrderMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/resources/mapper/OrderMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/test/java/org/eatgo/order/OrderServiceApplicationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/test/java/org/eatgo/order/OrderServiceApplicationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/api/entity/menu/index.ets" beforeDir="false" afterPath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/api/entity/menu/index.ets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/api/request/chat/index.ets" beforeDir="false" afterPath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/api/request/chat/index.ets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/api/request/menu/index.ets" beforeDir="false" afterPath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/api/request/menu/index.ets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/component/home/GoodCard.ets" beforeDir="false" afterPath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/component/home/GoodCard.ets" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/pages/chat/chat.ets" beforeDir="false" afterPath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/pages/chat/chat.ets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../prds/01uml用例图.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/../../prds/01uml用例图.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/pages/home/CateDetail/index.ets" beforeDir="false" afterPath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/pages/home/CateDetail/index.ets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/pages/home/home.ets" beforeDir="false" afterPath="$PROJECT_DIR$/../../front/eatgo/entry/src/main/ets/pages/home/home.ets" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../prds/需求文档.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../prds/需求文档.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,6 +90,8 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;JAR Application.user-service-1.0.0.jar.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ChatServiceApplicationTest.test1.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ChatServiceApplicationTest.test2.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.CollectionServiceApplicationTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.CollectionServiceApplicationTest.test1.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.CollectionServiceApplicationTest.test2.executor&quot;: &quot;Run&quot;,
@@ -70,6 +102,7 @@
     &quot;JUnit.CommentServiceApplicationTest.test1.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.CommentServiceApplicationTest.test2.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.EmailServiceApplicationTests.contextLoads.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.FundServiceApplicationTest.deduction.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.FundServiceApplicationTest.test1.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.FundServiceApplicationTest.weChatPay.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.FundServiceApplicationTest.weChatPayService.executor&quot;: &quot;Run&quot;,
@@ -175,7 +208,39 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.CommentServiceApplicationTest.test2">
+  <component name="RunManager" selected="JUnit.FundServiceApplicationTest.deduction">
+    <configuration name="ChatServiceApplicationTest.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="chat-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.eatgo.chat.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.eatgo.chat" />
+      <option name="MAIN_CLASS_NAME" value="org.eatgo.chat.ChatServiceApplicationTest" />
+      <option name="METHOD_NAME" value="test1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ChatServiceApplicationTest.test2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="chat-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.eatgo.chat.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.eatgo.chat" />
+      <option name="MAIN_CLASS_NAME" value="org.eatgo.chat.ChatServiceApplicationTest" />
+      <option name="METHOD_NAME" value="test2" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CommentServiceApplicationTest.test2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="comment-service" />
       <extension name="coverage">
@@ -192,50 +257,31 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MenuServiceApplicationTest.test9" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="menu-service" />
+    <configuration name="FundServiceApplicationTest.deduction" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="fund-service" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.eatgo.menu.*" />
+          <option name="PATTERN" value="org.eatgo.fund.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.eatgo.menu" />
-      <option name="MAIN_CLASS_NAME" value="org.eatgo.menu.MenuServiceApplicationTest" />
-      <option name="METHOD_NAME" value="test9" />
+      <option name="PACKAGE_NAME" value="org.eatgo.fund" />
+      <option name="MAIN_CLASS_NAME" value="org.eatgo.fund.FundServiceApplicationTest" />
+      <option name="METHOD_NAME" value="deduction" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OrderServiceApplicationTest.test2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="order-service" />
+    <configuration name="FundServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="fund-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.eatgo.fund.FundServiceApplication" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.eatgo.order.*" />
+          <option name="PATTERN" value="org.eatgo.fund.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.eatgo.order" />
-      <option name="MAIN_CLASS_NAME" value="org.eatgo.order.OrderServiceApplicationTest" />
-      <option name="METHOD_NAME" value="test2" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="OrderServiceApplicationTest.test3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="order-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.eatgo.order.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.eatgo.order" />
-      <option name="MAIN_CLASS_NAME" value="org.eatgo.order.OrderServiceApplicationTest" />
-      <option name="METHOD_NAME" value="test3" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -264,20 +310,6 @@
     <configuration name="email-service-01" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="email-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.eatgo.email.EmailServiceApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="fund-service-01" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true">
-      <module name="fund-service" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="org.eatgo.fund.FundServiceApplication" />
-      <option name="VM_PARAMETERS" value="-Dserver.port=9005" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.eatgo.fund.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -311,27 +343,27 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.ChatServiceApplicationTest.test1" />
+      <item itemvalue="JUnit.ChatServiceApplicationTest.test2" />
       <item itemvalue="JUnit.CommentServiceApplicationTest.test2" />
-      <item itemvalue="JUnit.OrderServiceApplicationTest.test3" />
-      <item itemvalue="JUnit.MenuServiceApplicationTest.test9" />
-      <item itemvalue="JUnit.OrderServiceApplicationTest.test2" />
-      <item itemvalue="Spring Boot.gateway-service" />
-      <item itemvalue="Spring Boot.email-service-01" />
-      <item itemvalue="Spring Boot.user-service-01" />
-      <item itemvalue="Spring Boot.menu-service-01" />
+      <item itemvalue="JUnit.FundServiceApplicationTest.deduction" />
+      <item itemvalue="Spring Boot.chat-service-01" />
       <item itemvalue="Spring Boot.collection-service-01" />
       <item itemvalue="Spring Boot.comment-service-01" />
+      <item itemvalue="Spring Boot.email-service-01" />
+      <item itemvalue="Spring Boot.gateway-service" />
+      <item itemvalue="Spring Boot.menu-service-01" />
       <item itemvalue="Spring Boot.order-service-01" />
-      <item itemvalue="Spring Boot.chat-service-01" />
-      <item itemvalue="Spring Boot.fund-service-01" />
+      <item itemvalue="Spring Boot.user-service-01" />
+      <item itemvalue="Spring Boot.FundServiceApplication" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.fund-service-01" />
+        <item itemvalue="Spring Boot.FundServiceApplication" />
+        <item itemvalue="JUnit.FundServiceApplicationTest.deduction" />
+        <item itemvalue="JUnit.ChatServiceApplicationTest.test2" />
+        <item itemvalue="JUnit.ChatServiceApplicationTest.test1" />
         <item itemvalue="JUnit.CommentServiceApplicationTest.test2" />
-        <item itemvalue="JUnit.OrderServiceApplicationTest.test3" />
-        <item itemvalue="JUnit.OrderServiceApplicationTest.test2" />
-        <item itemvalue="JUnit.MenuServiceApplicationTest.test9" />
       </list>
     </recent_temporary>
   </component>
@@ -406,7 +438,20 @@
       <workItem from="1762600208546" duration="2889000" />
       <workItem from="1762612099034" duration="1588000" />
       <workItem from="1762655643755" duration="10647000" />
-      <workItem from="1762681292952" duration="552000" />
+      <workItem from="1762681292952" duration="3047000" />
+      <workItem from="1762686316901" duration="47000" />
+      <workItem from="1762696653485" duration="23000" />
+      <workItem from="1762700213463" duration="2033000" />
+      <workItem from="1762709127393" duration="1011000" />
+      <workItem from="1762740322240" duration="14945000" />
+      <workItem from="1762770231656" duration="20000" />
+      <workItem from="1762772954292" duration="4133000" />
+      <workItem from="1762851706448" duration="1968000" />
+      <workItem from="1762875707136" duration="1623000" />
+      <workItem from="1762909531848" duration="1002000" />
+      <workItem from="1762912948223" duration="1736000" />
+      <workItem from="1762929180027" duration="1413000" />
+      <workItem from="1763034343594" duration="340000" />
     </task>
     <servers />
   </component>

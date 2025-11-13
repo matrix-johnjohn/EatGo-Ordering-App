@@ -16,34 +16,41 @@ spring:
           uri: lb://user-service
           predicates:
             - Path=/user/**
+
         - id: email
           uri: lb://email-service
           predicates:
             - Path=/mail/**
+
         - id: menu
           uri: lb://menu-service
           predicates:
             - Path=/menu/**
+
         - id: collection
           uri: lb://collection-service
           predicates:
             - Path=/collection/**
+
         - id: fund
           uri: lb://fund-service
           predicates:
             - Path=/fund/**
+
         - id: comment
           uri: lb://comment-service
           predicates:
             - Path=/comment/**
+
         - id: order
           uri: lb://order-service
           predicates:
             - Path=/order/**
+
         - id: chat
           uri: lb://chat-service
           predicates:
-            - Path=/ws/**
+            - Path=/ws/**, /chat/**
 
 
 

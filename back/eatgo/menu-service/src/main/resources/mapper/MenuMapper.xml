@@ -11,7 +11,7 @@
     <!--标签列表-->
     <select id="tagList" resultType="org.eatgo.common.domain.po.DishTag">
         <include refid="tags" />
-        <if test="id != null">
+        <if test="id!=0">
             where categorize_id=#{id}
         </if>
     </select>
@@ -19,7 +19,7 @@
     <!--菜品列表-->
     <select id="dishList" resultType="org.eatgo.common.domain.po.Dish">
         <include refid="dishes" />
-        <if test="categorizeId!=null">
+        <if test="categorizeId!=0">
             where categorize_id=#{categorizeId}
         </if>
         <if test="tagId">
