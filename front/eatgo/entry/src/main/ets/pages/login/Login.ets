@@ -33,7 +33,6 @@ struct Login {
         themeColorMode: ThemeColorMode.DARK,
       })
     });
-
     return dialog;
   }
   build() {
@@ -43,7 +42,9 @@ struct Login {
           LoginBackGround();//背景图片
           Flex({justifyContent:FlexAlign.Center,alignItems:ItemAlign.Center}){
             Column(){
-              Image($r('app.media.logo')).width(100).margin({bottom:50})
+              Image($r('app.media.logo'))
+                .width(100)
+                .margin({bottom:50})
               //用户名
               if(this.loginState===2){
                 LoginInput({
@@ -88,7 +89,7 @@ struct Login {
                     validCode:this.loginData.validCode,
                   }).then((res)=>{
                     console.log(JSON.stringify(res))
-                    if(res.data.code===200){//200
+                    if(res.data.code===200) {//200
                       let preference=preferences.getPreferencesSync(this.getUIContext().getHostContext(),{name:'user'});;
                       preference.putSync('token',res.data.data);//本地存储token
                       preference.putSync('email',this.loginData.email);//本地存储用户email
@@ -98,8 +99,13 @@ struct Login {
                         duration:2000,
                         bottom:100
                       })
-
                       this.pathStack.pushPathByName('Layout',null,false);//跳转页面
+                    }else if (res.data.code===10005) {
+                      promptAction.openToast({
+                        message:res.data.message,
+                        duration:2000,
+                        bottom:100
+                      })
                     }
 
                     if (res.data.code===10002){

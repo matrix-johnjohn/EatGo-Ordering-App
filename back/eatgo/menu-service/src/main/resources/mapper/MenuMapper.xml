@@ -19,7 +19,7 @@
     <!--菜品列表-->
     <select id="dishList" resultType="org.eatgo.common.domain.po.Dish">
         <include refid="dishes" />
-        <if test="categorizeId!=0">
+        <if test="categorizeId!=null">
             where categorize_id=#{categorizeId}
         </if>
         <if test="tagId">

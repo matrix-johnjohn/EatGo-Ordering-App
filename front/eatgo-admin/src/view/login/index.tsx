@@ -1,23 +1,18 @@
 import { useEffect, useState } from 'react';
-
 // 静态资源
 import BackGroundGroundImage1 from '../../assets/login-bg-01.jpg';
 import BackGroundGroundImage2 from '../../assets/login-bg-02.jpg';
 import Logo from '../../assets/logo.png';
-
 // 静态配置
 import { PROJECT_TITLE } from '../../config';
-
 // ANTD组件
 import { LockOutlined, UserOutlined, TabletOutlined } from '@ant-design/icons';
 import { Button, Form, Input } from 'antd';
-
 // Zustand存储
 import { EmailStore } from '../../store/index';
-
 // 自定义组件
 import { ReplaceLoginComponentByIndex } from '../../component/login/index';
-
+import { useNavigate } from 'react-router-dom';
 // 样式
 const LoginCardStyle: React.CSSProperties = {
     color: 'white',
@@ -49,6 +44,8 @@ const RightLoginCardItemStyle: React.CSSProperties = {
 }
 
 export const Login = () => {
+
+    const navigate = useNavigate();
     // 背景图片索引
     const [ImageIndex, setImageIndex] = useState(0);
 
@@ -64,6 +61,8 @@ export const Login = () => {
     // 登录表单提交
     const onFinish = () => {
         console.log((LoginForm.getFieldsValue()));
+
+        navigate('/');
         // Todo:登录逻辑处理
     };
 

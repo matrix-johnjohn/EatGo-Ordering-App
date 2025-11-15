@@ -1,7 +1,17 @@
+import { Breadcrumb } from 'antd';
 export const Chat = () => {
     return (
         <>
-            <h1>Chat</h1>
+            <Breadcrumb
+                items={[
+                    {
+                        title: '用户管理',
+                    },
+                    {
+                        title: '用户聊天',
+                    },
+                ]}
+            />
         </>
     )
 };

@@ -1,8 +1,18 @@
+import { Breadcrumb } from "antd";
 
 export const DishView = () => {
     return (
         <>
-            <h1>Dish</h1>
+            <Breadcrumb
+                items={[
+                    {
+                        title: '菜品管理',
+                    },
+                    {
+                        title: '菜品列表',
+                    },
+                ]}
+            />
         </>
     );
 }

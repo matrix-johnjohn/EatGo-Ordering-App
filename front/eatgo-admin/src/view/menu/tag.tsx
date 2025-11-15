@@ -1,8 +1,18 @@
+import { Breadcrumb } from "antd";
 
 export const DishTag = () => {
     return (
         <>
-            <h1>tag</h1>
+            <Breadcrumb
+                items={[
+                    {
+                        title: '菜品管理',
+                    },
+                    {
+                        title: '标签管理',
+                    },
+                ]}
+            />
         </>
     );
 }

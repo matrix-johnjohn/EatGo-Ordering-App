@@ -1,5 +1,5 @@
 @Builder
-export function OrderCardComing(title:string,desc:string,image:string,setStatus:()=>void){
+export function OrderCardComing(title:string,desc:string,image:string,price:number,setStatus:()=>void){
 
   ListItem(){
     Row(){
@@ -29,7 +29,7 @@ export function OrderCardComing(title:string,desc:string,image:string,setStatus:
           Image($rawfile('home/icon/ic_rmb.svg'))
             .width(25)
             .margin({right:5})
-          Text("30")
+          Text(price.toString())
             .textAlign(TextAlign.End)
             .fontSize(20)
             .fontColor('#FFC300')
@@ -57,7 +57,7 @@ export function OrderCardComing(title:string,desc:string,image:string,setStatus:
 }
 
 @Builder
-export function OrderCardAlready(title:string,desc:string,image:string,setStatus:()=>void){
+export function OrderCardAlready(title:string,desc:string,image:string,price:number,setStatus:()=>void){
   ListItem(){
     Row(){
       Image(image)
@@ -86,7 +86,7 @@ export function OrderCardAlready(title:string,desc:string,image:string,setStatus
           Image($rawfile('home/icon/ic_rmb.svg'))
             .width(25)
             .margin({right:5})
-          Text("30")
+          Text(price.toString())
             .textAlign(TextAlign.End)
             .fontSize(20)
             .fontColor('#FFC300')
@@ -113,7 +113,7 @@ export function OrderCardAlready(title:string,desc:string,image:string,setStatus
 }
 
 @Builder
-export function OrderCardFinish(title:string,desc:string,image:string,setStatus:()=>void){
+export function OrderCardFinish(title:string,desc:string,image:string,price:number,setStatus:()=>void){
   ListItem(){
     Row(){
       Image(image)
@@ -142,7 +142,7 @@ export function OrderCardFinish(title:string,desc:string,image:string,setStatus:
           Image($rawfile('home/icon/ic_rmb.svg'))
             .width(25)
             .margin({right:5})
-          Text("30")
+          Text(price.toString())
             .textAlign(TextAlign.End)
             .fontSize(20)
             .fontColor('#FF8D1A')

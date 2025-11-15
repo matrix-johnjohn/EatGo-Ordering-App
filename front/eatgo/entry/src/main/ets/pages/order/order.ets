@@ -101,6 +101,7 @@ export struct Order{
       dishId:this.dishId
     })
   })
+
   change() {
     if (this.num===1){
       //磁盘读取email
@@ -172,23 +173,21 @@ export struct Order{
       List(){
         ForEach(this.orderList,(item:OrderVo,index:number)=>{
           if (item.status===0) {
-            OrderCardComing(item.dishName,item.dishDesc,item.dishImg,()=>{
-              console.log('取消订单',item.id,101);
+            OrderCardComing(item.dishName,item.dishDesc,item.dishImg,item.totalPrice,()=>{
               this.orderList.splice(index,1);
               updateOrder(item.id,101).then((res:AxiosResponse<Result<string>>)=>{
                 console.log(JSON.stringify(res.data));
               })
             });
           }else if (item.status===1){
-            OrderCardAlready(item.dishName,item.dishDesc,item.dishImg,()=>{
-              console.log('开饭函数',item.id,1);
+            OrderCardAlready(item.dishName,item.dishDesc,item.dishImg,item.price,()=>{
               this.orderList.splice(index,1);
               updateOrder(item.id,2).then((res:AxiosResponse<Result<string>>)=>{
                 console.log(JSON.stringify(res.data));
               })
             });
           }else if(item.status===2){
-            OrderCardFinish(item.dishName,item.dishDesc,item.dishImg,()=>{
+            OrderCardFinish(item.dishName,item.dishDesc,item.dishImg,item.price,()=>{
               console.log('发表评论',item.id);
               this.dishId=item.dishId;
               this.dialogControllerComment.open();
@@ -209,9 +208,10 @@ export struct Order{
       getUser(email).then((res:AxiosResponse<Result<UserInfo>>)=>{
         this.info=res.data.data;
 
-        orderList(this.info.id,this.currentIndex).then((result:AxiosResponse<Result<OrderVo[]>>)=>{
-          console.log(JSON.stringify(result.data.data));
-        })
+        orderList(this.info.id,this.currentIndex)
+          .then((result:AxiosResponse<Result<OrderVo[]>>)=>{
+            console.log(JSON.stringify(result.data.data));
+          })
       })
     })
   }

@@ -24,4 +24,15 @@
             </set>
         <where>id=#{id}</where>
     </update>
+
+    <!--更新用户状态-->
+    <update id="updateUserEffective" parameterType="org.eatgo.common.domain.po.User">
+        update user
+        <set>
+            is_effective=#{isEffective}
+        </set>
+        <where>
+            id=#{id}
+        </where>
+    </update>
 </mapper>

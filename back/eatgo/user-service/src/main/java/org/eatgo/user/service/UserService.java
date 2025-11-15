@@ -23,4 +23,9 @@ public interface UserService {
     public void EditUser(User user);
 
     public List<User> list();
+
+    // 后台管理
+    public String AdminLoginByEmail(LoginDto loginDto);
+
+    public void updateUserEffective(User user);
 }

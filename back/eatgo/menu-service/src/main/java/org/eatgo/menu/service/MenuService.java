@@ -27,4 +27,8 @@ public interface MenuService {
     public Dish findById(Integer id);
 
     public List<Dish> dishList();
+
+
+    //后台管理
+    public void deleteDishCateById(DishCategorize dishCategorize);
 }

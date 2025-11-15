@@ -1,5 +1,6 @@
 package org.eatgo.user.controller;
 
+import cn.hutool.json.JSONUtil;
 import lombok.RequiredArgsConstructor;
 import org.eatgo.common.domain.dto.LoginDto;
 import org.eatgo.common.domain.po.User;
@@ -70,5 +71,22 @@ public class userController {
         List<User> list=userService.list();
 
         return ResultVo.success("获取列表",list);
+    }
+
+    @PostMapping("/admin/valid/login")
+    public ResultVo<String>LoginAdmin(@RequestBody LoginDto loginDto){
+        String token=userService.AdminLoginByEmail(loginDto);
+
+        return !JSONUtil.isNull(token) ?
+                ResultVo.success("登录成功",token)
+                :
+                ResultVo.error(500,"验证码或账号错啦");
+    }
+
+    @PutMapping("/update/effective")
+    public ResultVo<String>updateUserEffective(@RequestBody User user){
+        userService.updateUserEffective(user);
+
+        return ResultVo.success("用户更新提示","用户信息更新完成");
     }
 }

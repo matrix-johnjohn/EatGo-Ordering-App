@@ -3,6 +3,7 @@ package org.eatgo.menu;
 import cn.hutool.db.PageResult;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import org.apache.ibatis.annotations.Delete;
 import org.eatgo.common.domain.po.Dish;
 import org.eatgo.common.domain.po.DishCategorize;
 import org.eatgo.common.domain.po.DishTag;
@@ -94,6 +95,6 @@ public class MenuServiceApplicationTest {
 
     @Test
     public void test9(){
-        menuService.dishList().forEach(System.out::println);
+        menuMapper.dishesByIds(List.of(1,2,3));
     }
 }

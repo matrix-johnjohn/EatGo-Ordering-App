@@ -38,7 +38,7 @@ public class MenuController {
     }
 
     @GetMapping("/dish/list/{cateId}/{tagId}")
-    public ResultVo<List<Dish>>dishListByDishQuery(@PathVariable("cateId") Integer cateId,@PathVariable("tagId") Integer tagId){
+    public ResultVo<List<Dish>> dishListByDishQuery(@PathVariable("cateId") Integer cateId,@PathVariable("tagId") Integer tagId){
 
         List<Dish>dishes=menuService.dishListByCateAndTag(new DishQuery(cateId, tagId));
 
@@ -85,5 +85,12 @@ public class MenuController {
     @GetMapping("/dish/list")
     public ResultVo<List<Dish>>DishList(){
         return ResultVo.success("全部菜品数据",menuService.dishList());
+    }
+
+    @DeleteMapping("/delete/dish/cate")
+    public ResultVo<String>deleteDishCate(@RequestBody DishCategorize dishCategorize){
+        menuService.deleteDishCateById(dishCategorize);
+
+        return ResultVo.success("消息提示","菜品删除成功");
     }
 }

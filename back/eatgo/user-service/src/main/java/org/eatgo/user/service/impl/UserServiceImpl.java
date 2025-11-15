@@ -51,14 +51,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ResultVo<String> login(LoginDto loginDto) {//登录
+    public ResultVo<String> login(LoginDto loginDto){//登录
         Jedis jedis = jedisPool.getResource();
 
         String code=jedis.get("valid_code:" + loginDto.getEmail());
 
         User u=userMapper.login(loginDto);
 
-        if(loginDto.getValidCode().equals(code) && !JSONUtil.isNull(u)){//验证码合法
+        System.out.println(u);
+
+        if(loginDto.getValidCode().equals(code) && !JSONUtil.isNull(u) && !u.getIsEffective().equals(0)){//验证码合法
             //嵌合数据
             HashMap<String, Object> map=new HashMap<>();
             map.put("email",u.getEmail());
@@ -75,6 +77,8 @@ public class UserServiceImpl implements UserService {
             return ResultVo.error(10002,"验证码错误");
         } else if (JSONUtil.isNull(u)) {
             return ResultVo.error(10003,"用户名或密码错误");
+        } else if (u.getIsEffective()==0){
+            return ResultVo.error(10005,"用户已经冻结");
         }
 
         jedis.close();
@@ -145,5 +149,46 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> list() {
         return userMapper.list();
+    }
+
+    @Override
+    public String AdminLoginByEmail(LoginDto loginDto) {
+
+        Jedis jedis=jedisPool.getResource();
+
+        String code=jedis.get("valid_code:" + loginDto.getEmail());
+
+        if(loginDto.getValidCode().equals(code)){
+            HashMap<String, Object> map=new HashMap<>();
+            map.put("email",loginDto.getEmail());
+            map.put("password",loginDto.getValidCode());
+            // 生成令牌
+            String token=JWTUtil.createToken(map, "1234".getBytes());
+            // 服务器缓存Token
+            jedis.setex("token:"+loginDto.getEmail(),60*60*24,token);
+        }
+
+        return null;
+    }
+
+    @Override
+    public void updateUserEffective(User user) {
+        System.out.println(user.getEmail());
+        Jedis jedis=jedisPool.getResource();
+        Integer effective=user.getIsEffective();
+
+        if(ObjectUtil.equals(effective,1)){//冻结
+            user.setIsEffective(0);
+            // 数据库修改数据
+            userMapper.updateUserEffective(user);
+
+            //数据库缓存操作
+            jedis.del("info:"+user.getEmail());
+            jedis.del("token:"+user.getEmail());
+            jedis.close();
+        } else if (ObjectUtil.equals(effective,0)) {
+            user.setIsEffective(1);
+            userMapper.updateUserEffective(user);
+        }
     }
 }

@@ -1,5 +1,6 @@
 package org.eatgo.menu.mapper;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.eatgo.common.domain.po.Dish;
@@ -31,4 +32,8 @@ public interface MenuMapper {
 
     @Select("select * from dish where id=#{dishId}")
     public Dish getDishById(Integer dishId);
+
+    // 后台管理
+    @Delete("delete from dish_cate where id=#{id}")
+    public void deleteDishCateById(DishCategorize dishCategorize);
 }

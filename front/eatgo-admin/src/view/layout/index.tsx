@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // 路由
 import { Outlet } from "react-router";
 import { useNavigate } from "react-router-dom";
@@ -16,6 +16,8 @@ type MenuItem = Required<MenuProps>['items'][number];
 import '../../style/layout/layout.css';
 // 配置文件
 import { PROJECT_TITLE, LOGIN_EXIT } from '../../config';
+
+import { SelectMenuItemStore } from '../../store/index';
 // 导航栏数据,Todo:待封装
 const items: MenuItem[] = [
     {
@@ -80,15 +82,26 @@ const LogoStyle: React.CSSProperties = {
 };
 
 export const Main: React.FC = () => {
+    // 调用本地缓存
+    const { MenuItem, setMenuItem } = SelectMenuItemStore();
     // 侧边栏拉伸状态
     const [collapsed, setCollapsed] = useState(false);
     // 拉伸侧边栏
     const toggleCollapsed = () => {
         setCollapsed(!collapsed);
     };
+
+    useEffect(() => {
+        navigate(MenuItem as string);
+    }, []);
     // 侧边栏选择
     const selectedAsideItem: MenuProps['onClick'] = (e) => {
         let path = e.key;
+
+        // 设置当前导航item
+        setMenuItem(path);
+
+        // 跳转页面
         navigate(path);
     };
     // 路由实例
@@ -121,7 +134,7 @@ export const Main: React.FC = () => {
                         <Menu
                             onClick={selectedAsideItem}
                             style={{ width: '100%' }}
-                            defaultSelectedKeys={['1']}
+                            defaultSelectedKeys={[MenuItem as string]}
                             defaultOpenKeys={['user']}
                             mode="inline"
                             inlineCollapsed={collapsed}

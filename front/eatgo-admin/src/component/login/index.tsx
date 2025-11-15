@@ -1,9 +1,15 @@
+import { useState } from 'react';
+
+// ANTD组件
 import { LockOutlined, UserOutlined, TabletOutlined } from '@ant-design/icons';
 import { Button, Form, Input } from 'antd';
-import { useState } from 'react';
 
 // Zustand存储
 import { EmailStore } from '../../store/index';
+
+// 接口
+import { sendValidCode } from '../../api/request/user';
+import type { Result } from '../../api/entity/base';
 
 // 密码输入框
 export const PassWordInputComponent = () => {
@@ -21,15 +27,12 @@ export const PassWordInputComponent = () => {
 
 // 验证码输入框
 export const ValidCodeInputComponent = () => {
-
+    // store实例
     const { email } = EmailStore();
-
     // 倒计时秒数
     const [second, setSecond] = useState(60);
-
     // 按钮状态管理
     const [ButtonType, setButtonType] = useState(1);//1:开启,0禁用;
-
     // 倒计时函数
     const CountDown = () => {
         let sec = second;
@@ -44,7 +47,6 @@ export const ValidCodeInputComponent = () => {
             setSecond(sec);
         }, 1000)
     };
-
     return (
         <>
             <Form.Item
@@ -63,7 +65,14 @@ export const ValidCodeInputComponent = () => {
                                     height: '50px'
                                 }}
                                 onClick={() => {
-                                    CountDown(); setButtonType(0); console.log(JSON.stringify(email));
+                                    CountDown();
+
+                                    setButtonType(0);
+
+                                    // TODO：待封装req1
+                                    sendValidCode({ email: email }).then(({ data }) => {
+                                        console.log(data as Result<string>);
+                                    })
                                 }}
                             >
                                 点击获取验证码

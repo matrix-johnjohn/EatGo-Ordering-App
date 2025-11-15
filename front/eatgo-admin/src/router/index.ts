@@ -3,7 +3,7 @@ import { createBrowserRouter } from "react-router";
 import { Login } from "../view/login";
 import { Main } from "../view/layout";
 // User
-import { User } from "../view/user/index";
+import { UserPage } from "../view/user/index";
 import { Chat } from "../view/user/chat";
 // Menu
 import { DishView } from "../view/menu/dish";
@@ -22,11 +22,11 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                Component: User
+                Component: UserPage
             },
             {
                 path: '/user/index',
-                Component: User
+                Component: UserPage
             },
             {
                 path: '/user/chat',

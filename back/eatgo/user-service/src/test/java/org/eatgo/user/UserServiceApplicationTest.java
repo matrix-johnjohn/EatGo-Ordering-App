@@ -1,12 +1,15 @@
 package org.eatgo.user;
 
+import cn.hutool.json.JSONUtil;
 import org.eatgo.common.domain.dto.FundDto;
+import org.eatgo.common.domain.dto.LoginDto;
 import org.eatgo.common.domain.po.User;
 import org.eatgo.user.mapper.UserMapper;
 import org.eatgo.user.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
 @SpringBootTest
@@ -32,9 +35,14 @@ public class UserServiceApplicationTest {
         user.setAvatar("http://192.168.174.130:9000/eatgo/avatar/1.jpg");
         user.setEmail("matrix@skyhub.com");
         userMapper.EditUser(user);
+    }
 
-
-
+    @Test
+    public void test2(){
+        User user=new User();
+        user.setId(17);
+        user.setIsEffective(1);
+        userService.updateUserEffective(user);
     }
 
 }

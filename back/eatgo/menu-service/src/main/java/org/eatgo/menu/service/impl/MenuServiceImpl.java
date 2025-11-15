@@ -71,4 +71,9 @@ public class MenuServiceImpl implements MenuService {
     public List<Dish> dishList() {
         return menuMapper.dishList(new DishQuery());
     }
+
+    @Override
+    public void deleteDishCateById(DishCategorize dishCategorize) {
+        menuMapper.deleteDishCateById(dishCategorize);
+    }
 }

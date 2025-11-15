@@ -24,5 +24,14 @@ public interface UserMapper {
     public void EditUser(User user); //更改用户身份信息
 
     @Select("select * from user")
-    public List<User> list();
+    public List<User> list();// 用户列表
+
+    @Select("select * from user where email=#{email}")
+    public User findByEmail(String email);
+
+    @Select("select * from user")
+    public List<User>UserList();
+
+
+    public void updateUserEffective(User user);
 }
