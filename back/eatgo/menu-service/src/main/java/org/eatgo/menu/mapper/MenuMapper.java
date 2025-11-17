@@ -1,8 +1,6 @@
 package org.eatgo.menu.mapper;
 
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 import org.eatgo.common.domain.po.Dish;
 import org.eatgo.common.domain.po.DishCategorize;
 import org.eatgo.common.domain.po.DishTag;
@@ -33,7 +31,23 @@ public interface MenuMapper {
     @Select("select * from dish where id=#{dishId}")
     public Dish getDishById(Integer dishId);
 
+
     // 后台管理
     @Delete("delete from dish_cate where id=#{id}")
-    public void deleteDishCateById(DishCategorize dishCategorize);
+    public void deleteDishCateById(DishCategorize dishCategorize);//删除分类
+
+    // 批量删除分类
+    public void deleteDishCateByIds(@Param("ids") List<Integer>ids);
+
+    // 添加分类
+    @Insert("insert into dish_cate (name,icon,banner) values (#{name},#{icon},#{banner})")
+    public void addCate(DishCategorize dishCategorize);
+
+    @Update("update dish_cate set banner=#{banner} where id=#{id}")
+    public void updateCateBanner(DishCategorize dishCategorize);
+
+    public void updateCate(DishCategorize dishCategorize);
+
+    @Select("select * from `dish_cate` where `name` like CONCAT('%',#{subName},'%')")
+    public List<DishCategorize>searchCateList(@Param("subName") String subName);
 }

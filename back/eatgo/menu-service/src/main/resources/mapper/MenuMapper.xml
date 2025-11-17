@@ -46,4 +46,34 @@
     <select id="recommendList" resultType="org.eatgo.common.domain.po.Dish">
         <include refid="dishes"/> order by collection_count desc
     </select>
+
+    <!--批量删除分类-->
+    <delete id="deleteDishCateByIds">
+        delete from dish_cate
+            <where>
+                id in
+            </where>
+            <foreach collection="ids" item="item" open="(" separator="," close=")">
+                #{item}
+            </foreach>
+    </delete>
+
+    <!--更新菜品分类-->
+    <update id="updateCate">
+        update dish_cate
+            <set>
+                <if test="name!=null">
+                    name=#{name}
+                </if>
+                <if test="icon!=null">
+                    ,icon=#{icon}
+                </if>
+                <if test="banner != null">
+                    ,banner=#{banner}
+                </if>
+            </set>
+            where id=#{id}
+    </update>
+
+
 </mapper>

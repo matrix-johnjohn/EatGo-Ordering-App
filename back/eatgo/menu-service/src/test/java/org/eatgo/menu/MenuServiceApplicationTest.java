@@ -1,6 +1,8 @@
 package org.eatgo.menu;
 
 import cn.hutool.db.PageResult;
+import cn.hutool.json.JSONUtil;
+import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.apache.ibatis.annotations.Delete;
@@ -10,8 +12,10 @@ import org.eatgo.common.domain.po.DishTag;
 import org.eatgo.common.domain.query.CollectionQuery;
 import org.eatgo.common.domain.query.DishQuery;
 import org.eatgo.common.domain.query.PageQuery;
+import org.eatgo.menu.config.MinioConfig;
 import org.eatgo.menu.mapper.MenuMapper;
 import org.eatgo.menu.service.MenuService;
+import org.eatgo.menu.util.MinioUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -27,6 +31,12 @@ public class MenuServiceApplicationTest {
 
     @Autowired
     MenuService menuService;
+
+    @Autowired
+    MinioConfig minioConfig;
+
+    @Autowired
+    private MinioUtil minioUtil;
 
     @Test
     public void test1(){
@@ -96,5 +106,37 @@ public class MenuServiceApplicationTest {
     @Test
     public void test9(){
         menuMapper.dishesByIds(List.of(1,2,3));
+    }
+
+    @Test
+    public void test10(){
+        menuMapper.deleteDishCateByIds(List.of(22));
+    }
+
+    @Test
+    public void test11(){//添加分类接口
+        DishCategorize dishCategorize=new DishCategorize();
+
+        dishCategorize.setName("测试数据1");
+
+        dishCategorize.setIcon("http://192.168.174.130:9000/eatgo/cate/icon/night_snack.svg");
+
+        dishCategorize.setBanner(JSONUtil.toJsonStr(List.of("http://192.168.174.130:9000/eatgo/cate/banner/banner2.png","http://192.168.174.130:9000/eatgo/cate/banner/banner1.png")));
+    }
+
+    @Test
+    public void test12(){
+        List<String>list=List.of("/cate/banner/8592a4a0-d/drink1.png", "/cate/banner/8592a4a0-d/drink2.png");
+
+        minioUtil.removeObject("/cate/icon/2bb4ea3f-8/2.png");
+
+        for (String s : list) {
+            minioUtil.removeObject(s);
+        }
+    }
+
+    @Test
+    public void test13(){
+        menuMapper.searchCateList("测试").forEach(System.out::println);
     }
 }

@@ -6,6 +6,7 @@ import org.eatgo.common.domain.po.DishTag;
 import org.eatgo.common.domain.query.CollectionQuery;
 import org.eatgo.common.domain.query.DishQuery;
 import org.eatgo.common.domain.query.PageQuery;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -30,5 +31,15 @@ public interface MenuService {
 
 
     //后台管理
-    public void deleteDishCateById(DishCategorize dishCategorize);
+    public void deleteDishCateById(DishCategorize dishCategorize);//删除分类
+
+    public void deleteDishCateByIds(List<Integer> ids);//批量删除分类
+
+    public void addCate(String name, MultipartFile icon,MultipartFile []banner);//添加分类
+
+    public void removeBanner(DishCategorize dishCategorize,Integer index);//删除轮播
+
+    public void updateCate(DishCategorize dishCategorize,MultipartFile icon,MultipartFile []banner);
+
+    public List<DishCategorize> searchCateList(String subString);
 }

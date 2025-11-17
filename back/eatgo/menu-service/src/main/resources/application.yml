@@ -1,6 +1,15 @@
 spring:
+
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 120MB
+      max-request-size: 720MB
+      resolve-lazily: true
+
   application:
     name: menu-service
+
   profiles:
     active: dev
 
@@ -10,6 +19,7 @@ spring:
     sentinel:
       transport:
         dashboard: 192.168.174.130:9090
+
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     url: jdbc:mysql://${mysql.connect.url}:3306/menu
@@ -22,6 +32,13 @@ mybatis:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     map-underscore-to-camel-case: true
   mapper-locations: classpath:mapper/*.xml
+
+minio:
+  oss:
+    accessKey: N0lVm8fanHnxrJIszT0l
+    secretKey: hC8fit8rMahyDx8xaxFD2VmmzkoFDLb8kgGA426j
+    url: http://192.168.174.130:9000
+    bucketName: eatgo
 
 server:
   port: 9003
