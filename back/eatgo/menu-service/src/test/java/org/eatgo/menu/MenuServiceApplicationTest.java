@@ -12,6 +12,8 @@ import org.eatgo.common.domain.po.DishTag;
 import org.eatgo.common.domain.query.CollectionQuery;
 import org.eatgo.common.domain.query.DishQuery;
 import org.eatgo.common.domain.query.PageQuery;
+import org.eatgo.common.domain.query.UpdateDishTagQuery;
+import org.eatgo.common.domain.vo.DishTagVo;
 import org.eatgo.menu.config.MinioConfig;
 import org.eatgo.menu.mapper.MenuMapper;
 import org.eatgo.menu.service.MenuService;
@@ -19,7 +21,8 @@ import org.eatgo.menu.util.MinioUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,6 +37,9 @@ public class MenuServiceApplicationTest {
 
     @Autowired
     MinioConfig minioConfig;
+
+    @Autowired
+    private JedisPool jedisPool;
 
     @Autowired
     private MinioUtil minioUtil;
@@ -137,6 +143,87 @@ public class MenuServiceApplicationTest {
 
     @Test
     public void test13(){
-        menuMapper.searchCateList("测试").forEach(System.out::println);
+        Jedis jedis=jedisPool.getResource();
+
+        List<DishCategorize>cateList=menuMapper.cateList();
+
+        for(DishCategorize cate:cateList) {
+            String jsonStr=JSONUtil.toJsonStr(cate);
+
+            System.out.println(jsonStr);
+
+            jedis.set("cate:dish:"+cate.getId(),jsonStr);
+        }
+
+        jedis.close();
+    }
+
+    @Test
+    public void test14(){
+
+        // 数据库读取分类信息
+        List<DishTagVo>dishTag=menuMapper.DishTagList();
+
+        Jedis jedis=jedisPool.getResource();
+
+        for (DishTagVo dishTagVo : dishTag){
+            // 数据库缓存根据分类id获取分类名
+            String dishCateJSON=jedis.get("cate:dish:" + dishTagVo.getCategorizeId());
+            DishCategorize dishCate=JSONUtil.toBean(dishCateJSON, DishCategorize.class);
+            dishTagVo.setCateName(dishCate.getName());
+        }
+
+        for (DishTagVo dishTagVo : dishTag) {
+            String jsonStr=JSONUtil.toJsonStr(dishTagVo);
+            jedis.set("tag:dish:" + dishTagVo.getId(),jsonStr);
+        }
+
+        jedis.close();
+    }
+
+    @Test
+    public void test15(){
+        List<DishTagVo>dishTag=menuMapper.SearchDishTagList("传统",1);
+
+        Jedis jedis=jedisPool.getResource();
+
+        for (DishTagVo dishTagVo : dishTag){
+            // 数据库缓存根据分类id获取分类名
+            String dishCateJSON=jedis.get("cate:dish:" + dishTagVo.getCategorizeId());
+            DishCategorize dishCate=JSONUtil.toBean(dishCateJSON, DishCategorize.class);
+            dishTagVo.setCateName(dishCate.getName());
+        }
+
+        dishTag.forEach(System.out::println);
+
+        jedis.close();
+    }
+
+    @Test
+    public void test16(){
+        // 数据库写入数据
+        menuMapper.insertDishTag("test",1);
+
+        // 数据库缓存写入数据
+        Jedis jedis=jedisPool.getResource();
+
+        DishTagVo tag=menuMapper.getDishTagById("test");
+
+        String key="cate:dish:"+1;
+
+        String json=jedis.get(key);
+
+        DishCategorize dishCate=JSONUtil.toBean(json, DishCategorize.class);
+
+        tag.setCateName(dishCate.getName());
+
+        String dataStr=JSONUtil.toJsonStr(tag);
+
+        jedis.set("tag:dish:"+tag.getId(), dataStr);
+    }
+
+    @Test
+    public void test17(){
+        menuMapper.updateDishTagById(new UpdateDishTagQuery(28,"测试数据10",28));
     }
 }

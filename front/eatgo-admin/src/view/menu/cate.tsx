@@ -589,8 +589,6 @@ export const DishCate = () => {
                 console.log(e.target.value);
 
                 searchCateList(e.target.value as string).then((data) => {
-                  console.log(data.data);
-
                   if (data.data.length) {
                     let list = data.data.map((item) => {
                       return item

@@ -16,6 +16,7 @@ import java.util.Map;
 @Component
 public class WebSocketHandler extends TextWebSocketHandler {
 
+    // 用户信息存储
     private static final Map<Integer, WebSocketSession>USER_SESSIONS=new ConcurrentHashMap<>();
 
     @Autowired
@@ -44,6 +45,7 @@ public class WebSocketHandler extends TextWebSocketHandler {
 
         //转发目标
         WebSocketSession target=USER_SESSIONS.get(payload.getTo());
+
         //转发
         if(!JSONUtil.isNull(target)&&target.isOpen()){
             target.sendMessage(new TextMessage(JSONUtil.toJsonPrettyStr(payload)));

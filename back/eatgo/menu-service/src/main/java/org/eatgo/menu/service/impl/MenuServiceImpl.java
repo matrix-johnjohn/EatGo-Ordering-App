@@ -11,11 +11,15 @@ import org.eatgo.common.domain.po.DishTag;
 import org.eatgo.common.domain.query.CollectionQuery;
 import org.eatgo.common.domain.query.DishQuery;
 import org.eatgo.common.domain.query.PageQuery;
+import org.eatgo.common.domain.query.UpdateDishTagQuery;
+import org.eatgo.common.domain.vo.DishTagVo;
 import org.eatgo.menu.mapper.MenuMapper;
 import org.eatgo.menu.service.MenuService;
 import org.eatgo.menu.util.MinioUtil;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +30,8 @@ import java.util.UUID;
 public class MenuServiceImpl implements MenuService {
 
     private final MenuMapper menuMapper;
+
+    private final JedisPool jedisPool;
 
     private final MinioUtil minioUtil;
 
@@ -83,12 +89,26 @@ public class MenuServiceImpl implements MenuService {
 
     @Override
     public void deleteDishCateById(DishCategorize dishCategorize) {
+        // 数据库删除数据
         menuMapper.deleteDishCateById(dishCategorize);
+
+        // 数据库缓存删除数据
+        Jedis jedis = jedisPool.getResource();
+        jedis.del("cate:dish:"+dishCategorize.getId());
+        jedis.close();
     }
 
     @Override
     public void deleteDishCateByIds(List<Integer> ids) {
+        // 数据库删除数据
         menuMapper.deleteDishCateByIds(ids);
+
+        // 数据库缓存删除数据
+        Jedis jedis = jedisPool.getResource();
+        for(Integer id : ids){
+            jedis.del("cate:dish:"+(id));
+        }
+        jedis.close();
     }
 
     @Override
@@ -107,6 +127,12 @@ public class MenuServiceImpl implements MenuService {
 
         // 写入数据库
         menuMapper.addCate(dishCategorize);
+
+        // 写入数据库缓存
+        Jedis jedis=jedisPool.getResource();
+        DishCategorize dishCate = menuMapper.getDishCategoryByName(name);
+        jedis.set("cate:dish:"+dishCate.getId(),JSONUtil.toJsonStr(dishCate));
+        jedis.close();
     }
 
     @Override
@@ -144,6 +170,7 @@ public class MenuServiceImpl implements MenuService {
             // 需要添加的数据
             List<String> supplementData = JSONUtil.toList(bannerPathJSON, String.class);
 
+            // Ryan Supplement Explain:数据量不可能超过220MB,此处可以直接暴力
             bannerList.addAll(supplementData);
 
             String result=JSONUtil.toJsonStr(bannerList);
@@ -151,6 +178,14 @@ public class MenuServiceImpl implements MenuService {
             dishCategorize.setBanner(result);
         }
 
+        // 数据库缓存写入数据
+        Jedis jedis=jedisPool.getResource();
+
+        jedis.set("cate:dish:"+dishCategorize.getId(),JSONUtil.toJsonStr(dishCategorize));
+
+        jedis.close();
+
+        // 数据库写入数据
         menuMapper.updateCate(dishCategorize);
 
     }
@@ -187,5 +222,119 @@ public class MenuServiceImpl implements MenuService {
         }
 
         return JSONUtil.toJsonStr(list);
+    }
+
+    @Override
+    public List<DishTagVo> DishTagVoList() {
+        // 数据库读取分类信息
+        List<DishTagVo>dishTag=menuMapper.DishTagList();
+
+        Jedis jedis=jedisPool.getResource();
+
+        for (DishTagVo dishTagVo : dishTag){
+            // 数据库缓存根据分类id获取分类名
+            String dishCateJSON=jedis.get("cate:dish:" + dishTagVo.getCategorizeId());
+            DishCategorize dishCate=JSONUtil.toBean(dishCateJSON, DishCategorize.class);
+            dishTagVo.setCateName(dishCate.getName());
+        }
+
+        dishTag.forEach(System.out::println);
+
+        // 回收jedis
+        jedis.close();
+
+        return dishTag;
+    }
+
+    @Override
+    public List<DishTagVo> SearchDishTagVoList(String subString,Integer cateId) {
+        List<DishTagVo>dishTag=menuMapper.SearchDishTagList(subString,cateId);
+
+        Jedis jedis=jedisPool.getResource();
+
+        for (DishTagVo dishTagVo : dishTag){
+            // 数据库缓存根据分类id获取分类名
+            String dishCateJSON=jedis.get("cate:dish:" + dishTagVo.getCategorizeId());
+            DishCategorize dishCate=JSONUtil.toBean(dishCateJSON, DishCategorize.class);
+            dishTagVo.setCateName(dishCate.getName());
+        }
+
+        dishTag.forEach(System.out::println);
+
+        jedis.close();
+
+        return dishTag;
+    }
+
+    @Override
+    public void insertDishTag(String name, Integer cateId) {
+        // 数据库写入数据
+        menuMapper.insertDishTag(name,cateId);
+
+        // 数据库缓存写入数据
+        Jedis jedis=jedisPool.getResource();
+
+        DishTagVo tag=menuMapper.getDishTagById(name);
+
+        String key="cate:dish:"+cateId;
+
+        String json=jedis.get(key);
+
+        DishCategorize dishCate=JSONUtil.toBean(json, DishCategorize.class);
+
+        tag.setCateName(dishCate.getName());
+
+        String dataStr=JSONUtil.toJsonStr(tag);
+
+        jedis.set("tag:dish:"+tag.getId(), dataStr);
+
+        jedis.close();
+    }
+
+    @Override
+    public void deleteDishTagById(Integer tagId) {
+        Jedis jedis=jedisPool.getResource();
+        if(!ObjectUtil.isEmpty(tagId)){
+            // 数据库删除数据逻辑
+            menuMapper.deleteDishTagById(tagId);
+            // 数据库缓存删除数据逻辑
+            jedis.del("tag:dish:"+tagId);
+        }
+        jedis.close();
+    }
+
+    @Override
+    public void BatchDeleteDishTag(List<Integer> ids) {
+        menuMapper.BatchDeleteDishTagByIds(ids);
+    }
+
+    @Override
+    public void updateDishTagById(UpdateDishTagQuery query) {
+        // 数据库写入数据
+        menuMapper.updateDishTagById(query);
+
+        // 数据库缓存写入数据
+        Jedis jedis=jedisPool.getResource();
+
+        // 获取当前标签缓存数据
+        String DishTagDataJSON=jedis.get("tag:dish:" + query.getId());
+
+        String DishCateDataJSON=jedis.get("cate:dish:" + query.getCateId());
+
+        DishTagVo DishTagData=JSONUtil.toBean(DishTagDataJSON, DishTagVo.class);
+
+        DishCategorize DishCateData=JSONUtil.toBean(DishCateDataJSON, DishCategorize.class);
+
+        DishTagData.setName(query.getName()); //修改标签名称
+
+        DishTagData.setCategorizeId(query.getCateId()); //修改分类
+
+        DishTagData.setCateName(DishCateData.getName()); //修改分类名
+
+        String jsonStr=JSONUtil.toJsonStr(DishTagData);
+
+        jedis.set("tag:dish:"+query.getId(), jsonStr);
+
+        jedis.close();
     }
 }

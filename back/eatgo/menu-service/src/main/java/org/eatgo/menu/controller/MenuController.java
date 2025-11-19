@@ -11,6 +11,8 @@ import org.eatgo.common.domain.po.DishTag;
 import org.eatgo.common.domain.query.CollectionQuery;
 import org.eatgo.common.domain.query.DishQuery;
 import org.eatgo.common.domain.query.PageQuery;
+import org.eatgo.common.domain.query.UpdateDishTagQuery;
+import org.eatgo.common.domain.vo.DishTagVo;
 import org.eatgo.common.domain.vo.ResultVo;
 import org.eatgo.menu.service.MenuService;
 import org.eatgo.menu.util.MinioUtil;
@@ -137,9 +139,6 @@ public class MenuController {
             @RequestParam(value = "icon",required = false)MultipartFile icon,
             @RequestParam(value="banner",required = false)MultipartFile[]banner
     ){
-        // System.out.println(ObjectUtil.isEmpty(icon));
-        // System.out.println(ObjectUtil.isEmpty(banner));
-
         DishCategorize dishCate = JSONUtil.toBean(dishCategorize, DishCategorize.class);
 
         menuService.updateCate(dishCate,icon,banner);
@@ -152,5 +151,50 @@ public class MenuController {
         List<DishCategorize> cateList = menuService.searchCateList(subString);
 
         return ResultVo.success("",cateList);
+    }
+
+    @GetMapping("/dish/tag/all/list")
+    public ResultVo<List<DishTagVo>>dishTagVoList(){
+        List<DishTagVo> dishTagVos=menuService.DishTagVoList();
+
+        return ResultVo.success("菜品标签数据列表",dishTagVos);
+    }
+
+    @GetMapping("/search/tag/list")
+    public ResultVo<List<DishTagVo>>searchDishTagVoList(
+            @RequestParam(value="subName",required = false) String subName,
+            @RequestParam(value="cateId",required = false) Integer cateId){
+        List<DishTagVo> dishTagVos=menuService.SearchDishTagVoList(subName,cateId);
+
+        return ResultVo.success("搜索成功",dishTagVos);
+    }
+
+    @PutMapping("/insert/dish/tag")
+    public ResultVo<String>insertDishTag(
+            @RequestParam("name")String name,
+            @RequestParam("cateId")Integer cateId
+    ){
+        menuService.insertDishTag(name,cateId);
+        return ResultVo.success("插入数据成功",null);
+    }
+
+    @DeleteMapping("/delete/dish/tag/{tagId}")
+    public ResultVo<String>removeDishTag(@PathVariable("tagId")Integer tagId){
+        menuService.deleteDishTagById(tagId);
+
+        return ResultVo.success("消息提示","数据删除成功");
+    }
+
+    @DeleteMapping("/batch/delete/dish/tag")
+    public ResultVo<String>BatchRemoveDishTag(@RequestBody List<Integer>ids){
+        System.out.println(ids);
+        menuService.BatchDeleteDishTag(ids);
+        return ResultVo.success("消息提示","数据批量删除成功");
+    }
+
+    @PutMapping("/update/dish/tag/by")
+    public ResultVo<String>updateDishTagById(@RequestBody UpdateDishTagQuery updateDishTagQuery){
+        menuService.updateDishTagById(updateDishTagQuery);
+        return ResultVo.success("消息提示","标签信息更新成功");
     }
 }

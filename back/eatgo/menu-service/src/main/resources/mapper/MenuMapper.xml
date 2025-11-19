@@ -75,5 +75,51 @@
             where id=#{id}
     </update>
 
+    <!--搜索菜品标签-->
+    <select id="SearchDishTagList" resultType="org.eatgo.common.domain.vo.DishTagVo">
+        <include refid="tags" />
+        <where>
+            <if test="subName!=null">
+                name like concat('%',#{subName},'%')
+            </if>
 
+            <if test="cateId!=null">
+                and categorize_id=#{cateId}
+            </if>
+        </where>
+    </select>
+
+    <!--删除标签-->
+    <delete id="deleteDishTagById">
+        delete from `dish_tag` where id = #{tagId}
+    </delete>
+
+    <!--批量删除标签-->
+    <delete id="BatchDeleteDishTagByIds">
+        delete from `dish_tag`
+        <where>
+            id in
+            <foreach
+                    collection="ids"
+                    item="id"
+                    open="("
+                    close=")"
+                    separator=","
+            >
+                #{id}
+            </foreach>
+        </where>
+    </delete>
+
+    <!--更新标签-->
+    <update id="updateDishTagById">
+        update `dish_tag`
+        <set>
+            name=#{name}
+            ,categorize_id=#{cateId}
+        </set>
+        <where>
+            id=#{id}
+        </where>
+    </update>
 </mapper>
