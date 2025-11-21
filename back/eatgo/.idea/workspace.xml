@@ -5,26 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5b4db99-d618-4aea-bfc8-a23fdbf410b9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/eatgo-common/src/main/java/org/eatgo/common/domain/dto/DishDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eatgo-common/src/main/java/org/eatgo/common/domain/form/DishSearchForm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eatgo-common/src/main/java/org/eatgo/common/domain/form/OrderTable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eatgo-common/src/main/java/org/eatgo/common/domain/vo/DishVo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/org/eatgo/order/config/JedisConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/menu-service/src/main/java/org/eatgo/menu/controller/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/menu-service/src/main/java/org/eatgo/menu/controller/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/menu-service/src/main/java/org/eatgo/menu/mapper/MenuMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/menu-service/src/main/java/org/eatgo/menu/mapper/MenuMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/menu-service/src/main/java/org/eatgo/menu/service/MenuService.java" beforeDir="false" afterPath="$PROJECT_DIR$/menu-service/src/main/java/org/eatgo/menu/service/MenuService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/menu-service/src/main/java/org/eatgo/menu/service/impl/MenuServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/menu-service/src/main/java/org/eatgo/menu/service/impl/MenuServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/menu-service/src/main/resources/mapper/MenuMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/menu-service/src/main/resources/mapper/MenuMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/menu-service/src/test/java/org/eatgo/menu/MenuServiceApplicationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/menu-service/src/test/java/org/eatgo/menu/MenuServiceApplicationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eatgo-common/src/main/java/org/eatgo/common/domain/form/OrderTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/eatgo-common/src/main/java/org/eatgo/common/domain/form/OrderTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/org/eatgo/order/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/org/eatgo/order/controller/OrderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/order-service/src/main/java/org/eatgo/order/mapper/OrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/org/eatgo/order/mapper/OrderMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/org/eatgo/order/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/org/eatgo/order/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/org/eatgo/order/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/org/eatgo/order/service/impl/OrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/resources/mapper/OrderMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/resources/mapper/OrderMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/order-service/src/test/java/org/eatgo/order/OrderServiceApplicationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/test/java/org/eatgo/order/OrderServiceApplicationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/test/java/org/eatgo/user/UserServiceApplicationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/test/java/org/eatgo/user/UserServiceApplicationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../front/eatgo-admin/src/api/entity/menu/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../front/eatgo-admin/src/api/entity/menu/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../front/eatgo-admin/src/api/request/menu/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../front/eatgo-admin/src/api/request/menu/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../front/eatgo-admin/src/view/menu/dish.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../front/eatgo-admin/src/view/menu/dish.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front/eatgo-admin/src/view/order/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../front/eatgo-admin/src/view/order/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../prds/01uml用例图.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/../../prds/01uml用例图.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../prds/03uml顺序图.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/../../prds/03uml顺序图.drawio" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../prds/原型图/eatgo后台管理.xd" beforeDir="false" afterPath="$PROJECT_DIR$/../../prds/原型图/eatgo后台管理.xd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../prds/需求文档.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../prds/需求文档.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,6 +99,7 @@
     "JUnit.OrderServiceApplicationTest.test2.executor": "Run",
     "JUnit.OrderServiceApplicationTest.test3.executor": "Run",
     "JUnit.OrderServiceApplicationTest.test4.executor": "Run",
+    "JUnit.OrderServiceApplicationTest.test5.executor": "Run",
     "JUnit.UserServiceApplicationTest.resetPassword.executor": "Run",
     "JUnit.UserServiceApplicationTest.test1.executor": "Run",
     "JUnit.UserServiceApplicationTest.test2.executor": "Run",
@@ -183,6 +178,7 @@
       <recent name="org.eatgo.fund" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.eatgo.order.config" />
       <recent name="org.eatgo.user.handler" />
     </key>
   </component>
@@ -193,7 +189,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.OrderServiceApplicationTest.test4">
+  <component name="RunManager" selected="Spring Boot.order-service-01">
     <configuration name="MenuServiceApplicationTest.test18" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="menu-service" />
       <extension name="coverage">
@@ -210,22 +206,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MenuServiceApplicationTest.test20" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="menu-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.eatgo.menu.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.eatgo.menu" />
-      <option name="MAIN_CLASS_NAME" value="org.eatgo.menu.MenuServiceApplicationTest" />
-      <option name="METHOD_NAME" value="test20" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="OrderServiceApplicationTest.test4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="order-service" />
       <extension name="coverage">
@@ -237,6 +217,22 @@
       <option name="PACKAGE_NAME" value="org.eatgo.order" />
       <option name="MAIN_CLASS_NAME" value="org.eatgo.order.OrderServiceApplicationTest" />
       <option name="METHOD_NAME" value="test4" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderServiceApplicationTest.test5" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="order-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.eatgo.order.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.eatgo.order" />
+      <option name="MAIN_CLASS_NAME" value="org.eatgo.order.OrderServiceApplicationTest" />
+      <option name="METHOD_NAME" value="test5" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -328,9 +324,9 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.OrderServiceApplicationTest.test5" />
       <item itemvalue="JUnit.OrderServiceApplicationTest.test4" />
       <item itemvalue="JUnit.UserServiceApplicationTest.test3" />
-      <item itemvalue="JUnit.MenuServiceApplicationTest.test20" />
       <item itemvalue="JUnit.MenuServiceApplicationTest.test18" />
       <item itemvalue="Spring Boot.chat-service-01" />
       <item itemvalue="Spring Boot.collection-service-01" />
@@ -344,11 +340,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.OrderServiceApplicationTest.test5" />
+        <item itemvalue="Spring Boot.FundServiceApplication" />
         <item itemvalue="JUnit.OrderServiceApplicationTest.test4" />
         <item itemvalue="JUnit.UserServiceApplicationTest.test3" />
         <item itemvalue="JUnit.MenuServiceApplicationTest.test18" />
-        <item itemvalue="Spring Boot.FundServiceApplication" />
-        <item itemvalue="JUnit.MenuServiceApplicationTest.test20" />
       </list>
     </recent_temporary>
   </component>
@@ -456,7 +452,8 @@
       <workItem from="1763609095125" duration="2033000" />
       <workItem from="1763617514457" duration="10897000" />
       <workItem from="1763638055285" duration="5254000" />
-      <workItem from="1763688838350" duration="7503000" />
+      <workItem from="1763688838350" duration="10986000" />
+      <workItem from="1763736363682" duration="5813000" />
     </task>
     <servers />
   </component>

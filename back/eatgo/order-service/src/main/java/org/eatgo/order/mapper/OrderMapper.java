@@ -19,5 +19,13 @@ public interface OrderMapper {
 
     // 后台管理
     @Select("select * from `dish_order`")
-    public List<OrderTable> OrderTableList();
+    public List<OrderTable> OrderTableList();//订单列表
+
+    public List<OrderTable> SearchOrderTable(@Param("status") Integer status);//搜索列表
+
+    @Update("update `dish_order` set status=1 where id=#{orderId}")
+    public void OrderReady(@Param("orderId") Integer orderId);// 出餐
+
+    @Update("update `dish_order` set update_time=now() where id=#{orderId}")
+    public void updateTime(@Param("orderId") Integer orderId);// 设置出餐时间
 }

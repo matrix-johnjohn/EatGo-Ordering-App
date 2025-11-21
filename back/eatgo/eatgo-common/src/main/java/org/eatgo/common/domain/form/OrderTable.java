@@ -19,9 +19,9 @@ public class OrderTable {
     private String dishImg;//outlet
     private String dishDesc;//outlet
 
-    private Integer price;
+    private Double price;
     private Integer count;
-    private Integer totalPrice;
+    private Double totalPrice;
     private Integer status;
     private LocalDateTime createTime;
     private LocalDateTime updateTime;

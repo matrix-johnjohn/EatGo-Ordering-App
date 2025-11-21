@@ -4,6 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="org.eatgo.order.mapper.OrderMapper">
+
     <!-- 更新订单 -->
     <update id="setOrderStatus">
         update dish_order
@@ -19,6 +20,7 @@
 
         </set>
     </update>
+
     <!--订单列表-->
     <select id="OrderList" resultType="org.eatgo.common.domain.vo.OrderVo">
         select * from dish_order
@@ -27,6 +29,16 @@
                 user_id=#{userId}
             </if>
             <if test="status != -1">
+                and status=#{status}
+            </if>
+        </where>
+    </select>
+
+    <!--搜索订单列表-->
+    <select id="SearchOrderTable" resultType="org.eatgo.common.domain.form.OrderTable">
+        select * from `dish_order`
+        <where>
+            <if test="status != null">
                 and status=#{status}
             </if>
         </where>
