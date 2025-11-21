@@ -1,6 +1,8 @@
 package org.eatgo.menu.mapper;
 
 import org.apache.ibatis.annotations.*;
+import org.eatgo.common.domain.dto.DishDto;
+import org.eatgo.common.domain.form.DishSearchForm;
 import org.eatgo.common.domain.po.Dish;
 import org.eatgo.common.domain.po.DishCategorize;
 import org.eatgo.common.domain.po.DishTag;
@@ -8,6 +10,7 @@ import org.eatgo.common.domain.query.CollectionQuery;
 import org.eatgo.common.domain.query.DishQuery;
 import org.eatgo.common.domain.query.UpdateDishTagQuery;
 import org.eatgo.common.domain.vo.DishTagVo;
+import org.eatgo.common.domain.vo.DishVo;
 
 import java.util.List;
 
@@ -36,6 +39,9 @@ public interface MenuMapper {
 
 
     // 后台管理
+    /**
+     * Function:分类管理
+     * */
     @Delete("delete from dish_cate where id=#{id}")
     public void deleteDishCateById(DishCategorize dishCategorize);//删除分类
 
@@ -61,6 +67,9 @@ public interface MenuMapper {
     @Select("select * from `dish_cate` where name=#{name}")
     public DishCategorize getDishCategoryByName(@Param("name") String name);
 
+    /**
+     * Function:标签管理
+     * */
     // 标签列表
     @Select("select * from `dish_tag`")
     public List<DishTagVo> DishTagList();
@@ -85,5 +94,23 @@ public interface MenuMapper {
     // 更新标签
     public void updateDishTagById(UpdateDishTagQuery query);
 
+    /**
+     * Function:菜品管理
+     * */
+    // 菜品列表详情
+    public List<DishVo>dishDetailList();
+    // 菜品搜索列表
+    public List<DishVo>searchDishDetailList(DishSearchForm dishSearchForm);
+    // 菜品上传接口
+    public void insertDish(DishDto dishDto);
+    // 根据菜品名称获取当前添加数据
+    @Select("select * from `dish` where title=#{title}")
+    public Dish getDishByTitle(@Param("title") String title);
+    // 删除菜品
+    @Delete("delete from `dish` where id=#{id}")
+    public void deleteDishById(DishVo dishVo);
+    // 批量删除菜品
+    public void BatchDeleteDishByIds(@Param("ids")List<Integer>ids);
 
+    public void updateDish(DishVo vo);
 }

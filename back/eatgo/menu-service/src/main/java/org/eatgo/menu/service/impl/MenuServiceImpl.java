@@ -5,6 +5,8 @@ import cn.hutool.json.JSONUtil;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import lombok.RequiredArgsConstructor;
+import org.eatgo.common.domain.dto.DishDto;
+import org.eatgo.common.domain.form.DishSearchForm;
 import org.eatgo.common.domain.po.Dish;
 import org.eatgo.common.domain.po.DishCategorize;
 import org.eatgo.common.domain.po.DishTag;
@@ -13,6 +15,7 @@ import org.eatgo.common.domain.query.DishQuery;
 import org.eatgo.common.domain.query.PageQuery;
 import org.eatgo.common.domain.query.UpdateDishTagQuery;
 import org.eatgo.common.domain.vo.DishTagVo;
+import org.eatgo.common.domain.vo.DishVo;
 import org.eatgo.menu.mapper.MenuMapper;
 import org.eatgo.menu.service.MenuService;
 import org.eatgo.menu.util.MinioUtil;
@@ -24,6 +27,7 @@ import redis.clients.jedis.JedisPool;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -336,5 +340,158 @@ public class MenuServiceImpl implements MenuService {
         jedis.set("tag:dish:"+query.getId(), jsonStr);
 
         jedis.close();
+    }
+
+    @Override
+    public List<DishVo> dishVoList() {
+        List<DishVo> dishList=menuMapper.dishDetailList();
+
+        Jedis jedis=jedisPool.getResource();
+
+        for(DishVo dishVo:dishList){
+            Integer cateId=dishVo.getCategorizeId();
+            Integer tagId=dishVo.getTagId();
+
+            List<String>keys=jedis.mget("cate:dish:"+cateId, "tag:dish:"+tagId);
+
+            DishTag dishTag=JSONUtil.toBean(keys.get(1), DishTag.class);
+            String tagName=dishTag.getName();
+            DishCategorize dishCate=JSONUtil.toBean(keys.get(0), DishCategorize.class);
+            String cateName=dishCate.getName();
+
+            dishVo.setCateName(cateName);
+            dishVo.setTagName(tagName);
+        }
+        jedis.close();
+        return dishList;
+    }
+
+    @Override
+    public List<DishVo> searchDishVoList(DishSearchForm form) {
+
+        List<DishVo>dishList=menuMapper.searchDishDetailList(form);
+
+        Jedis jedis=jedisPool.getResource();
+
+        for(DishVo dishVo:dishList){
+            Integer cateId=dishVo.getCategorizeId();
+            Integer tagId=dishVo.getTagId();
+
+            List<String>keys=jedis.mget("cate:dish:"+cateId, "tag:dish:"+tagId);
+
+            DishTag dishTag=JSONUtil.toBean(keys.get(1), DishTag.class);
+            String tagName=dishTag.getName();
+            DishCategorize dishCate=JSONUtil.toBean(keys.get(0), DishCategorize.class);
+            String cateName=dishCate.getName();
+
+            dishVo.setCateName(cateName);
+            dishVo.setTagName(tagName);
+        }
+
+        jedis.close();
+
+        return dishList;
+    }
+
+    @Override
+    public void addDish(MultipartFile dishImg,DishDto dto){
+
+        String path=uploadDish(dishImg);
+        dto.setImage(path);
+        // 数据库写入数据
+        menuMapper.insertDish(dto);
+
+        // 数据库缓存写入数据
+        Jedis jedis=jedisPool.getResource();
+        Dish dish=menuMapper.getDishByTitle(dto.getTitle());
+        String dishJSON=JSONUtil.toJsonStr(dish);
+        jedis.set("dish:dish:"+dish.getId(), dishJSON);
+        jedis.close();
+    }
+
+    @Override
+    public void deleteDish(DishVo vo) {
+
+        String[] path=vo.getImage().split("/eatgo");
+
+        // 数据库删除数据
+        menuMapper.deleteDishById(vo);
+
+        // 数据库缓存删除数据
+        Jedis jedis=jedisPool.getResource();
+        jedis.del("dish:dish:"+vo.getId());
+        jedis.close();
+        // 删除oss中的图片
+        minioUtil.removeObject(path[1]);
+    }
+
+    @Override
+    public void BatchDeleteDish(List<DishVo> dishList) {
+        // 主键列表
+        List<Integer>ids=dishList.stream().map(DishVo::getId).collect(Collectors.toList());
+
+        List<String>imgList=dishList.stream().map(DishVo::getImage).toList();
+
+        // 数据库数据删除
+        menuMapper.BatchDeleteDishByIds(ids);
+
+        Jedis jedis=jedisPool.getResource();
+        // 数据库缓存删除数据
+        for(Integer id:ids){
+            jedis.del("dish:dish:"+id);
+        }
+        jedis.close();
+
+        // 对象存储数据删除
+        for(String path:imgList){
+            minioUtil.removeObject(path.split("/eatgo")[1]);
+        }
+    }
+
+    @Override
+    public void updateDish(MultipartFile file, DishVo vo) {
+        System.out.println(vo);
+
+        // 上传文件
+        if(ObjectUtil.isNotNull(file)){
+            String path=uploadDish(file);
+            vo.setImage(path);
+        }
+
+        // 写入数据库
+        menuMapper.updateDish(vo);
+
+
+        Jedis jedis=jedisPool.getResource();
+
+        // 操作对象存储
+        String element=jedis.get("dish:dish:" + vo.getId());
+
+        DishVo currentEdit=JSONUtil.toBean(element, DishVo.class);
+
+        String image=currentEdit.getImage();
+
+        String delPath=image.split("/eatgo")[1];
+
+        minioUtil.removeObject(delPath);
+
+        // 写入数据库缓存
+        jedis.set("dish:dish:"+vo.getId(),JSONUtil.toJsonStr(vo));
+
+        jedis.close();
+    }
+
+    public String uploadDish(MultipartFile dishImg){
+        String result= "http://192.168.174.130:9000/eatgo/dish/";
+
+        String key=UUID.randomUUID().toString().substring(0, 8);
+
+        String uploadPath="/dish/"+key+"/"+dishImg.getOriginalFilename();
+
+        minioUtil.upload(dishImg,uploadPath);
+
+        result+=key+"/"+dishImg.getOriginalFilename();
+
+        return result;
     }
 }

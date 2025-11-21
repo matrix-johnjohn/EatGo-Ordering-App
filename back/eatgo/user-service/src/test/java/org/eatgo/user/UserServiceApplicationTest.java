@@ -12,6 +12,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
+import java.util.List;
+
 @SpringBootTest
 public class UserServiceApplicationTest {
 
@@ -43,6 +45,19 @@ public class UserServiceApplicationTest {
         user.setId(17);
         user.setIsEffective(1);
         userService.updateUserEffective(user);
+    }
+
+    @Test
+    public void test3(){
+        List<User> list=userService.list();
+
+        Jedis jedis=jedisPool.getResource();
+        for (User user : list) {
+            String json=JSONUtil.toJsonStr(user);
+
+            jedis.set("user:info:"+user.getId(),json);
+        }
+        jedis.close();
     }
 
 }

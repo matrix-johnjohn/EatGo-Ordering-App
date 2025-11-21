@@ -2,6 +2,7 @@ package org.eatgo.order.mapper;
 
 import org.apache.ibatis.annotations.*;
 import org.eatgo.common.domain.dto.OrderDto;
+import org.eatgo.common.domain.form.OrderTable;
 import org.eatgo.common.domain.vo.OrderVo;
 
 import java.util.List;
@@ -15,4 +16,8 @@ public interface OrderMapper {
     public List<OrderVo> OrderList(@Param("userId") Integer userId,@Param("status") Integer status);
 
     public void setOrderStatus(@Param("orderId") Integer orderId, @Param("status")Integer status);
+
+    // 后台管理
+    @Select("select * from `dish_order`")
+    public List<OrderTable> OrderTableList();
 }

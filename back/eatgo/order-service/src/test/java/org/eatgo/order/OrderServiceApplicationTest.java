@@ -1,6 +1,7 @@
 package org.eatgo.order;
 
 import org.eatgo.common.domain.dto.OrderDto;
+import org.eatgo.common.domain.form.OrderTable;
 import org.eatgo.common.domain.po.Dish;
 import org.eatgo.common.domain.vo.OrderVo;
 import org.eatgo.order.client.MenuClient;
@@ -41,5 +42,12 @@ public class OrderServiceApplicationTest {
         List<OrderVo> orderVos = orderService.orderList(-1, -1);
 
         orderVos.forEach(System.out::println);
+    }
+
+    @Test
+    public void test4(){
+        List<OrderTable>orders=orderMapper.OrderTableList();
+
+        orders.forEach(System.out::println);
     }
 }

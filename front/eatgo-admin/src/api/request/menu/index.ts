@@ -1,5 +1,5 @@
 import type { Result } from '../../entity/base';
-import type { DishCategorize, DishTagVo, UpdateDishTagQuery } from '../../entity/menu';
+import type { DishCategorize, DishSearchForm, DishTagVo, DishVo, UpdateDishTagQuery } from '../../entity/menu';
 import { instance } from '../base/index';
 
 // 分类列表接口
@@ -86,5 +86,48 @@ export const BatchRemoveDishTag=async(list:number):Promise<Result<string>>=>{
 // 更新菜品标签
 export const updateDishTag=async(dishTag:UpdateDishTagQuery):Promise<Result<string>>=>{
     const req=await instance.put('/menu/update/dish/tag/by',dishTag)
+    return req.data;
+}
+
+/**
+ * Function:菜品数据
+ */
+
+// 菜品详情数据
+export const dishDetailList=async():Promise<Result<DishVo[]>>=>{
+    const req=await instance.get('/menu/dish/detail/list')
+
+    return req.data;
+}
+
+// 菜品搜索数据
+export const searchDishDetailList=async(options:DishSearchForm):Promise<Result<DishVo[]>>=>{
+    const req=await instance.post('/menu/search/dish/detail/list',options);
+
+    return req.data;
+}
+
+// 插入菜品
+export const InsertDish=async(form:FormData)=>{
+    return await instance.put('/menu/put/dish/upload',form)
+}
+
+// 删除菜品
+export const deleteDish=async(item:DishVo):Promise<Result<string>>=>{
+    const req=await instance.delete('/menu/delete/dish/vo',{data:item});
+    return req.data; 
+}
+
+// 批量删除菜品
+export const BatchDeleteDish=async(items:DishVo[]):Promise<Result<string>>=>{
+    const req=await instance.delete('/menu/batch/delete/dish/vo',{data:items});
+
+    return req.data;
+}
+
+// 更新菜品
+export const updateDish=async(file:FormData):Promise<Result<string>>=>{
+    const req=await instance.put('/menu/update/dish/vo',file)
+
     return req.data;
 }

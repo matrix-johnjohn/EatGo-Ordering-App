@@ -1,10 +1,11 @@
 package org.eatgo.menu.controller;
 
+
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.json.JSONUtil;
 import lombok.RequiredArgsConstructor;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Result;
+import org.eatgo.common.domain.dto.DishDto;
+import org.eatgo.common.domain.form.DishSearchForm;
 import org.eatgo.common.domain.po.Dish;
 import org.eatgo.common.domain.po.DishCategorize;
 import org.eatgo.common.domain.po.DishTag;
@@ -13,9 +14,11 @@ import org.eatgo.common.domain.query.DishQuery;
 import org.eatgo.common.domain.query.PageQuery;
 import org.eatgo.common.domain.query.UpdateDishTagQuery;
 import org.eatgo.common.domain.vo.DishTagVo;
+import org.eatgo.common.domain.vo.DishVo;
 import org.eatgo.common.domain.vo.ResultVo;
 import org.eatgo.menu.service.MenuService;
 import org.eatgo.menu.util.MinioUtil;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -196,5 +199,70 @@ public class MenuController {
     public ResultVo<String>updateDishTagById(@RequestBody UpdateDishTagQuery updateDishTagQuery){
         menuService.updateDishTagById(updateDishTagQuery);
         return ResultVo.success("消息提示","标签信息更新成功");
+    }
+
+    /**
+     * 菜品管理
+    * */
+    // 菜品列表
+    @GetMapping("/dish/detail/list")
+    public ResultVo<List<DishVo>>dishDetailList(){
+        List<DishVo> dishVos=menuService.dishVoList();
+
+        return ResultVo.success("菜品详情列表",dishVos);
+    }
+    // 搜索菜品
+    @PostMapping("/search/dish/detail/list")
+    public ResultVo<List<DishVo>>searchDishDetailList(@RequestBody DishSearchForm form){
+        List<DishVo> dishVos=menuService.searchDishVoList(form);
+
+        return ResultVo.success("搜索菜品列表",dishVos);
+    }
+
+    // 上传菜品
+    @PutMapping(value="/put/dish/upload")
+    public ResultVo<String>putDishUpload(
+            @RequestParam("dishImg")MultipartFile dishImg,
+            @RequestParam("dishData")String dishData
+    ){
+        DishDto dishDto=JSONUtil.toBean(dishData, DishDto.class);
+
+        menuService.addDish(dishImg,dishDto);
+
+        return ResultVo.success("上传成功",null);
+    }
+    /*
+     * 删除菜品
+     * */
+    @DeleteMapping("/delete/dish/vo")
+    public ResultVo<String>deleteDish(@RequestBody DishVo vo){
+        menuService.deleteDish(vo);
+
+        return ResultVo.success("菜品删除成功",null);
+    }
+
+    /*
+    * 批量删除菜品
+    * */
+    @DeleteMapping("/batch/delete/dish/vo")
+    public ResultVo<String>BatchDeleteDish(@RequestBody List<DishVo>list){
+        menuService.BatchDeleteDish(list);
+        return ResultVo.success("菜品批量删除成功",null);
+    }
+
+    /*
+    * 更新菜品
+    * */
+    @PutMapping("/update/dish/vo")
+    public ResultVo<String>updateDish(
+            @RequestParam(value = "image",required = false)MultipartFile image
+            ,@RequestParam(value = "dish",required = false) String dish
+    ){
+
+        DishVo vo=JSONUtil.toBean(dish, DishVo.class);
+
+        menuService.updateDish(image,vo);
+
+        return ResultVo.success("菜品数据更新成功",null);
     }
 }

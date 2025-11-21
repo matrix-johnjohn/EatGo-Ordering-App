@@ -1,5 +1,7 @@
 package org.eatgo.menu.service;
 
+import org.eatgo.common.domain.dto.DishDto;
+import org.eatgo.common.domain.form.DishSearchForm;
 import org.eatgo.common.domain.po.Dish;
 import org.eatgo.common.domain.po.DishCategorize;
 import org.eatgo.common.domain.po.DishTag;
@@ -8,6 +10,7 @@ import org.eatgo.common.domain.query.DishQuery;
 import org.eatgo.common.domain.query.PageQuery;
 import org.eatgo.common.domain.query.UpdateDishTagQuery;
 import org.eatgo.common.domain.vo.DishTagVo;
+import org.eatgo.common.domain.vo.DishVo;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -60,4 +63,20 @@ public interface MenuService {
     public void BatchDeleteDishTag(List<Integer> ids);
 
     public void updateDishTagById(UpdateDishTagQuery query);
+
+    /**
+    * 菜品管理
+    * */
+    // 菜品数据
+    public List<DishVo> dishVoList();
+    // 菜品搜索
+    public List<DishVo> searchDishVoList(DishSearchForm form);
+    // 添加菜品
+    public void addDish(MultipartFile dishImg,DishDto dto);
+    // 删除菜品
+    public void deleteDish(DishVo vo);
+    // 批量删除数据
+    public void BatchDeleteDish(List<DishVo> dishList);
+    // 更新菜品
+    public void updateDish(MultipartFile file,DishVo vo);
 }

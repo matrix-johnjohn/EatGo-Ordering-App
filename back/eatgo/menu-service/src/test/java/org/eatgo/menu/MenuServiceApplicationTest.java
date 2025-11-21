@@ -6,6 +6,7 @@ import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.apache.ibatis.annotations.Delete;
+import org.eatgo.common.domain.form.DishSearchForm;
 import org.eatgo.common.domain.po.Dish;
 import org.eatgo.common.domain.po.DishCategorize;
 import org.eatgo.common.domain.po.DishTag;
@@ -14,6 +15,7 @@ import org.eatgo.common.domain.query.DishQuery;
 import org.eatgo.common.domain.query.PageQuery;
 import org.eatgo.common.domain.query.UpdateDishTagQuery;
 import org.eatgo.common.domain.vo.DishTagVo;
+import org.eatgo.common.domain.vo.DishVo;
 import org.eatgo.menu.config.MinioConfig;
 import org.eatgo.menu.mapper.MenuMapper;
 import org.eatgo.menu.service.MenuService;
@@ -225,5 +227,76 @@ public class MenuServiceApplicationTest {
     @Test
     public void test17(){
         menuMapper.updateDishTagById(new UpdateDishTagQuery(28,"测试数据10",28));
+    }
+
+    @Test
+    public void test18(){
+        List<DishVo> dishList=menuMapper.dishDetailList();
+
+        Jedis jedis=jedisPool.getResource();
+        for(DishVo dishVo:dishList){
+            Integer cateId=dishVo.getCategorizeId();
+            Integer tagId=dishVo.getTagId();
+
+            List<String>keys=jedis.mget("cate:dish:"+cateId, "tag:dish:"+tagId);
+
+            DishTag dishTag=JSONUtil.toBean(keys.get(1), DishTag.class);
+            String tagName=dishTag.getName();
+            DishCategorize dishCate=JSONUtil.toBean(keys.get(0), DishCategorize.class);
+            String cateName=dishCate.getName();
+
+            dishVo.setCateName(cateName);
+            dishVo.setTagName(tagName);
+        }
+
+        for (DishVo dishVo : dishList) {
+            jedis.set("dish:dish:"+dishVo.getId(),JSONUtil.toJsonStr(dishVo));
+        }
+        jedis.close();
+    }
+
+    @Test
+    public void test19(){
+        Jedis jedis = jedisPool.getResource();
+
+        List<String>list=jedis.mget("cate:dish:1", "tag:dish:1");
+
+        list.forEach(System.out::println);
+
+        jedis.close();
+    }
+
+    @Test
+    public void test20(){
+        DishSearchForm form=new DishSearchForm();
+
+        form.setTitle("鸡腿");
+
+        form.setDishCateId(1);
+
+        form.setDishTagId(2);
+
+        List<DishVo>dishList=menuMapper.searchDishDetailList(form);
+
+        Jedis jedis=jedisPool.getResource();
+        for(DishVo dishVo:dishList){
+            Integer cateId=dishVo.getCategorizeId();
+            Integer tagId=dishVo.getTagId();
+
+            List<String>keys=jedis.mget("cate:dish:"+cateId, "tag:dish:"+tagId);
+
+            DishTag dishTag=JSONUtil.toBean(keys.get(1), DishTag.class);
+            String tagName=dishTag.getName();
+            DishCategorize dishCate=JSONUtil.toBean(keys.get(0), DishCategorize.class);
+            String cateName=dishCate.getName();
+
+            dishVo.setCateName(cateName);
+            dishVo.setTagName(tagName);
+        }
+        jedis.close();
+
+        for (DishVo dishVo : dishList) {
+            System.out.println(dishVo);
+        }
     }
 }
