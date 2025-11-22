@@ -43,7 +43,7 @@ public class WebSocketHandler extends TextWebSocketHandler {
         //数据写入数据库
         chatService.insertChatHistory(payload);
 
-        //转发目标
+        //获取转发目标
         WebSocketSession target=USER_SESSIONS.get(payload.getTo());
 
         //转发

@@ -5,20 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5b4db99-d618-4aea-bfc8-a23fdbf410b9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/org/eatgo/order/config/JedisConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eatgo-common/src/main/java/org/eatgo/common/domain/form/OrderTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/eatgo-common/src/main/java/org/eatgo/common/domain/form/OrderTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/org/eatgo/order/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/org/eatgo/order/controller/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/org/eatgo/order/mapper/OrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/org/eatgo/order/mapper/OrderMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/org/eatgo/order/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/org/eatgo/order/service/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/org/eatgo/order/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/org/eatgo/order/service/impl/OrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/resources/mapper/OrderMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/resources/mapper/OrderMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/test/java/org/eatgo/order/OrderServiceApplicationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/test/java/org/eatgo/order/OrderServiceApplicationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../front/eatgo-admin/src/view/order/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../front/eatgo-admin/src/view/order/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../prds/01uml用例图.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/../../prds/01uml用例图.drawio" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../prds/03uml顺序图.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/../../prds/03uml顺序图.drawio" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../prds/原型图/eatgo后台管理.xd" beforeDir="false" afterPath="$PROJECT_DIR$/../../prds/原型图/eatgo后台管理.xd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/org/eatgo/chat/handler/WebSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/org/eatgo/chat/handler/WebSocketHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,111 +44,111 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JAR Application.user-service-1.0.0.jar.executor": "Run",
-    "JUnit.ChatServiceApplicationTest.test1.executor": "Run",
-    "JUnit.ChatServiceApplicationTest.test2.executor": "Run",
-    "JUnit.CollectionServiceApplicationTest.executor": "Run",
-    "JUnit.CollectionServiceApplicationTest.test1.executor": "Run",
-    "JUnit.CollectionServiceApplicationTest.test2.executor": "Run",
-    "JUnit.CollectionServiceApplicationTest.test3.executor": "Run",
-    "JUnit.CollectionServiceApplicationTest.test4.executor": "Run",
-    "JUnit.CollectionServiceApplicationTest.test5.executor": "Run",
-    "JUnit.CollectionServiceApplicationTest.test6.executor": "Run",
-    "JUnit.CommentServiceApplicationTest.test1.executor": "Run",
-    "JUnit.CommentServiceApplicationTest.test2.executor": "Run",
-    "JUnit.EmailServiceApplicationTests.contextLoads.executor": "Run",
-    "JUnit.FundServiceApplicationTest.deduction.executor": "Run",
-    "JUnit.FundServiceApplicationTest.test1.executor": "Run",
-    "JUnit.FundServiceApplicationTest.weChatPay.executor": "Run",
-    "JUnit.FundServiceApplicationTest.weChatPayService.executor": "Run",
-    "JUnit.FundServiceApplicationTest.withdraw.executor": "Run",
-    "JUnit.MenuServiceApplicationTest.contextLoads.executor": "Run",
-    "JUnit.MenuServiceApplicationTest.test1.executor": "Run",
-    "JUnit.MenuServiceApplicationTest.test10.executor": "Run",
-    "JUnit.MenuServiceApplicationTest.test11.executor": "Run",
-    "JUnit.MenuServiceApplicationTest.test12.executor": "Run",
-    "JUnit.MenuServiceApplicationTest.test13.executor": "Run",
-    "JUnit.MenuServiceApplicationTest.test14.executor": "Run",
-    "JUnit.MenuServiceApplicationTest.test15.executor": "Run",
-    "JUnit.MenuServiceApplicationTest.test16.executor": "Run",
-    "JUnit.MenuServiceApplicationTest.test17.executor": "Run",
-    "JUnit.MenuServiceApplicationTest.test18.executor": "Run",
-    "JUnit.MenuServiceApplicationTest.test19.executor": "Run",
-    "JUnit.MenuServiceApplicationTest.test2.executor": "Run",
-    "JUnit.MenuServiceApplicationTest.test20.executor": "Run",
-    "JUnit.MenuServiceApplicationTest.test3.executor": "Run",
-    "JUnit.MenuServiceApplicationTest.test4.executor": "Run",
-    "JUnit.MenuServiceApplicationTest.test5.executor": "Run",
-    "JUnit.MenuServiceApplicationTest.test6.executor": "Run",
-    "JUnit.MenuServiceApplicationTest.test7.executor": "Run",
-    "JUnit.MenuServiceApplicationTest.test8.executor": "Run",
-    "JUnit.MenuServiceApplicationTest.test9.executor": "Run",
-    "JUnit.OrderServiceApplicationTest.test.executor": "Run",
-    "JUnit.OrderServiceApplicationTest.test2.executor": "Run",
-    "JUnit.OrderServiceApplicationTest.test3.executor": "Run",
-    "JUnit.OrderServiceApplicationTest.test4.executor": "Run",
-    "JUnit.OrderServiceApplicationTest.test5.executor": "Run",
-    "JUnit.UserServiceApplicationTest.resetPassword.executor": "Run",
-    "JUnit.UserServiceApplicationTest.test1.executor": "Run",
-    "JUnit.UserServiceApplicationTest.test2.executor": "Run",
-    "JUnit.UserServiceApplicationTest.test3.executor": "Run",
-    "Maven.eatgo [clean].executor": "Run",
-    "Maven.eatgo [package].executor": "Run",
-    "Maven.email-service [clean].executor": "Run",
-    "Maven.email-service [package].executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.ChatServiceApplication.executor": "Run",
-    "Spring Boot.CollectionServiceApplication.executor": "Run",
-    "Spring Boot.EmailServiceApplication.executor": "Run",
-    "Spring Boot.EmailServiceApplication1.executor": "Run",
-    "Spring Boot.FundServiceApplication.executor": "Run",
-    "Spring Boot.GateWayServiceApplication.executor": "Run",
-    "Spring Boot.MenuServiceApplication.executor": "Run",
-    "Spring Boot.OrderServiceApplication.executor": "Run",
-    "Spring Boot.UserServiceApplication.executor": "Run",
-    "Spring Boot.chat-service-01.executor": "Run",
-    "Spring Boot.collection-service-01.executor": "Run",
-    "Spring Boot.comment-service-01.executor": "Run",
-    "Spring Boot.email-service-01.executor": "Run",
-    "Spring Boot.email-service-02.executor": "Run",
-    "Spring Boot.fund-service-01.executor": "Run",
-    "Spring Boot.gateway-service.executor": "Run",
-    "Spring Boot.gateway.executor": "Run",
-    "Spring Boot.menu-service-01.executor": "Run",
-    "Spring Boot.menu-service-02.executor": "Run",
-    "Spring Boot.order-service-01.executor": "Run",
-    "Spring Boot.user-service-01.executor": "Run",
-    "Spring Boot.user-service-02.executor": "Run",
-    "git-widget-placeholder": "main",
-    "jdk.selected.JAVA_MODULE": "17",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/project/github/EatGo-Ordering-App/back/eatgo/chat-service/src/main/resources",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "E:/project/github/EatGo-Ordering-App/back/eatgo/chat-service/src/main/java/org/eatgo/chat/Main.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "run.configurations.included.in.services": "true",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Debugger",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JAR Application.user-service-1.0.0.jar.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ChatServiceApplicationTest.test1.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ChatServiceApplicationTest.test2.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CollectionServiceApplicationTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CollectionServiceApplicationTest.test1.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CollectionServiceApplicationTest.test2.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CollectionServiceApplicationTest.test3.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CollectionServiceApplicationTest.test4.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CollectionServiceApplicationTest.test5.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CollectionServiceApplicationTest.test6.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CommentServiceApplicationTest.test1.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CommentServiceApplicationTest.test2.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.EmailServiceApplicationTests.contextLoads.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.FundServiceApplicationTest.deduction.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.FundServiceApplicationTest.test1.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.FundServiceApplicationTest.weChatPay.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.FundServiceApplicationTest.weChatPayService.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.FundServiceApplicationTest.withdraw.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MenuServiceApplicationTest.contextLoads.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MenuServiceApplicationTest.test1.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MenuServiceApplicationTest.test10.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MenuServiceApplicationTest.test11.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MenuServiceApplicationTest.test12.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MenuServiceApplicationTest.test13.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MenuServiceApplicationTest.test14.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MenuServiceApplicationTest.test15.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MenuServiceApplicationTest.test16.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MenuServiceApplicationTest.test17.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MenuServiceApplicationTest.test18.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MenuServiceApplicationTest.test19.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MenuServiceApplicationTest.test2.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MenuServiceApplicationTest.test20.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MenuServiceApplicationTest.test3.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MenuServiceApplicationTest.test4.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MenuServiceApplicationTest.test5.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MenuServiceApplicationTest.test6.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MenuServiceApplicationTest.test7.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MenuServiceApplicationTest.test8.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MenuServiceApplicationTest.test9.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderServiceApplicationTest.test.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderServiceApplicationTest.test2.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderServiceApplicationTest.test3.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderServiceApplicationTest.test4.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderServiceApplicationTest.test5.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceApplicationTest.resetPassword.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceApplicationTest.test1.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceApplicationTest.test2.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceApplicationTest.test3.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.eatgo [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.eatgo [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.email-service [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.email-service [package].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.ChatServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.CollectionServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.EmailServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.EmailServiceApplication1.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.FundServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.GateWayServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.MenuServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.OrderServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.UserServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.chat-service-01.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.collection-service-01.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.comment-service-01.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.email-service-01.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.email-service-02.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.fund-service-01.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.gateway-service.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.gateway.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.menu-service-01.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.menu-service-02.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.order-service-01.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.user-service-01.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.user-service-02.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/project/github/EatGo-Ordering-App/back/eatgo/chat-service/src/main/resources&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;E:/project/github/EatGo-Ordering-App/back/eatgo/chat-service/src/main/java/org/eatgo/chat/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Debugger&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -340,8 +330,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.OrderServiceApplicationTest.test5" />
         <item itemvalue="Spring Boot.FundServiceApplication" />
+        <item itemvalue="JUnit.OrderServiceApplicationTest.test5" />
         <item itemvalue="JUnit.OrderServiceApplicationTest.test4" />
         <item itemvalue="JUnit.UserServiceApplicationTest.test3" />
         <item itemvalue="JUnit.MenuServiceApplicationTest.test18" />
@@ -453,7 +443,8 @@
       <workItem from="1763617514457" duration="10897000" />
       <workItem from="1763638055285" duration="5254000" />
       <workItem from="1763688838350" duration="10986000" />
-      <workItem from="1763736363682" duration="5813000" />
+      <workItem from="1763736363682" duration="6534000" />
+      <workItem from="1763782866406" duration="5169000" />
     </task>
     <servers />
   </component>
